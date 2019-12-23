@@ -1,0 +1,1081 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:Codegen="http://www.eclipse.org/papyrus/Codegen/1" xmlns:Deployment="http://www.eclipse.org/papyrus/Deployment/1" xmlns:Transformation="http://www.eclipse.org/papyrus/Transformation/1" xmlns:cil4sys="http://www.cil4sys.com/CIL4SysLanguage/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:standard="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="_2fNZYCWKEeqLtaT0IHUAKQ" name="TestCompare">
+    <packagedElement xmi:type="uml:Package" xmi:id="_2fNZYSWKEeqLtaT0IHUAKQ" name="Deployment">
+      <packagedElement xmi:type="uml:Package" xmi:id="_2fNZYiWKEeqLtaT0IHUAKQ" name="Classes">
+        <packagedElement xmi:type="uml:Class" xmi:id="_2fNZYyWKEeqLtaT0IHUAKQ" name="ActorGeneric">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNZZCWKEeqLtaT0IHUAKQ" name="map_of_function_gen" visibility="public" type="_2fNaXiWKEeqLtaT0IHUAKQ"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNZZSWKEeqLtaT0IHUAKQ" name="objectType" visibility="public">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNZZiWKEeqLtaT0IHUAKQ" name="isdatafound" visibility="public" type="_2fNaEiWKEeqLtaT0IHUAKQ">
+            <defaultValue xmi:type="uml:InstanceValue" xmi:id="_2fNZZyWKEeqLtaT0IHUAKQ" instance="_2fNaFCWKEeqLtaT0IHUAKQ"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNZaCWKEeqLtaT0IHUAKQ" name="tempRU" visibility="public" type="_2fNaMCWKEeqLtaT0IHUAKQ"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_2fNZaSWKEeqLtaT0IHUAKQ" name="ReceivedObject" specification="_2fNZbiWKEeqLtaT0IHUAKQ">
+            <language>C++</language>
+            <body>	for (unsigned int i = 0; i &lt; receivedobjects.size(); i++) {&#xD;
+		objectType = receivedobjects[i].itsType.c_str();&#xD;
+		if (objectType == &quot;this&quot;) objectType = &quot;mthis&quot;;&#xD;
+		if (map_of_function_gen.find(objectType) != map_of_function_gen.end())&#xD;
+			{&#xD;
+			(map_of_function_gen[objectType])(receivedobjects[i]);&#xD;
+			/*for(unsigned j=4; j&lt;receivedobjects.objects[i].itsData.size(); j++)&#xD;
+			{&#xD;
+			std::cout &lt;&lt; &quot;Name&quot;&lt;&lt; receivedobjects.objects[i].itsData[j].name&lt;&lt; std::endl;&#xD;
+			data_name = receivedobjects.objects[i].itsData[j].name.c_str();&#xD;
+			std::cout &lt;&lt; &quot;Value&quot;&lt;&lt; receivedobjects.objects[i].itsData[j].value&lt;&lt; std::endl;&#xD;
+			}*/&#xD;
+	}&#xD;
+/*		else&#xD;
+&#xD;
+			std::cout &lt;&lt; &quot;[ERROR] Input &quot; &lt;&lt; objectType &lt;&lt; &quot; from actor &quot;&#xD;
+					&lt;&lt; receivedobjects[i].itsName&#xD;
+					&lt;&lt; &quot; is not mapped in the model&quot; &lt;&lt; std::endl;&#xD;
+*/&#xD;
+	}&#xD;
+</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_2fNZaiWKEeqLtaT0IHUAKQ" name="data_to_string" specification="_2fNZcCWKEeqLtaT0IHUAKQ">
+            <language>C++</language>
+            <body>//Initialize&#xD;
+isdatafound = BooleanType::False;&#xD;
+::PrimitiveTypes::String result=&quot;&quot;;&#xD;
+&#xD;
+for(unsigned int i =0; i&lt; objectparam.itsData.size(); i++)&#xD;
+{&#xD;
+       if(objectparam.itsData[i].name.c_str() == data_name)&#xD;
+       { &#xD;
+               result = objectparam.itsData[i].value.c_str();&#xD;
+               isdatafound = BooleanType::True;&#xD;
+               break;&#xD;
+       }&#xD;
+}&#xD;
+if(isdatafound == BooleanType::False) std::cout &lt;&lt; data_name &lt;&lt; &quot; not found in object &quot; &lt;&lt; objectparam.itsName &lt;&lt; std::endl;&#xD;
+return result;&#xD;
+</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_2fNZayWKEeqLtaT0IHUAKQ" name="data_to_int" specification="_2fNZdCWKEeqLtaT0IHUAKQ">
+            <language>C++</language>
+            <body>//Initialize&#xD;
+isdatafound = BooleanType::False;&#xD;
+::PrimitiveTypes::Integer result = 0;&#xD;
+&#xD;
+for(unsigned int i =0; i&lt; objectparam.itsData.size(); i++)&#xD;
+{&#xD;
+       if(objectparam.itsData[i].name.c_str() == data_name)&#xD;
+       { &#xD;
+               result = atoi(objectparam.itsData[i].value.c_str());&#xD;
+               isdatafound = BooleanType::True;&#xD;
+               break;&#xD;
+       }&#xD;
+}&#xD;
+if(isdatafound == BooleanType::False) std::cout &lt;&lt; data_name &lt;&lt; &quot; not found in object &quot; &lt;&lt; objectparam.itsName &lt;&lt; std::endl;&#xD;
+return result;&#xD;
+&#xD;
+</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_2fNZbCWKEeqLtaT0IHUAKQ" name="data_to_double" specification="_2fNZeCWKEeqLtaT0IHUAKQ">
+            <language>C++</language>
+            <body>//Initialize&#xD;
+isdatafound = BooleanType::False;&#xD;
+::PrimitiveTypes::Real result = 0.0;&#xD;
+&#xD;
+for(unsigned int i =0; i&lt; objectparam.itsData.size(); i++)&#xD;
+{&#xD;
+       if(objectparam.itsData[i].name.c_str() == data_name)&#xD;
+       { &#xD;
+                result = atof(objectparam.itsData[i].value.c_str());&#xD;
+               isdatafound = BooleanType::True;&#xD;
+               break;&#xD;
+       }&#xD;
+}&#xD;
+if(isdatafound == BooleanType::False) std::cout &lt;&lt; data_name &lt;&lt; &quot; not found in object &quot; &lt;&lt; objectparam.itsName &lt;&lt; std::endl;&#xD;
+return result;&#xD;
+&#xD;
+</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_2fNZbSWKEeqLtaT0IHUAKQ" name="object_to_RU_list" specification="_2fNZfCWKEeqLtaT0IHUAKQ">
+            <language>C++</language>
+            <body>//Initialize&#xD;
+::ListOfObjectDetected list_of_RU;&#xD;
+list_of_RU.objectD.clear();&#xD;
+&#xD;
+for (unsigned int j=0; j&lt;objectparam.itsData.size(); j++)  &#xD;
+{&#xD;
+if(objectparam.itsData[j].name.compare(&quot;vrx&quot;) == 0 ) tempRU.vrx = atof(objectparam.itsData[j].value.c_str());&#xD;
+else if (objectparam.itsData[j].name.compare(&quot;vry&quot;) == 0 )      tempRU.vry = atof(objectparam.itsData[j].value.c_str()) ;&#xD;
+else if (objectparam.itsData[j].name.compare(&quot;angle&quot;) == 0 ) tempRU.angle = atof(objectparam.itsData[j].value.c_str()) ;&#xD;
+else if (objectparam.itsData[j].name.compare(&quot;dx1&quot;) == 0 ) tempRU.dx1 = atof(objectparam.itsData[j].value.c_str()) ;&#xD;
+else if (objectparam.itsData[j].name.compare(&quot;dy1&quot;) == 0 ) tempRU.dy1 = atof(objectparam.itsData[j].value.c_str()) ;&#xD;
+else if (objectparam.itsData[j].name.compare(&quot;dx2&quot;) == 0 ) tempRU.dx2 = atof(objectparam.itsData[j].value.c_str()) ;&#xD;
+else if (objectparam.itsData[j].name.compare(&quot;dy2&quot;) == 0 ) tempRU.dy2 = atof(objectparam.itsData[j].value.c_str()) ;&#xD;
+else if (objectparam.itsData[j].name.compare(&quot;dx3&quot;) == 0 ) tempRU.dx3 = atof(objectparam.itsData[j].value.c_str()) ;&#xD;
+else if (objectparam.itsData[j].name.compare(&quot;dy3&quot;) == 0 ) tempRU.dy3 = atof(objectparam.itsData[j].value.c_str()) ;&#xD;
+else if (objectparam.itsData[j].name.compare(&quot;dx4&quot;) == 0 ) tempRU.dx4 = atof(objectparam.itsData[j].value.c_str()) ;&#xD;
+else if (objectparam.itsData[j].name.compare(&quot;dy4&quot;) == 0 ) tempRU.dy4 = atof(objectparam.itsData[j].value.c_str()) ;&#xD;
+else if(objectparam.itsData[j].value.compare(&quot;end&quot;) == 0) list_of_RU.objectD.push_back(tempRU);&#xD;
+}&#xD;
+&#xD;
+return list_of_RU;&#xD;
+</body>
+          </ownedBehavior>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_2fNZbiWKEeqLtaT0IHUAKQ" name="ReceivedObject" method="_2fNZaSWKEeqLtaT0IHUAKQ">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_2fNZbyWKEeqLtaT0IHUAKQ" name="receivedobjects" visibility="public" type="_2fNaTyWKEeqLtaT0IHUAKQ" effect="create"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_2fNZcCWKEeqLtaT0IHUAKQ" name="data_to_string" method="_2fNZaiWKEeqLtaT0IHUAKQ">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_2fNZcSWKEeqLtaT0IHUAKQ" name="objectparam" type="_2fNaTiWKEeqLtaT0IHUAKQ"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_2fNZciWKEeqLtaT0IHUAKQ" name="data_name">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_2fNZcyWKEeqLtaT0IHUAKQ" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_2fNZdCWKEeqLtaT0IHUAKQ" name="data_to_int" method="_2fNZayWKEeqLtaT0IHUAKQ">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_2fNZdSWKEeqLtaT0IHUAKQ" name="objectparam" type="_2fNaTiWKEeqLtaT0IHUAKQ"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_2fNZdiWKEeqLtaT0IHUAKQ" name="data_name">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_2fNZdyWKEeqLtaT0IHUAKQ" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_2fNZeCWKEeqLtaT0IHUAKQ" name="data_to_double" method="_2fNZbCWKEeqLtaT0IHUAKQ">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_2fNZeSWKEeqLtaT0IHUAKQ" name="objectparam" type="_2fNaTiWKEeqLtaT0IHUAKQ"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_2fNZeiWKEeqLtaT0IHUAKQ" name="data_name">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_2fNZeyWKEeqLtaT0IHUAKQ" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_2fNZfCWKEeqLtaT0IHUAKQ" name="object_to_RU_list" method="_2fNZbSWKEeqLtaT0IHUAKQ">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_2fNZfSWKEeqLtaT0IHUAKQ" name="objectparam" type="_2fNaTiWKEeqLtaT0IHUAKQ"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_2fNZfiWKEeqLtaT0IHUAKQ" type="_2fNaPCWKEeqLtaT0IHUAKQ" direction="return"/>
+          </ownedOperation>
+          <nestedClassifier xmi:type="uml:PrimitiveType" xmi:id="_2fNZfyWKEeqLtaT0IHUAKQ" name="function_pointer_gen_type"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_2fNZgCWKEeqLtaT0IHUAKQ" name="CIL4SysRootGeneric">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNZgSWKEeqLtaT0IHUAKQ" name="pWebSimulator" visibility="public" type="_2fNZoSWKEeqLtaT0IHUAKQ"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNZgiWKEeqLtaT0IHUAKQ" name="pSimulation" visibility="public" type="_2fNZjyWKEeqLtaT0IHUAKQ"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_2fNZgyWKEeqLtaT0IHUAKQ" name="InitValues" specification="_2fNZhyWKEeqLtaT0IHUAKQ">
+            <language>C++</language>
+            <body>//std::cout &lt;&lt; &quot;init values root&quot; &lt;&#xD;
+pSimulation->InitValues (receivedobjects); </body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_2fNZhCWKEeqLtaT0IHUAKQ" name="ReceivedValues" specification="_2fNZiSWKEeqLtaT0IHUAKQ">
+            <language>C++</language>
+            <body>pSimulation->ReceivedValues(receivedobjects); </body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_2fNZhSWKEeqLtaT0IHUAKQ" name="ObjectToSend" specification="_2fNZiyWKEeqLtaT0IHUAKQ">
+            <language>C++</language>
+            <body>pWebSimulator->ObjectToSend (objecttosend);</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_2fNZhiWKEeqLtaT0IHUAKQ" name="CIL4SysRootGeneric" specification="_2fNZjiWKEeqLtaT0IHUAKQ" body="">
+            <language>C++</language>
+          </ownedBehavior>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_2fNZhyWKEeqLtaT0IHUAKQ" name="InitValues" method="_2fNZgyWKEeqLtaT0IHUAKQ">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_2fNZiCWKEeqLtaT0IHUAKQ" name="receivedobjects" visibility="public" type="_2fNaTyWKEeqLtaT0IHUAKQ" effect="create"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_2fNZiSWKEeqLtaT0IHUAKQ" name="ReceivedValues" method="_2fNZhCWKEeqLtaT0IHUAKQ">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_2fNZiiWKEeqLtaT0IHUAKQ" name="receivedobjects" visibility="public" type="_2fNaTyWKEeqLtaT0IHUAKQ" effect="create"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_2fNZiyWKEeqLtaT0IHUAKQ" name="ObjectToSend" method="_2fNZhSWKEeqLtaT0IHUAKQ">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_2fNZjCWKEeqLtaT0IHUAKQ" name="objecttosend" visibility="public" type="_2fNaTiWKEeqLtaT0IHUAKQ" effect="create"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_2fNZjSWKEeqLtaT0IHUAKQ" name="init_simulation" isAbstract="true"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_2fNZjiWKEeqLtaT0IHUAKQ" name="CIL4SysRootGeneric" method="_2fNZhiWKEeqLtaT0IHUAKQ"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_2fNZjyWKEeqLtaT0IHUAKQ" name="SimulationGeneric">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNZkCWKEeqLtaT0IHUAKQ" name="UserObjectList" visibility="public" type="_2fNaTyWKEeqLtaT0IHUAKQ"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNZkSWKEeqLtaT0IHUAKQ" name="EnvironmentObjectList" visibility="public" type="_2fNaTyWKEeqLtaT0IHUAKQ"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNZkiWKEeqLtaT0IHUAKQ" name="ProductObjectList" visibility="public" type="_2fNaTyWKEeqLtaT0IHUAKQ"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNZkyWKEeqLtaT0IHUAKQ" name="actor" visibility="public">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNZlCWKEeqLtaT0IHUAKQ" name="pCIL4SysRoot" visibility="public" type="_2fNZgCWKEeqLtaT0IHUAKQ"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNZlSWKEeqLtaT0IHUAKQ" name="pEnvironment" visibility="public" type="_2fNZYyWKEeqLtaT0IHUAKQ"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNZliWKEeqLtaT0IHUAKQ" name="pUser" visibility="public" type="_2fNZYyWKEeqLtaT0IHUAKQ"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNZlyWKEeqLtaT0IHUAKQ" name="pEngineer" visibility="public" type="_2fNZYyWKEeqLtaT0IHUAKQ"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_2fNZmCWKEeqLtaT0IHUAKQ" name="ObjectToSend" specification="_2fNZmyWKEeqLtaT0IHUAKQ">
+            <language>C++</language>
+            <body>pCIL4SysRoot->ObjectToSend(objecttosend);</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_2fNZmSWKEeqLtaT0IHUAKQ" name="ReceivedValues" specification="_2fNZnSWKEeqLtaT0IHUAKQ">
+            <language>C++</language>
+            <body>	UserObjectList.clear();&#xD;
+	EnvironmentObjectList.clear();&#xD;
+	ProductObjectList.clear();&#xD;
+&#xD;
+	for (unsigned int i = 0; i &lt; receivedobjects.size(); i++) {&#xD;
+		actor = receivedobjects[i].itsName.c_str();&#xD;
+		std::string actor_string(actor);&#xD;
+		if (actor_string.compare(&quot;user&quot;) == 0)&#xD;
+			UserObjectList.push_back(receivedobjects[i]);&#xD;
+		else if (actor_string.compare(&quot;environment&quot;) == 0)&#xD;
+			EnvironmentObjectList.push_back(receivedobjects[i]);&#xD;
+		else if (actor_string.compare(&quot;engineer&quot;) == 0)&#xD;
+			ProductObjectList.push_back(receivedobjects[i]);&#xD;
+	}&#xD;
+&#xD;
+	if (EnvironmentObjectList.size() > 0)&#xD;
+		pEnvironment->ReceivedObject(EnvironmentObjectList);&#xD;
+&#xD;
+	if (UserObjectList.size() > 0)&#xD;
+		pUser->ReceivedObject(UserObjectList);&#xD;
+&#xD;
+	if (ProductObjectList.size() > 0)&#xD;
+		pEngineer->ReceivedObject(ProductObjectList);&#xD;
+&#xD;
+	//std::cout &lt;&lt; &quot;object received&quot; &lt;&lt; std::endl;</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_2fNZmiWKEeqLtaT0IHUAKQ" name="InitValues" specification="_2fNZnyWKEeqLtaT0IHUAKQ">
+            <language>C++</language>
+            <body>ProductObjectList.clear();&#xD;
+&#xD;
+	for (unsigned int i = 0; i &lt; receivedobjects.size(); i++) {&#xD;
+		ProductObjectList.push_back(receivedobjects[i]);&#xD;
+	}&#xD;
+&#xD;
+	if (ProductObjectList.size() > 0)&#xD;
+		pEngineer->ReceivedObject(ProductObjectList);&#xD;
+&#xD;
+	std::cout &lt;&lt; &quot;init values received&quot; &lt;&lt; std::endl;</body>
+          </ownedBehavior>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_2fNZmyWKEeqLtaT0IHUAKQ" name="ObjectToSend" method="_2fNZmCWKEeqLtaT0IHUAKQ">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_2fNZnCWKEeqLtaT0IHUAKQ" name="objecttosend" visibility="public" type="_2fNaTiWKEeqLtaT0IHUAKQ" effect="create"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_2fNZnSWKEeqLtaT0IHUAKQ" name="ReceivedValues" method="_2fNZmSWKEeqLtaT0IHUAKQ">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_2fNZniWKEeqLtaT0IHUAKQ" name="receivedobjects" visibility="public" type="_2fNaTyWKEeqLtaT0IHUAKQ" effect="create"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_2fNZnyWKEeqLtaT0IHUAKQ" name="InitValues" method="_2fNZmiWKEeqLtaT0IHUAKQ">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_2fNZoCWKEeqLtaT0IHUAKQ" name="receivedobjects" visibility="public" type="_2fNaTyWKEeqLtaT0IHUAKQ" effect="create"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_2fNZoSWKEeqLtaT0IHUAKQ" name="WebSimulator" classifierBehavior="_2fNZqSWKEeqLtaT0IHUAKQ">
+          <generalization xmi:type="uml:Generalization" xmi:id="_2fNZoiWKEeqLtaT0IHUAKQ" general="_2fNaVCWKEeqLtaT0IHUAKQ"/>
+          <generalization xmi:type="uml:Generalization" xmi:id="_2fNZoyWKEeqLtaT0IHUAKQ" general="_2fNaXSWKEeqLtaT0IHUAKQ"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNZpCWKEeqLtaT0IHUAKQ" name="features" visibility="public" isStatic="true" type="_2fNaUCWKEeqLtaT0IHUAKQ"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNZpSWKEeqLtaT0IHUAKQ" name="objectsToReceive" visibility="public" type="_2fNaTyWKEeqLtaT0IHUAKQ"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNZpiWKEeqLtaT0IHUAKQ" name="pCIL4SysRoot" visibility="public" type="_2fNZgCWKEeqLtaT0IHUAKQ"/>
+          <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_2fNZpyWKEeqLtaT0IHUAKQ" client="_2fNZoSWKEeqLtaT0IHUAKQ" supplier="_2fNZ9yWKEeqLtaT0IHUAKQ" contract="_2fNZ9yWKEeqLtaT0IHUAKQ"/>
+          <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_2fNZqCWKEeqLtaT0IHUAKQ" client="_2fNZoSWKEeqLtaT0IHUAKQ" supplier="_2fNZ8iWKEeqLtaT0IHUAKQ" contract="_2fNZ8iWKEeqLtaT0IHUAKQ"/>
+          <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_2fNZqSWKEeqLtaT0IHUAKQ" name="WebSimulator">
+            <region xmi:type="uml:Region" xmi:id="_2fNZqiWKEeqLtaT0IHUAKQ" name="Region1">
+              <transition xmi:type="uml:Transition" xmi:id="_2fNZqyWKEeqLtaT0IHUAKQ" name="T1" source="_2fNZxSWKEeqLtaT0IHUAKQ" target="_2fNZvyWKEeqLtaT0IHUAKQ"/>
+              <transition xmi:type="uml:Transition" xmi:id="_2fNZrCWKEeqLtaT0IHUAKQ" name="T2" kind="internal" source="_2fNZvyWKEeqLtaT0IHUAKQ" target="_2fNZvyWKEeqLtaT0IHUAKQ">
+                <effect xmi:type="uml:OpaqueBehavior" xmi:id="_2fNZrSWKEeqLtaT0IHUAKQ" body="">
+                  <language>C++</language>
+                </effect>
+                <trigger xmi:type="uml:Trigger" xmi:id="_2fNZriWKEeqLtaT0IHUAKQ" event="_2fNaAyWKEeqLtaT0IHUAKQ"/>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_2fNZryWKEeqLtaT0IHUAKQ" name="T3" kind="internal" source="_2fNZvyWKEeqLtaT0IHUAKQ" target="_2fNZvyWKEeqLtaT0IHUAKQ">
+                <effect xmi:type="uml:OpaqueBehavior" xmi:id="_2fNZsCWKEeqLtaT0IHUAKQ">
+                  <language>C++</language>
+                  <body>std::cout&lt;&lt;&quot;[SIMULATION] initialization NEW&quot;&lt;&lt;std::endl;&#xD;
+&#xD;
+pCIL4SysRoot->ReceivedValues(objectsToReceive);</body>
+                </effect>
+                <trigger xmi:type="uml:Trigger" xmi:id="_2fNZsSWKEeqLtaT0IHUAKQ" event="_2fNaByWKEeqLtaT0IHUAKQ"/>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_2fNZsiWKEeqLtaT0IHUAKQ" name="T4" source="_2fNZvyWKEeqLtaT0IHUAKQ" target="_2fNZwSWKEeqLtaT0IHUAKQ">
+                <trigger xmi:type="uml:Trigger" xmi:id="_2fNZsyWKEeqLtaT0IHUAKQ" event="_2fNaBiWKEeqLtaT0IHUAKQ"/>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_2fNZtCWKEeqLtaT0IHUAKQ" name="T5" source="_2fNZwSWKEeqLtaT0IHUAKQ" target="_2fNZvyWKEeqLtaT0IHUAKQ">
+                <trigger xmi:type="uml:Trigger" xmi:id="_2fNZtSWKEeqLtaT0IHUAKQ" event="_2fNaBSWKEeqLtaT0IHUAKQ"/>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_2fNZtiWKEeqLtaT0IHUAKQ" name="T6" kind="internal" source="_2fNZwSWKEeqLtaT0IHUAKQ" target="_2fNZwSWKEeqLtaT0IHUAKQ">
+                <effect xmi:type="uml:OpaqueBehavior" xmi:id="_2fNZtyWKEeqLtaT0IHUAKQ">
+                  <language>C++</language>
+                  <body>//std::cout&lt;&lt;&quot;[SIMULATION] initialization NEW&quot;&lt;&lt;std::endl;&#xD;
+&#xD;
+pCIL4SysRoot->ReceivedValues(objectsToReceive);</body>
+                </effect>
+                <trigger xmi:type="uml:Trigger" xmi:id="_2fNZuCWKEeqLtaT0IHUAKQ" event="_2fNaByWKEeqLtaT0IHUAKQ"/>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_2fNZuSWKEeqLtaT0IHUAKQ" name="T7" source="_2fNZwSWKEeqLtaT0IHUAKQ" target="_2fNZwyWKEeqLtaT0IHUAKQ">
+                <trigger xmi:type="uml:Trigger" xmi:id="_2fNZuiWKEeqLtaT0IHUAKQ" event="_2fNaBCWKEeqLtaT0IHUAKQ"/>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_2fNZuyWKEeqLtaT0IHUAKQ" name="T8" source="_2fNZwyWKEeqLtaT0IHUAKQ" target="_2fNZwSWKEeqLtaT0IHUAKQ">
+                <trigger xmi:type="uml:Trigger" xmi:id="_2fNZvCWKEeqLtaT0IHUAKQ" event="_2fNaBiWKEeqLtaT0IHUAKQ"/>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_2fNZvSWKEeqLtaT0IHUAKQ" name="T9" source="_2fNZwyWKEeqLtaT0IHUAKQ" target="_2fNZvyWKEeqLtaT0IHUAKQ">
+                <trigger xmi:type="uml:Trigger" xmi:id="_2fNZviWKEeqLtaT0IHUAKQ" event="_2fNaBSWKEeqLtaT0IHUAKQ"/>
+              </transition>
+              <subvertex xmi:type="uml:State" xmi:id="_2fNZvyWKEeqLtaT0IHUAKQ" name="Init_State">
+                <entry xmi:type="uml:OpaqueBehavior" xmi:id="_2fNZwCWKEeqLtaT0IHUAKQ">
+                  <language>C++</language>
+                  <body>std::cout &lt;&lt; &quot;INITIALISATION&quot; &lt;&lt; std::endl;&#xD;
+features.clear();&#xD;
+if (pCIL4SysRoot != nullptr) {&#xD;
+	pCIL4SysRoot->init_simulation();&#xD;
+}</body>
+                </entry>
+              </subvertex>
+              <subvertex xmi:type="uml:State" xmi:id="_2fNZwSWKEeqLtaT0IHUAKQ" name="Process_State">
+                <entry xmi:type="uml:OpaqueBehavior" xmi:id="_2fNZwiWKEeqLtaT0IHUAKQ">
+                  <language>C++</language>
+                  <body>std::cout &lt;&lt; &quot;START&quot; &lt;&lt; std::endl;</body>
+                </entry>
+              </subvertex>
+              <subvertex xmi:type="uml:State" xmi:id="_2fNZwyWKEeqLtaT0IHUAKQ" name="Pause_State">
+                <entry xmi:type="uml:OpaqueBehavior" xmi:id="_2fNZxCWKEeqLtaT0IHUAKQ">
+                  <language>C++</language>
+                  <body>std::cout &lt;&lt; &quot;PAUSE&quot; &lt;&lt; std::endl;</body>
+                </entry>
+              </subvertex>
+              <subvertex xmi:type="uml:Pseudostate" xmi:id="_2fNZxSWKEeqLtaT0IHUAKQ" name="Initial1"/>
+            </region>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_2fNZxiWKEeqLtaT0IHUAKQ" name="Cmd_Start" specification="_2fNZ0SWKEeqLtaT0IHUAKQ">
+            <language>C++</language>
+            <body>// std::cout &lt;&lt; &quot;Cmd_Start&quot; &lt;&lt; std::endl;&#xD;
+&#xD;
+sig_Cmd_Start* SIG_CMD_START = new sig_Cmd_Start();&#xD;
+sendev_Cmd_Start(*SIG_CMD_START);</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_2fNZxyWKEeqLtaT0IHUAKQ" name="Cmd_Stop" specification="_2fNZ0iWKEeqLtaT0IHUAKQ">
+            <language>C++</language>
+            <body>// std::cout &lt;&lt; &quot;Cmd_Stop&quot; &lt;&lt; std::endl;&#xD;
+&#xD;
+sig_Cmd_Stop* SIG_CMD_STOP = new sig_Cmd_Stop();&#xD;
+sendev_Cmd_Stop(*SIG_CMD_STOP);</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_2fNZyCWKEeqLtaT0IHUAKQ" name="Cmd_Pause" specification="_2fNZ0yWKEeqLtaT0IHUAKQ">
+            <language>C++</language>
+            <body>// std::cout &lt;&lt; &quot;Cmd_Pause&quot; &lt;&lt; std::endl;&#xD;
+&#xD;
+sig_Cmd_Pause* SIG_CMD_PAUSE = new sig_Cmd_Pause();&#xD;
+sendev_Cmd_Pause(*SIG_CMD_PAUSE);</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_2fNZySWKEeqLtaT0IHUAKQ" name="Cmd_InitValues" specification="_2fNZ1CWKEeqLtaT0IHUAKQ">
+            <language>C++</language>
+            <body>// std::cout &lt;&lt; &quot;Cmd_InitValues&quot; &lt;&lt; std::endl;&#xD;
+&#xD;
+sig_Cmd_InitValues* SIG_CMD_INITVALUES = new sig_Cmd_InitValues();&#xD;
+SIG_CMD_INITVALUES->receivedobjects.push_back(object);&#xD;
+sendev_Cmd_InitValues(*SIG_CMD_INITVALUES);</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_2fNZyiWKEeqLtaT0IHUAKQ" name="Cmd_ReceivedValues" specification="_2fNZ1iWKEeqLtaT0IHUAKQ">
+            <language>C++</language>
+            <body>// std::cout &lt;&lt; &quot;Cmd_ReceivedValues&quot; &lt;&lt; std::endl;&#xD;
+objectsToReceive = objectsreceived;&#xD;
+&#xD;
+sig_Cmd_ReceivedValues* SIG_CMD_RECEIVEDVALUES = new sig_Cmd_ReceivedValues();&#xD;
+sendev_Cmd_ReceivedValues(*SIG_CMD_RECEIVEDVALUES);</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_2fNZyyWKEeqLtaT0IHUAKQ" name="getModelInfos" specification="_2fNZ2CWKEeqLtaT0IHUAKQ">
+            <language>C++</language>
+            <body>std::string str= &quot;&quot;;&#xD;
+&#xD;
+str += &quot;[&quot;;&#xD;
+for(unsigned int i=0; i &lt;features.size() ;i++)&#xD;
+{&#xD;
+	str += &quot;\&quot;&quot;;&#xD;
+	str += features[i];	&#xD;
+	str += &quot;\&quot;&quot;;&#xD;
+	if(i != (features.size() - 1) )&#xD;
+	{&#xD;
+		str += &quot;,&quot;;&#xD;
+	}&#xD;
+}&#xD;
+str += &quot;]&quot;;&#xD;
+&#xD;
+SendModelInfos(&quot;2.8&quot;, str);</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_2fNZzCWKEeqLtaT0IHUAKQ" name="registerFeature" specification="_2fNZ2SWKEeqLtaT0IHUAKQ">
+            <language>C++</language>
+            <body>features.push_back(feature);</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_2fNZzSWKEeqLtaT0IHUAKQ" name="InitValues" specification="_2fNZ2yWKEeqLtaT0IHUAKQ" body="">
+            <language>C++</language>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_2fNZziWKEeqLtaT0IHUAKQ" name="ReceivedValues" specification="_2fNZ3SWKEeqLtaT0IHUAKQ" body="">
+            <language>C++</language>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_2fNZzyWKEeqLtaT0IHUAKQ" name="ObjectToSend" specification="_2fNZ3yWKEeqLtaT0IHUAKQ">
+            <language>C++</language>
+            <body>// std::cout &lt;&lt; &quot;ObjectToSend&quot; &lt;&lt; std::endl;&#xD;
+SendNewObject(objecttosend);</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_2fNZ0CWKEeqLtaT0IHUAKQ" name="ObjectsToSend" specification="_2fNZ4SWKEeqLtaT0IHUAKQ">
+            <language>C++</language>
+            <body>// std::cout &lt;&lt; &quot;ObjectSToSend&quot; &lt;&lt; std::endl;</body>
+          </ownedBehavior>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_2fNZ0SWKEeqLtaT0IHUAKQ" name="Cmd_Start" method="_2fNZxiWKEeqLtaT0IHUAKQ"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_2fNZ0iWKEeqLtaT0IHUAKQ" name="Cmd_Stop" method="_2fNZxyWKEeqLtaT0IHUAKQ"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_2fNZ0yWKEeqLtaT0IHUAKQ" name="Cmd_Pause" method="_2fNZyCWKEeqLtaT0IHUAKQ"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_2fNZ1CWKEeqLtaT0IHUAKQ" name="Cmd_InitValues" method="_2fNZySWKEeqLtaT0IHUAKQ">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_2fNZ1SWKEeqLtaT0IHUAKQ" name="object" visibility="public" type="_2fNaTiWKEeqLtaT0IHUAKQ" effect="create"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_2fNZ1iWKEeqLtaT0IHUAKQ" name="Cmd_ReceivedValues" method="_2fNZyiWKEeqLtaT0IHUAKQ">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_2fNZ1yWKEeqLtaT0IHUAKQ" name="objectsreceived" visibility="public" type="_2fNaTyWKEeqLtaT0IHUAKQ" effect="create"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_2fNZ2CWKEeqLtaT0IHUAKQ" name="getModelInfos" method="_2fNZyyWKEeqLtaT0IHUAKQ"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_2fNZ2SWKEeqLtaT0IHUAKQ" name="registerFeature" method="_2fNZzCWKEeqLtaT0IHUAKQ">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_2fNZ2iWKEeqLtaT0IHUAKQ" name="feature" visibility="public" effect="create">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_2fNZ2yWKEeqLtaT0IHUAKQ" name="InitValues" method="_2fNZzSWKEeqLtaT0IHUAKQ">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_2fNZ3CWKEeqLtaT0IHUAKQ" name="object" visibility="public" type="_2fNaTyWKEeqLtaT0IHUAKQ" effect="create"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_2fNZ3SWKEeqLtaT0IHUAKQ" name="ReceivedValues" method="_2fNZziWKEeqLtaT0IHUAKQ">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_2fNZ3iWKEeqLtaT0IHUAKQ" name="receivedobjects" visibility="public" type="_2fNaTyWKEeqLtaT0IHUAKQ" effect="create"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_2fNZ3yWKEeqLtaT0IHUAKQ" name="ObjectToSend" method="_2fNZzyWKEeqLtaT0IHUAKQ">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_2fNZ4CWKEeqLtaT0IHUAKQ" name="objecttosend" visibility="public" type="_2fNaTiWKEeqLtaT0IHUAKQ" effect="create"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_2fNZ4SWKEeqLtaT0IHUAKQ" name="ObjectsToSend" method="_2fNZ0CWKEeqLtaT0IHUAKQ">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_2fNZ4iWKEeqLtaT0IHUAKQ" name="objectstosend" visibility="public" type="_2fNaTyWKEeqLtaT0IHUAKQ" effect="create"/>
+          </ownedOperation>
+          <ownedReception xmi:type="uml:Reception" xmi:id="_2fNZ4yWKEeqLtaT0IHUAKQ" name="ev_Cmd_InitValues" signal="_2fNZ_SWKEeqLtaT0IHUAKQ"/>
+          <ownedReception xmi:type="uml:Reception" xmi:id="_2fNZ5CWKEeqLtaT0IHUAKQ" name="ev_Cmd_Pause" signal="_2fNZ_yWKEeqLtaT0IHUAKQ"/>
+          <ownedReception xmi:type="uml:Reception" xmi:id="_2fNZ5SWKEeqLtaT0IHUAKQ" name="ev_Cmd_Stop" signal="_2fNaACWKEeqLtaT0IHUAKQ"/>
+          <ownedReception xmi:type="uml:Reception" xmi:id="_2fNZ5iWKEeqLtaT0IHUAKQ" name="ev_Cmd_Start" signal="_2fNaASWKEeqLtaT0IHUAKQ"/>
+          <ownedReception xmi:type="uml:Reception" xmi:id="_2fNZ5yWKEeqLtaT0IHUAKQ" name="ev_Cmd_ReceivedValues" signal="_2fNaAiWKEeqLtaT0IHUAKQ"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_2fNZ6CWKEeqLtaT0IHUAKQ" client="_2fNZgCWKEeqLtaT0IHUAKQ" supplier="_2fNZoSWKEeqLtaT0IHUAKQ"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_2fNZ6SWKEeqLtaT0IHUAKQ" client="_2fNZgCWKEeqLtaT0IHUAKQ" supplier="_2fNZjyWKEeqLtaT0IHUAKQ"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_2fNZ6iWKEeqLtaT0IHUAKQ" client="_2fNZYyWKEeqLtaT0IHUAKQ" supplier="_2fNaCCWKEeqLtaT0IHUAKQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_2fNZ6yWKEeqLtaT0IHUAKQ" name="Types">
+        <packagedElement xmi:type="uml:Usage" xmi:id="_2fNZ7CWKEeqLtaT0IHUAKQ" client="_2fNaXiWKEeqLtaT0IHUAKQ">
+          <supplier xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_2fNZ7SWKEeqLtaT0IHUAKQ" name="function_pointer_gen_type"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_2fNZ7iWKEeqLtaT0IHUAKQ" client="_2fNaXiWKEeqLtaT0IHUAKQ" supplier="_2fNZ7SWKEeqLtaT0IHUAKQ"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_2fNZ7yWKEeqLtaT0IHUAKQ" client="_2fNZ7SWKEeqLtaT0IHUAKQ" supplier="_2fNaTiWKEeqLtaT0IHUAKQ"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_2fNZ8CWKEeqLtaT0IHUAKQ" client="_2fNZ6yWKEeqLtaT0IHUAKQ" supplier="_2fNaMCWKEeqLtaT0IHUAKQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_2fNZ8SWKEeqLtaT0IHUAKQ" name="Interfaces">
+        <packagedElement xmi:type="uml:Interface" xmi:id="_2fNZ8iWKEeqLtaT0IHUAKQ" name="I_ObjectToSend">
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_2fNZ8yWKEeqLtaT0IHUAKQ" name="ObjectToSend">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_2fNZ9CWKEeqLtaT0IHUAKQ" name="objecttosend" visibility="public" type="_2fNaTiWKEeqLtaT0IHUAKQ" effect="create"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_2fNZ9SWKEeqLtaT0IHUAKQ" name="ObjectsToSend">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_2fNZ9iWKEeqLtaT0IHUAKQ" name="objectstosend" visibility="public" type="_2fNaTyWKEeqLtaT0IHUAKQ" effect="create"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_2fNZ9yWKEeqLtaT0IHUAKQ" name="I_ValuesReceived">
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_2fNZ-CWKEeqLtaT0IHUAKQ" name="InitValues">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_2fNZ-SWKEeqLtaT0IHUAKQ" name="receivedobjects" visibility="public" type="_2fNaTyWKEeqLtaT0IHUAKQ" effect="create"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_2fNZ-iWKEeqLtaT0IHUAKQ" name="ReceivedValues">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_2fNZ-yWKEeqLtaT0IHUAKQ" name="receivedobjects" visibility="public" type="_2fNaTyWKEeqLtaT0IHUAKQ" effect="create"/>
+          </ownedOperation>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_2fNZ_CWKEeqLtaT0IHUAKQ" name="Events">
+        <packagedElement xmi:type="uml:Signal" xmi:id="_2fNZ_SWKEeqLtaT0IHUAKQ" name="sig_Cmd_InitValues">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNZ_iWKEeqLtaT0IHUAKQ" name="receivedobjects" visibility="public" type="_2fNaTyWKEeqLtaT0IHUAKQ"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Signal" xmi:id="_2fNZ_yWKEeqLtaT0IHUAKQ" name="sig_Cmd_Pause"/>
+        <packagedElement xmi:type="uml:Signal" xmi:id="_2fNaACWKEeqLtaT0IHUAKQ" name="sig_Cmd_Stop"/>
+        <packagedElement xmi:type="uml:Signal" xmi:id="_2fNaASWKEeqLtaT0IHUAKQ" name="sig_Cmd_Start"/>
+        <packagedElement xmi:type="uml:Signal" xmi:id="_2fNaAiWKEeqLtaT0IHUAKQ" name="sig_Cmd_ReceivedValues"/>
+        <packagedElement xmi:type="uml:SignalEvent" xmi:id="_2fNaAyWKEeqLtaT0IHUAKQ" name="ev_Cmd_InitValues" signal="_2fNZ_SWKEeqLtaT0IHUAKQ"/>
+        <packagedElement xmi:type="uml:SignalEvent" xmi:id="_2fNaBCWKEeqLtaT0IHUAKQ" name="ev_Cmd_Pause" signal="_2fNZ_yWKEeqLtaT0IHUAKQ"/>
+        <packagedElement xmi:type="uml:SignalEvent" xmi:id="_2fNaBSWKEeqLtaT0IHUAKQ" name="ev_Cmd_Stop" signal="_2fNaACWKEeqLtaT0IHUAKQ"/>
+        <packagedElement xmi:type="uml:SignalEvent" xmi:id="_2fNaBiWKEeqLtaT0IHUAKQ" name="ev_Cmd_Start" signal="_2fNaASWKEeqLtaT0IHUAKQ"/>
+        <packagedElement xmi:type="uml:SignalEvent" xmi:id="_2fNaByWKEeqLtaT0IHUAKQ" name="ev_Cmd_ReceivedValues" signal="_2fNaAiWKEeqLtaT0IHUAKQ"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_2fNaCCWKEeqLtaT0IHUAKQ" name="Types">
+      <packagedElement xmi:type="uml:DataType" xmi:id="_2fNaCSWKEeqLtaT0IHUAKQ" name="Data">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNaCiWKEeqLtaT0IHUAKQ" name="name">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNaCyWKEeqLtaT0IHUAKQ" name="value">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_2fNaDCWKEeqLtaT0IHUAKQ" name="LinePatternType">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNaDSWKEeqLtaT0IHUAKQ" name="X"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNaDiWKEeqLtaT0IHUAKQ" name="Y"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_2fNaDyWKEeqLtaT0IHUAKQ" name="ActiveType">
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_2fNaECWKEeqLtaT0IHUAKQ" name="Active"/>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_2fNaESWKEeqLtaT0IHUAKQ" name="Inactive"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_2fNaEiWKEeqLtaT0IHUAKQ" name="BooleanType">
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_2fNaEyWKEeqLtaT0IHUAKQ" name="True"/>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_2fNaFCWKEeqLtaT0IHUAKQ" name="False"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_2fNaFSWKEeqLtaT0IHUAKQ" name="RoadUserType">
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_2fNaFiWKEeqLtaT0IHUAKQ" name="Truck"/>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_2fNaFyWKEeqLtaT0IHUAKQ" name="Car"/>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_2fNaGCWKEeqLtaT0IHUAKQ" name="Bicycle"/>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_2fNaGSWKEeqLtaT0IHUAKQ" name="Pedestrian"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_2fNaGiWKEeqLtaT0IHUAKQ" name="WeekDayType">
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_2fNaGyWKEeqLtaT0IHUAKQ" name="Monday"/>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_2fNaHCWKEeqLtaT0IHUAKQ" name="Tuesday"/>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_2fNaHSWKEeqLtaT0IHUAKQ" name="Wednesday"/>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_2fNaHiWKEeqLtaT0IHUAKQ" name="Thursday"/>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_2fNaHyWKEeqLtaT0IHUAKQ" name="Friday"/>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_2fNaICWKEeqLtaT0IHUAKQ" name="Saturday"/>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_2fNaISWKEeqLtaT0IHUAKQ" name="Sunday"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_2fNaIiWKEeqLtaT0IHUAKQ" name="PreconditionningProgramType">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNaIyWKEeqLtaT0IHUAKQ" name="state" type="_2fNaEiWKEeqLtaT0IHUAKQ"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNaJCWKEeqLtaT0IHUAKQ" name="hour"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNaJSWKEeqLtaT0IHUAKQ" name="day" type="_2fNaGiWKEeqLtaT0IHUAKQ"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNaJiWKEeqLtaT0IHUAKQ" name="confortLevel"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_2fNaJyWKEeqLtaT0IHUAKQ" name="RoadLinesVector">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNaKCWKEeqLtaT0IHUAKQ" name="XList"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNaKSWKEeqLtaT0IHUAKQ" name="YList"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNaKiWKEeqLtaT0IHUAKQ" name="numberOfPoints"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNaKyWKEeqLtaT0IHUAKQ" name="pattern" type="_2fNaDCWKEeqLtaT0IHUAKQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_2fNaLCWKEeqLtaT0IHUAKQ" name="RoadLinesType">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNaLSWKEeqLtaT0IHUAKQ" name="roadlines" type="_2fNaJyWKEeqLtaT0IHUAKQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_2fNaLiWKEeqLtaT0IHUAKQ" name="AccelerationType"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_2fNaLyWKEeqLtaT0IHUAKQ" name="SpeedType"/>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_2fNaMCWKEeqLtaT0IHUAKQ" name="ObjectDetected">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNaMSWKEeqLtaT0IHUAKQ" name="vrx" visibility="public">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNaMiWKEeqLtaT0IHUAKQ" name="vry" visibility="public">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNaMyWKEeqLtaT0IHUAKQ" name="angle" visibility="public">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNaNCWKEeqLtaT0IHUAKQ" name="dx1" visibility="public">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNaNSWKEeqLtaT0IHUAKQ" name="dy1" visibility="public">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNaNiWKEeqLtaT0IHUAKQ" name="dx2" visibility="public">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNaNyWKEeqLtaT0IHUAKQ" name="dy2" visibility="public">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNaOCWKEeqLtaT0IHUAKQ" name="dx3" visibility="public">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNaOSWKEeqLtaT0IHUAKQ" name="dy3" visibility="public">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNaOiWKEeqLtaT0IHUAKQ" name="dx4" visibility="public">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNaOyWKEeqLtaT0IHUAKQ" name="dy4" visibility="public">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_2fNaPCWKEeqLtaT0IHUAKQ" name="ListOfObjectDetected">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_2fNaPSWKEeqLtaT0IHUAKQ" name="objectD" visibility="public" type="_2fNaXyWKEeqLtaT0IHUAKQ"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_2fNaPiWKEeqLtaT0IHUAKQ" name="Profiles">
+      <packageImport xmi:type="uml:PackageImport" xmi:id="_2fNaPyWKEeqLtaT0IHUAKQ">
+        <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+      </packageImport>
+      <packageImport xmi:type="uml:PackageImport" xmi:id="_2fNaQCWKEeqLtaT0IHUAKQ">
+        <importedPackage xmi:type="uml:Model" href="pathmap://DML_TRAFO/statemachine.uml#_ago_QOUTEd-P08Bciq_LqQ"/>
+      </packageImport>
+      <packageImport xmi:type="uml:PackageImport" xmi:id="_2fNaQSWKEeqLtaT0IHUAKQ">
+        <importedPackage xmi:type="uml:Model" href="pathmap://DML_TRAFO/trafos.uml#_Q6TiIDLUEd26WNosUASSSw"/>
+      </packageImport>
+      <packageImport xmi:type="uml:PackageImport" xmi:id="_2fNaQiWKEeqLtaT0IHUAKQ">
+        <importedPackage xmi:type="uml:Profile" href="pathmap://PapyrusC_Cpp_PROFILES/C_Cpp.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
+      </packageImport>
+      <packageImport xmi:type="uml:PackageImport" xmi:id="_2fNaQyWKEeqLtaT0IHUAKQ">
+        <importedPackage xmi:type="uml:Model" href="pathmap://DML_C_CORE/componentlib.uml#_O6TiIDLUEd26WNosUASSSw"/>
+      </packageImport>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_2fNaRCWKEeqLtaT0IHUAKQ" name="ModelLifeCycle">
+      <packagedElement xmi:type="uml:Activity" xmi:id="_2fNaRSWKEeqLtaT0IHUAKQ" name="ModelLifeCycle" node="_2fNaSiWKEeqLtaT0IHUAKQ _2fNaSyWKEeqLtaT0IHUAKQ _2fNaTCWKEeqLtaT0IHUAKQ">
+        <ownedBehavior xmi:type="uml:Activity" xmi:id="_2fNaRiWKEeqLtaT0IHUAKQ" name="Standard Use"/>
+        <ownedBehavior xmi:type="uml:Activity" xmi:id="_2fNaRyWKEeqLtaT0IHUAKQ" name="Simulation"/>
+        <edge xmi:type="uml:ControlFlow" xmi:id="_2fNaSCWKEeqLtaT0IHUAKQ" target="_2fNaSyWKEeqLtaT0IHUAKQ" source="_2fNaSiWKEeqLtaT0IHUAKQ"/>
+        <edge xmi:type="uml:ControlFlow" xmi:id="_2fNaSSWKEeqLtaT0IHUAKQ" target="_2fNaTCWKEeqLtaT0IHUAKQ" source="_2fNaSyWKEeqLtaT0IHUAKQ"/>
+        <node xmi:type="uml:InitialNode" xmi:id="_2fNaSiWKEeqLtaT0IHUAKQ" name="" outgoing="_2fNaSCWKEeqLtaT0IHUAKQ"/>
+        <node xmi:type="uml:CallBehaviorAction" xmi:id="_2fNaSyWKEeqLtaT0IHUAKQ" name="Simulation" incoming="_2fNaSCWKEeqLtaT0IHUAKQ" outgoing="_2fNaSSWKEeqLtaT0IHUAKQ"/>
+        <node xmi:type="uml:CallBehaviorAction" xmi:id="_2fNaTCWKEeqLtaT0IHUAKQ" name="Standard Use" incoming="_2fNaSSWKEeqLtaT0IHUAKQ" behavior="_2fNaRiWKEeqLtaT0IHUAKQ"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_2fNaTSWKEeqLtaT0IHUAKQ" name="ExternalTypes">
+      <packagedElement xmi:type="uml:Class" xmi:id="_2fNaTiWKEeqLtaT0IHUAKQ" name="object"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_2fNaTyWKEeqLtaT0IHUAKQ" name="std::vector&lt;object>"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_2fNaUCWKEeqLtaT0IHUAKQ" name="std::vector&lt;string>"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_2fNaUSWKEeqLtaT0IHUAKQ" name="std::vector"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_2fNaUiWKEeqLtaT0IHUAKQ" name="JsonTranslator"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_2fNaUyWKEeqLtaT0IHUAKQ" name="websocket_server"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_2fNaVCWKEeqLtaT0IHUAKQ" name="IListenerGraphicalTool">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_2fNaVSWKEeqLtaT0IHUAKQ" name="Cmd_Start"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_2fNaViWKEeqLtaT0IHUAKQ" name="Cmd_Stop"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_2fNaVyWKEeqLtaT0IHUAKQ" name="Cmd_Pause"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_2fNaWCWKEeqLtaT0IHUAKQ" name="Cmd_InitValues">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_2fNaWSWKEeqLtaT0IHUAKQ" name="object" visibility="public" type="_2fNaTiWKEeqLtaT0IHUAKQ" effect="create"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_2fNaWiWKEeqLtaT0IHUAKQ" name="Cmd_ReceivedValues">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_2fNaWyWKEeqLtaT0IHUAKQ" name="objects" visibility="public" type="_2fNaTyWKEeqLtaT0IHUAKQ" effect="create"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_2fNaXCWKEeqLtaT0IHUAKQ" name="getModelInfos"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_2fNaXSWKEeqLtaT0IHUAKQ" name="NotifierTranslator"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_2fNaXiWKEeqLtaT0IHUAKQ" name="std::map&lt;std::string,std::function&lt;void(object)>>"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_2fNaXyWKEeqLtaT0IHUAKQ" name="std::vector&lt;ObjectDetected>"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_2fNaYCWKEeqLtaT0IHUAKQ" name="Matlab"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_-dVCUCWREeqLtaT0IHUAKQ" name="MyTestProject">
+      <packagedElement xmi:type="uml:Package" xmi:id="_-dVCUSWREeqLtaT0IHUAKQ" name="Actors">
+        <packagedElement xmi:type="uml:Class" xmi:id="_-dVCUiWREeqLtaT0IHUAKQ" name="DictionaryClass"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_-dVCUyWREeqLtaT0IHUAKQ" name="Engineer">
+          <generalization xmi:type="uml:Generalization" xmi:id="_-gN-QCWREeqLtaT0IHUAKQ" general="_2fNZYyWKEeqLtaT0IHUAKQ"/>
+          <ownedAttribute xmi:type="uml:Port" xmi:id="_-dVCVCWREeqLtaT0IHUAKQ" name="internalReturn" type="_-dVCeCWREeqLtaT0IHUAKQ" aggregation="composite"/>
+          <ownedAttribute xmi:type="uml:Port" xmi:id="_-dVCVSWREeqLtaT0IHUAKQ" name="internalStimuli" type="_-dVCeSWREeqLtaT0IHUAKQ" aggregation="composite" isConjugated="true"/>
+          <ownedAttribute xmi:type="uml:Port" xmi:id="_-dVCViWREeqLtaT0IHUAKQ" name="simuIn" type="_-dVCeiWREeqLtaT0IHUAKQ" aggregation="composite"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_-dVCVyWREeqLtaT0IHUAKQ" name="pSimulation" visibility="public" type="_2fNZjyWKEeqLtaT0IHUAKQ"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_-dVCWCWREeqLtaT0IHUAKQ" name="dictionaryClass" visibility="public" type="_-dVCUiWREeqLtaT0IHUAKQ"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-dVCWSWREeqLtaT0IHUAKQ" name="Engineer" specification="_-dVCXCWREeqLtaT0IHUAKQ">
+            <language>C++</language>
+            <body>// To fill&#xD;
+&#xD;
+map_of_function_gen.insert(std::make_pair(&quot;initValuesScenario&quot;, std::bind(&amp;Engineer::initValuesScenario, this,  std::placeholders::_1 )));&#xD;
+map_of_function_gen.insert(std::make_pair(&quot;this&quot;, std::bind(&amp;Engineer::mthis, this,  std::placeholders::_1 )));</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-dVCWiWREeqLtaT0IHUAKQ" name="initValuesScenario" specification="_-dVCXSWREeqLtaT0IHUAKQ">
+            <language>C++</language>
+            <body>// To fill</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-dVCWyWREeqLtaT0IHUAKQ" name="mthis" specification="_-dVCXyWREeqLtaT0IHUAKQ">
+            <language>C++</language>
+            <body>// To fill</body>
+          </ownedBehavior>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_-dVCXCWREeqLtaT0IHUAKQ" name="Engineer" method="_-dVCWSWREeqLtaT0IHUAKQ"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_-dVCXSWREeqLtaT0IHUAKQ" name="initValuesScenario" method="_-dVCWiWREeqLtaT0IHUAKQ">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_-dVCXiWREeqLtaT0IHUAKQ" name="object_param" visibility="public" effect="create">
+              <type xmi:type="uml:Class" href="platform:/plugin/org.eclipse.papyrus.cil4sys.template/resources/FullTemplate.uml#_mUCP8CYEEeiIvrkR9KzEtA"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_-dVCXyWREeqLtaT0IHUAKQ" name="mthis" method="_-dVCWyWREeqLtaT0IHUAKQ">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_-dVCYCWREeqLtaT0IHUAKQ" name="object_param">
+              <type xmi:type="uml:Class" href="platform:/plugin/org.eclipse.papyrus.cil4sys.template/resources/FullTemplate.uml#_mUCP8CYEEeiIvrkR9KzEtA"/>
+            </ownedParameter>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_-dVCYSWREeqLtaT0IHUAKQ" name="User">
+          <generalization xmi:type="uml:Generalization" xmi:id="_-gN-QSWREeqLtaT0IHUAKQ" general="_2fNZYyWKEeqLtaT0IHUAKQ"/>
+          <ownedAttribute xmi:type="uml:Port" xmi:id="_-dVCYiWREeqLtaT0IHUAKQ" name="request" type="_-dVCeyWREeqLtaT0IHUAKQ" aggregation="composite" isConjugated="true"/>
+          <ownedAttribute xmi:type="uml:Port" xmi:id="_-dVCYyWREeqLtaT0IHUAKQ" name="feedback" type="_-dVCfCWREeqLtaT0IHUAKQ" aggregation="composite"/>
+          <ownedAttribute xmi:type="uml:Port" xmi:id="_-dVCZCWREeqLtaT0IHUAKQ" name="simuIn" type="_-dVCfSWREeqLtaT0IHUAKQ" aggregation="composite"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_-dVCZSWREeqLtaT0IHUAKQ" name="pSimulation" visibility="public" type="_2fNZjyWKEeqLtaT0IHUAKQ"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_-dVCZiWREeqLtaT0IHUAKQ" name="dictionaryClass" visibility="public" type="_-dVCUiWREeqLtaT0IHUAKQ"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-dVCZyWREeqLtaT0IHUAKQ" name="User" specification="_-dVCaSWREeqLtaT0IHUAKQ">
+            <language>C++</language>
+            <body>// User&#xD;
+&#xD;
+map_of_function_gen.insert(std::make_pair(&quot;myCar&quot;, std::bind(&amp;User::myCar, this,  std::placeholders::_1 )));</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-dVCaCWREeqLtaT0IHUAKQ" name="myCar" specification="_-dVCaiWREeqLtaT0IHUAKQ">
+            <language>C++</language>
+            <body>// To fill</body>
+          </ownedBehavior>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_-dVCaSWREeqLtaT0IHUAKQ" name="User" method="_-dVCZyWREeqLtaT0IHUAKQ"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_-dVCaiWREeqLtaT0IHUAKQ" name="myCar" method="_-dVCaCWREeqLtaT0IHUAKQ">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_-dVCayWREeqLtaT0IHUAKQ" name="object_param">
+              <type xmi:type="uml:Class" href="platform:/plugin/org.eclipse.papyrus.cil4sys.template/resources/FullTemplate.uml#_mUCP8CYEEeiIvrkR9KzEtA"/>
+            </ownedParameter>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_-dVCbCWREeqLtaT0IHUAKQ" name="Environment">
+          <generalization xmi:type="uml:Generalization" xmi:id="_-gN-QiWREeqLtaT0IHUAKQ" general="_2fNZYyWKEeqLtaT0IHUAKQ"/>
+          <ownedAttribute xmi:type="uml:Port" xmi:id="_-dVCbSWREeqLtaT0IHUAKQ" name="toEnv" type="_-dVCfyWREeqLtaT0IHUAKQ" aggregation="composite"/>
+          <ownedAttribute xmi:type="uml:Port" xmi:id="_-dVCbiWREeqLtaT0IHUAKQ" name="fromEnv" type="_-dVCgCWREeqLtaT0IHUAKQ" aggregation="composite" isConjugated="true"/>
+          <ownedAttribute xmi:type="uml:Port" xmi:id="_-dVCbyWREeqLtaT0IHUAKQ" name="simuIn" type="_-dVCfiWREeqLtaT0IHUAKQ" aggregation="composite"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_-dVCcCWREeqLtaT0IHUAKQ" name="pSimulation" visibility="public" type="_2fNZjyWKEeqLtaT0IHUAKQ"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_-dVCcSWREeqLtaT0IHUAKQ" name="dictionaryClass" visibility="public" type="_-dVCUiWREeqLtaT0IHUAKQ"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-dVCciWREeqLtaT0IHUAKQ" name="Environment" specification="_-dVCdCWREeqLtaT0IHUAKQ">
+            <language>C++</language>
+            <body>// Environment&#xD;
+&#xD;
+map_of_function_gen.insert(std::make_pair(&quot;time&quot;, std::bind(&amp;Environment::time, this,  std::placeholders::_1 )));</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-dVCcyWREeqLtaT0IHUAKQ" name="time" specification="_-dVCdSWREeqLtaT0IHUAKQ">
+            <language>C++</language>
+            <body>// To fill</body>
+          </ownedBehavior>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_-dVCdCWREeqLtaT0IHUAKQ" name="Environment" method="_-dVCciWREeqLtaT0IHUAKQ"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_-dVCdSWREeqLtaT0IHUAKQ" name="time" method="_-dVCcyWREeqLtaT0IHUAKQ">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_-dVCdiWREeqLtaT0IHUAKQ" name="object_param">
+              <type xmi:type="uml:Class" href="platform:/plugin/org.eclipse.papyrus.cil4sys.template/resources/FullTemplate.uml#_mUCP8CYEEeiIvrkR9KzEtA"/>
+            </ownedParameter>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_-dVCdyWREeqLtaT0IHUAKQ" name="InteractionClasses">
+          <packagedElement xmi:type="uml:Class" xmi:id="_-dVCeCWREeqLtaT0IHUAKQ" name="EngineerInternalReturn"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_-dVCeSWREeqLtaT0IHUAKQ" name="EngineerInternalStimuli"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_-dVCeiWREeqLtaT0IHUAKQ" name="EngineerSimuIn"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_-dVCeyWREeqLtaT0IHUAKQ" name="CustomerRequest"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_-dVCfCWREeqLtaT0IHUAKQ" name="CustomerFeedback"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_-dVCfSWREeqLtaT0IHUAKQ" name="CustomerSimuIn"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_-dVCfiWREeqLtaT0IHUAKQ" name="EnvironmentSimuIn"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_-dVCfyWREeqLtaT0IHUAKQ" name="EnvironmentToEnv"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_-dVCgCWREeqLtaT0IHUAKQ" name="EnvironmentFromEnv"/>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_-dVCgSWREeqLtaT0IHUAKQ" name="Services"/>
+      <packagedElement xmi:type="uml:Package" xmi:id="_-dVCgiWREeqLtaT0IHUAKQ" name="Signals"/>
+      <packagedElement xmi:type="uml:Package" xmi:id="_-dVCgyWREeqLtaT0IHUAKQ" name="MyTestProjectMainProduct">
+        <packagedElement xmi:type="uml:Class" xmi:id="_-dVChCWREeqLtaT0IHUAKQ" name="MyTestProject">
+          <ownedAttribute xmi:type="uml:Port" xmi:id="_-dVChSWREeqLtaT0IHUAKQ" name="inputCustomer" type="_-dVCjCWREeqLtaT0IHUAKQ" aggregation="composite"/>
+          <ownedAttribute xmi:type="uml:Port" xmi:id="_-dVChiWREeqLtaT0IHUAKQ" name="outputCustomer" type="_-dVCjyWREeqLtaT0IHUAKQ" aggregation="composite" isConjugated="true"/>
+          <ownedAttribute xmi:type="uml:Port" xmi:id="_-dVChyWREeqLtaT0IHUAKQ" name="inputEngineer" type="_-dVCjSWREeqLtaT0IHUAKQ" aggregation="composite"/>
+          <ownedAttribute xmi:type="uml:Port" xmi:id="_-dVCiCWREeqLtaT0IHUAKQ" name="outputEngineer" type="_-dVCkCWREeqLtaT0IHUAKQ" aggregation="composite" isConjugated="true"/>
+          <ownedAttribute xmi:type="uml:Port" xmi:id="_-dVCiSWREeqLtaT0IHUAKQ" name="inputEnvironment" type="_-dVCjiWREeqLtaT0IHUAKQ" aggregation="composite"/>
+          <ownedAttribute xmi:type="uml:Port" xmi:id="_-dVCiiWREeqLtaT0IHUAKQ" name="outputEnvironment" type="_-dVCkSWREeqLtaT0IHUAKQ" aggregation="composite" isConjugated="true"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_-dVCiyWREeqLtaT0IHUAKQ" name="InteractionClasses">
+          <packagedElement xmi:type="uml:Class" xmi:id="_-dVCjCWREeqLtaT0IHUAKQ" name="ProductInputCustomer"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_-dVCjSWREeqLtaT0IHUAKQ" name="ProductInputEngineer"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_-dVCjiWREeqLtaT0IHUAKQ" name="ProductInputEnvironment"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_-dVCjyWREeqLtaT0IHUAKQ" name="ProductOutputCustomer"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_-dVCkCWREeqLtaT0IHUAKQ" name="ProductOutputEngineer"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_-dVCkSWREeqLtaT0IHUAKQ" name="ProductOutputEnvironment"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_-dVCkiWREeqLtaT0IHUAKQ" name="Simulation">
+          <packagedElement xmi:type="uml:Class" xmi:id="_-dVCkyWREeqLtaT0IHUAKQ" name="Project">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_-dVClCWREeqLtaT0IHUAKQ" name="itsUser" visibility="public" type="_-dVCYSWREeqLtaT0IHUAKQ"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_-dVClSWREeqLtaT0IHUAKQ" name="itsEnvironment" visibility="public" type="_-dVCbCWREeqLtaT0IHUAKQ"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_-dVCliWREeqLtaT0IHUAKQ" name="itsProduct" visibility="public" type="_-dVChCWREeqLtaT0IHUAKQ"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_-dVClyWREeqLtaT0IHUAKQ" name="itsEngineer" visibility="public" type="_-dVCUyWREeqLtaT0IHUAKQ"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Package" xmi:id="_-dVCmCWREeqLtaT0IHUAKQ" name="MyTestProject">
+            <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_-dVCmSWREeqLtaT0IHUAKQ" name="mainDefaultComponent" classifier="_-dVCmiWREeqLtaT0IHUAKQ"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_-dVCmiWREeqLtaT0IHUAKQ" name="MainDefaultComponent">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_-dVCmyWREeqLtaT0IHUAKQ" name="cil4SysRoot" visibility="public" type="_-dVCnyWREeqLtaT0IHUAKQ"/>
+            <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_-dVCnCWREeqLtaT0IHUAKQ" client="_-dVCmiWREeqLtaT0IHUAKQ _-dVCmiWREeqLtaT0IHUAKQ">
+              <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+              <contract xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+            </interfaceRealization>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-dVCnSWREeqLtaT0IHUAKQ" name="run" specification="_-dVCniWREeqLtaT0IHUAKQ">
+              <language>C++</language>
+              <body>	JsonTranslator jsonTranslator;&#xD;
+	websocket_server server;&#xD;
+&#xD;
+	cil4SysRoot = new CIL4SysRoot();&#xD;
+	cil4SysRoot->init_simulation();&#xD;
+&#xD;
+	//#[ configuration DefaultComponent::DefaultConfig&#xD;
+	server.RegisterListenerTranslator(&amp;jsonTranslator);&#xD;
+	jsonTranslator.RegisterListenerWebserver(&amp;server);&#xD;
+	jsonTranslator.RegisterListenerGraphicalTool(cil4SysRoot->pWebSimulator);&#xD;
+	cil4SysRoot->pWebSimulator->RegisterListenerTranslator(&amp;jsonTranslator);&#xD;
+&#xD;
+	std::cout &lt;&lt; &quot;starting CIL4Sys websocket server on Port 9002\n\n&quot;&#xD;
+			&lt;&lt; std::endl;&#xD;
+	//thread t(bind(&amp;websocket_server::send_message, &amp;server));&#xD;
+	server.run(9002);&#xD;
+	//t.join();&#xD;
+	delete cil4SysRoot;</body>
+            </ownedBehavior>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_-dVCniWREeqLtaT0IHUAKQ" name="run" method="_-dVCnSWREeqLtaT0IHUAKQ"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_-dVCnyWREeqLtaT0IHUAKQ" name="CIL4SysRoot">
+            <generalization xmi:type="uml:Generalization" xmi:id="_-gNXMCWREeqLtaT0IHUAKQ" general="_2fNZgCWKEeqLtaT0IHUAKQ"/>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-dVCoCWREeqLtaT0IHUAKQ" name="CIL4SysRoot" specification="_-dVCoiWREeqLtaT0IHUAKQ">
+              <language>C++</language>
+              <body>pWebSimulator = new WebSimulator();&#xD;
+pWebSimulator->pCIL4SysRoot = this;&#xD;
+pSimulation = nullptr;</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-dVCoSWREeqLtaT0IHUAKQ" name="init_simulation" specification="_-dVCoyWREeqLtaT0IHUAKQ">
+              <language>C++</language>
+              <body>	// std::cout &lt;&lt; &quot;Initialize simulation&quot; &lt;&lt; std::endl;&#xD;
+&#xD;
+	if (pSimulation != nullptr) {&#xD;
+		delete pSimulation;&#xD;
+	}&#xD;
+&#xD;
+	pSimulation = new Simulation();&#xD;
+	pSimulation->pCIL4SysRoot = this;</body>
+            </ownedBehavior>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_-dVCoiWREeqLtaT0IHUAKQ" name="CIL4SysRoot" method="_-dVCoCWREeqLtaT0IHUAKQ"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_-dVCoyWREeqLtaT0IHUAKQ" name="init_simulation" method="_-dVCoSWREeqLtaT0IHUAKQ"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_-dVCpCWREeqLtaT0IHUAKQ" name="Simulation">
+            <generalization xmi:type="uml:Generalization" xmi:id="_-gNXMSWREeqLtaT0IHUAKQ" general="_2fNZjyWKEeqLtaT0IHUAKQ"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_-dVCpSWREeqLtaT0IHUAKQ" name="itsProject" visibility="public" type="_-dVCkyWREeqLtaT0IHUAKQ"/>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-dVCpiWREeqLtaT0IHUAKQ" name="Simulation" specification="_-dVCpyWREeqLtaT0IHUAKQ">
+              <language>C++</language>
+              <body>itsProject.itsUser.pSimulation = this;&#xD;
+itsProject.itsEnvironment.pSimulation = this;&#xD;
+itsProject.itsEngineer.pSimulation = this;&#xD;
+&#xD;
+pEnvironment = &amp;itsProject.itsEnvironment;  &#xD;
+pUser = &amp;itsProject.itsUser;  &#xD;
+pEngineer = &amp;itsProject.itsEngineer;</body>
+            </ownedBehavior>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_-dVCpyWREeqLtaT0IHUAKQ" name="Simulation" method="_-dVCpiWREeqLtaT0IHUAKQ"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_-dVCqCWREeqLtaT0IHUAKQ" client="_-dVCmiWREeqLtaT0IHUAKQ" supplier="_-dVCnyWREeqLtaT0IHUAKQ"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_-dVCqSWREeqLtaT0IHUAKQ" client="_-dVCmiWREeqLtaT0IHUAKQ" supplier="_-dVCpCWREeqLtaT0IHUAKQ"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_-dVCqiWREeqLtaT0IHUAKQ" client="_-dVCnyWREeqLtaT0IHUAKQ" supplier="_-dVCpCWREeqLtaT0IHUAKQ"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_-gRBkCWREeqLtaT0IHUAKQ" client="_-dVCmiWREeqLtaT0IHUAKQ" supplier="_2fNaUyWKEeqLtaT0IHUAKQ"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_-gRBkSWREeqLtaT0IHUAKQ" client="_-dVCmiWREeqLtaT0IHUAKQ" supplier="_2fNZoSWKEeqLtaT0IHUAKQ"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_-gRooCWREeqLtaT0IHUAKQ" client="_-dVCmiWREeqLtaT0IHUAKQ" supplier="_2fNaUiWKEeqLtaT0IHUAKQ"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_-gRooSWREeqLtaT0IHUAKQ" client="_-dVCnyWREeqLtaT0IHUAKQ" supplier="_2fNZoSWKEeqLtaT0IHUAKQ"/>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_2fNaYSWKEeqLtaT0IHUAKQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2fNaYiWKEeqLtaT0IHUAKQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.cil4sys.com/CIL4SysLanguage/1#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://CIL4SYS_PROFILE/cil4sys.profile.uml#_HfoLYM3PEeehS8jMbZd4dg"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_2fNaYyWKEeqLtaT0IHUAKQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2fNaZCWKEeqLtaT0IHUAKQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#ActionLanguage"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_2fNaZSWKEeqLtaT0IHUAKQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2fNaZiWKEeqLtaT0IHUAKQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/C_Cpp/1#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PapyrusC_Cpp_PROFILES/C_Cpp.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_2fNaZyWKEeqLtaT0IHUAKQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2fNaaCWKEeqLtaT0IHUAKQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/Deployment/1#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://DEP_PROFILE/Deployment.profile.uml#_gPDsIBa-EearhdjjJ6cVzQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_2fNaaSWKEeqLtaT0IHUAKQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2fNaaiWKEeqLtaT0IHUAKQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_2fNaayWKEeqLtaT0IHUAKQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2fNabCWKEeqLtaT0IHUAKQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/Transformation/1#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://TRAFO_PROFILE/Transformation.profile.uml#_fPDsIBa-EearhdjjJ6cVzQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_2fNabSWKEeqLtaT0IHUAKQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2fNabiWKEeqLtaT0IHUAKQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/MARTE/1#//MARTE_Foundations/Alloc"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://Papyrus_PROFILES/MARTE.profile.uml#_ar8OsAPMEdyuUt-4qHuVvQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_2fNabyWKEeqLtaT0IHUAKQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2fNacCWKEeqLtaT0IHUAKQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.4/SysML#//requirements"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://SysML14_PROFILES/SysML.profile.uml#SysML.package_packagedElement_Requirements"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_2fNacSWKEeqLtaT0IHUAKQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2fNaciWKEeqLtaT0IHUAKQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/Codegen/1#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://Codegen_PROFILES/Codegen.profile.uml#_fPDsIBa-EearhdjjJ6cVzQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_2fNacyWKEeqLtaT0IHUAKQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2fNadCWKEeqLtaT0IHUAKQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.4/SysML#//modelelements"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://SysML14_PROFILES/SysML.profile.uml#SysML.package_packagedElement_ModelElements"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_2fNadSWKEeqLtaT0IHUAKQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2fNadiWKEeqLtaT0IHUAKQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.4/SysML#//allocations"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://SysML14_PROFILES/SysML.profile.uml#SysML.package_packagedElement_Allocations"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_2fNadyWKEeqLtaT0IHUAKQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2fNaeCWKEeqLtaT0IHUAKQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.4/SysML#//activities"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://SysML14_PROFILES/SysML.profile.uml#SysML.package_packagedElement_Activities"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_2fNaeSWKEeqLtaT0IHUAKQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2fNaeiWKEeqLtaT0IHUAKQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.4/SysML#//blocks"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://SysML14_PROFILES/SysML.profile.uml#SysML.package_packagedElement_Blocks"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_2fNaeyWKEeqLtaT0IHUAKQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2fNafCWKEeqLtaT0IHUAKQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.4/SysML#//constraintblocks"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://SysML14_PROFILES/SysML.profile.uml#SysML.package_packagedElement_ConstraintBlocks"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_2fNafSWKEeqLtaT0IHUAKQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2fNafiWKEeqLtaT0IHUAKQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.4/SysML#//deprecatedelements"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://SysML14_PROFILES/SysML.profile.uml#SysML.package_packagedElement_DeprecatedElements"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_2fNafyWKEeqLtaT0IHUAKQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2fNagCWKEeqLtaT0IHUAKQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.4/SysML#//portsandflows"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://SysML14_PROFILES/SysML.profile.uml#SysML.package_packagedElement_Ports_u0026Flows"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_2fNagSWKEeqLtaT0IHUAKQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2fNagiWKEeqLtaT0IHUAKQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.4/SysML#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://SysML14_PROFILES/SysML.profile.uml#SysML"/>
+    </profileApplication>
+  </uml:Model>
+  <cil4sys:ModelPackage xmi:id="_2fNagyWKEeqLtaT0IHUAKQ" base_Package="_2fNZYCWKEeqLtaT0IHUAKQ"/>
+  <cil4sys:DeploymentPackage xmi:id="_2fNahCWKEeqLtaT0IHUAKQ" base_Package="_2fNZYSWKEeqLtaT0IHUAKQ"/>
+  <cil4sys:LifeCycleActivity xmi:id="_2fNahSWKEeqLtaT0IHUAKQ" base_Activity="_2fNaRiWKEeqLtaT0IHUAKQ"/>
+  <cil4sys:LifeCycleActivity xmi:id="_2fNahiWKEeqLtaT0IHUAKQ" base_Activity="_2fNaRyWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:External xmi:id="_2fNahyWKEeqLtaT0IHUAKQ" name="IListenerGraphicalTool" incPath="IListenerGraphicalTool.h" base_Classifier="_2fNaVCWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:External xmi:id="_2fNaiCWKEeqLtaT0IHUAKQ" name="NotifierTranslator" incPath="NotifierTranslator.h" base_Classifier="_2fNaXSWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:External xmi:id="_2fNaiSWKEeqLtaT0IHUAKQ" name="object" incPath="ComWebSocket/object.h" base_Classifier="_2fNaTiWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:Const xmi:id="_2fNaiiWKEeqLtaT0IHUAKQ" base_parameter="_2fNaWSWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:External xmi:id="_2fNaiyWKEeqLtaT0IHUAKQ" name="vector" incPath="vector" base_Classifier="_2fNaTyWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:Const xmi:id="_2fNajCWKEeqLtaT0IHUAKQ" base_parameter="_2fNaWyWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:External xmi:id="_2fNajSWKEeqLtaT0IHUAKQ" name="vector" incPath="vector" base_Classifier="_2fNaUCWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:External xmi:id="_2fNajiWKEeqLtaT0IHUAKQ" name="vector" incPath="vector" base_Classifier="_2fNaUSWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:External xmi:id="_2fNajyWKEeqLtaT0IHUAKQ" name="JsonTranslator" incPath="JsonTranslator.h" base_Classifier="_2fNaUiWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:External xmi:id="_2fNakCWKEeqLtaT0IHUAKQ" name="websocket_server" incPath="websocket_server.h" base_Classifier="_2fNaUyWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:Include xmi:id="_2fNakSWKEeqLtaT0IHUAKQ" header="#include &lt;iostream>&#xD;&#xA;#include &quot;object.h&quot;&#xD;&#xA;#include &lt;functional>" base_class="_2fNZYyWKEeqLtaT0IHUAKQ" base_Classifier="_2fNZYyWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:Typedef xmi:id="_2fNakiWKEeqLtaT0IHUAKQ" definition="void (ActorGeneric::*typeName)(const object)" base_primitivetype="_2fNZfyWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:External xmi:id="_2fNakyWKEeqLtaT0IHUAKQ" name="map" incPath="map" base_Classifier="_2fNaXiWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:Const xmi:id="_2fNalCWKEeqLtaT0IHUAKQ" base_parameter="_2fNZbyWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:Ref xmi:id="_2fNalSWKEeqLtaT0IHUAKQ" base_parameter="_2fNZbyWKEeqLtaT0IHUAKQ" declaration=""/>
+  <C_Cpp:Ptr xmi:id="_2fNaliWKEeqLtaT0IHUAKQ" base_property="_2fNZgSWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:Ptr xmi:id="_2fNalyWKEeqLtaT0IHUAKQ" base_property="_2fNZgiWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:Const xmi:id="_2fNamCWKEeqLtaT0IHUAKQ" base_parameter="_2fNZiCWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:Ref xmi:id="_2fNamSWKEeqLtaT0IHUAKQ" base_parameter="_2fNZiCWKEeqLtaT0IHUAKQ"/>
+  <standard:Create xmi:id="_2fNamiWKEeqLtaT0IHUAKQ" base_BehavioralFeature="_2fNZjiWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:Const xmi:id="_2fNamyWKEeqLtaT0IHUAKQ" base_parameter="_2fNZnCWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:Ref xmi:id="_2fNanCWKEeqLtaT0IHUAKQ" base_parameter="_2fNZnCWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:Const xmi:id="_2fNanSWKEeqLtaT0IHUAKQ" base_parameter="_2fNZoCWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:Ref xmi:id="_2fNaniWKEeqLtaT0IHUAKQ" base_parameter="_2fNZoCWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:Const xmi:id="_2fNanyWKEeqLtaT0IHUAKQ" base_parameter="_2fNZ9CWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:Ref xmi:id="_2fNaoCWKEeqLtaT0IHUAKQ" base_parameter="_2fNZ9CWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:Include xmi:id="_2fNaoSWKEeqLtaT0IHUAKQ" header="#include &quot;object.h&quot;" base_Classifier="_2fNZ8iWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:Const xmi:id="_2fNaoiWKEeqLtaT0IHUAKQ" base_parameter="_2fNZ-SWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:Ref xmi:id="_2fNaoyWKEeqLtaT0IHUAKQ" base_parameter="_2fNZ-SWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:Include xmi:id="_2fNapCWKEeqLtaT0IHUAKQ" header="#include &quot;object.h&quot;" base_Classifier="_2fNZ9yWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:Ptr xmi:id="_2fNapSWKEeqLtaT0IHUAKQ" base_property="_2fNZpiWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:Const xmi:id="_2fNapiWKEeqLtaT0IHUAKQ" base_parameter="_2fNZ1SWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:Const xmi:id="_2fNapyWKEeqLtaT0IHUAKQ" base_parameter="_2fNZ1yWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:Const xmi:id="_2fNaqCWKEeqLtaT0IHUAKQ" base_parameter="_2fNZ3CWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:Const xmi:id="_2fNaqSWKEeqLtaT0IHUAKQ" base_parameter="_2fNZ4CWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:Ref xmi:id="_2fNaqiWKEeqLtaT0IHUAKQ" base_parameter="_2fNZ4CWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:Typedef xmi:id="_2fNaqyWKEeqLtaT0IHUAKQ" definition="void (ActorGeneric::*typeName)(const object)" base_primitivetype="_2fNZ7SWKEeqLtaT0IHUAKQ"/>
+  <cil4sys:DeploymentClass xmi:id="_2fNarCWKEeqLtaT0IHUAKQ" base_Class="_2fNZYyWKEeqLtaT0IHUAKQ" kind="ActorGeneric"/>
+  <cil4sys:GenericActor xmi:id="_2fNarSWKEeqLtaT0IHUAKQ" base_Class="_2fNZYyWKEeqLtaT0IHUAKQ"/>
+  <cil4sys:DeploymentClass xmi:id="_2fNariWKEeqLtaT0IHUAKQ" base_Class="_2fNZgCWKEeqLtaT0IHUAKQ" kind="CIL4SysRootGeneric"/>
+  <cil4sys:DeploymentClass xmi:id="_2fNaryWKEeqLtaT0IHUAKQ" base_Class="_2fNZjyWKEeqLtaT0IHUAKQ" kind="SimulationGeneric"/>
+  <cil4sys:DeploymentClass xmi:id="_2fNasCWKEeqLtaT0IHUAKQ" base_Class="_2fNZoSWKEeqLtaT0IHUAKQ"/>
+  <cil4sys:ExternalClass xmi:id="_2fNasSWKEeqLtaT0IHUAKQ" base_Class="_2fNaUiWKEeqLtaT0IHUAKQ" kind="JsonTranslator"/>
+  <cil4sys:ExternalClass xmi:id="_2fNasiWKEeqLtaT0IHUAKQ" base_Class="_2fNaUyWKEeqLtaT0IHUAKQ"/>
+  <Transformation:Monitored xmi:id="_2fNasyWKEeqLtaT0IHUAKQ" base_StateMachine="_2fNZqSWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:Ptr xmi:id="_2fNatCWKEeqLtaT0IHUAKQ" base_property="_2fNZlCWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:Ptr xmi:id="_2fNatSWKEeqLtaT0IHUAKQ" base_property="_2fNZlSWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:Ptr xmi:id="_2fNatiWKEeqLtaT0IHUAKQ" base_property="_2fNZliWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:Ptr xmi:id="_2fNatyWKEeqLtaT0IHUAKQ" base_property="_2fNZlyWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:Ref xmi:id="_2fNauCWKEeqLtaT0IHUAKQ" base_parameter="_2fNZ3CWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:ExternLibrary xmi:id="_2fNauSWKEeqLtaT0IHUAKQ" base_package="_2fNaTSWKEeqLtaT0IHUAKQ" prefix="">
+    <includePaths>${workspace_loc:/CIL4SysLibs/libs/rapidjson}</includePaths>
+    <includePaths>${workspace_loc:/CIL4SysLibs/libs/websocket}</includePaths>
+    <includePaths>${workspace_loc:/CIL4SysLibs/libs/matlab_lib_demo}</includePaths>
+    <includePaths>${workspace_loc:/CIL4SysLibs/libs/ComWebSocket}</includePaths>
+    <includePaths>${workspace_loc:/CIL4SysLibs/libs}</includePaths>
+    <libPaths>&quot;${workspace_loc:/CIL4SysLibs/libs/ComWebSocket/lib}&quot;</libPaths>
+    <libPaths>&quot;${workspace_loc:/CIL4SysLibs/libs/matlab_lib_demo/lib/}&quot;</libPaths>
+    <libs>boost_system</libs>
+    <libs>libCWS_Eclipse</libs>
+  </C_Cpp:ExternLibrary>
+  <cil4sys:ExternalClass xmi:id="_2fNauiWKEeqLtaT0IHUAKQ" base_Class="_2fNaTiWKEeqLtaT0IHUAKQ" kind="Object"/>
+  <cil4sys:CILTypes xmi:id="_2fNauyWKEeqLtaT0IHUAKQ" base_DataType="_2fNaFSWKEeqLtaT0IHUAKQ"/>
+  <cil4sys:CILTypes xmi:id="_2fNavCWKEeqLtaT0IHUAKQ" base_DataType="_2fNaGiWKEeqLtaT0IHUAKQ"/>
+  <cil4sys:CILTypes xmi:id="_2fNavSWKEeqLtaT0IHUAKQ" base_DataType="_2fNaEiWKEeqLtaT0IHUAKQ"/>
+  <cil4sys:CILTypes xmi:id="_2fNaviWKEeqLtaT0IHUAKQ" base_DataType="_2fNaDyWKEeqLtaT0IHUAKQ"/>
+  <cil4sys:CILTypes xmi:id="_2fNavyWKEeqLtaT0IHUAKQ" base_DataType="_2fNaLiWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:Typedef xmi:id="_2fNawCWKEeqLtaT0IHUAKQ" definition="double" base_primitivetype="_2fNaLiWKEeqLtaT0IHUAKQ"/>
+  <cil4sys:CILTypes xmi:id="_2fNawSWKEeqLtaT0IHUAKQ" base_DataType="_2fNaLyWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:Typedef xmi:id="_2fNawiWKEeqLtaT0IHUAKQ" definition="double" base_primitivetype="_2fNaLyWKEeqLtaT0IHUAKQ"/>
+  <Codegen:ListHint xmi:id="_2fNawyWKEeqLtaT0IHUAKQ" variable="std::vector&lt;[typeName]>" base_Package="_2fNZYCWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:Include xmi:id="_2fNaxCWKEeqLtaT0IHUAKQ" header="#include &lt;iostream>&#xD;&#xA;#include &lt;vector>&#xA;" base_package="_2fNZYCWKEeqLtaT0IHUAKQ"/>
+  <C_Cpp:External xmi:id="_2fNaxSWKEeqLtaT0IHUAKQ" name="vector" incPath="vector" base_Classifier="_2fNaXyWKEeqLtaT0IHUAKQ"/>
+  <cil4sys:CILTypes xmi:id="_2fNaxiWKEeqLtaT0IHUAKQ" base_DataType="_2fNaMCWKEeqLtaT0IHUAKQ"/>
+  <cil4sys:MatlabPackage xmi:id="_2fNaxyWKEeqLtaT0IHUAKQ" base_Package="_2fNaYCWKEeqLtaT0IHUAKQ"/>
+  <cil4sys:ActorsPackage xmi:id="_-dbwACWREeqLtaT0IHUAKQ" base_Package="_-dVCUSWREeqLtaT0IHUAKQ"/>
+  <C_Cpp:Include xmi:id="_-dbwASWREeqLtaT0IHUAKQ" base_class="_-dVCUiWREeqLtaT0IHUAKQ" base_Classifier="_-dVCUiWREeqLtaT0IHUAKQ"/>
+  <cil4sys:EngineerActor xmi:id="_-dcXECWREeqLtaT0IHUAKQ" base_Class="_-dVCUyWREeqLtaT0IHUAKQ"/>
+  <cil4sys:InteractionPort xmi:id="_-ddlMCWREeqLtaT0IHUAKQ" base_Port="_-dVCVCWREeqLtaT0IHUAKQ" portKind="EngineerInternalReturn"/>
+  <cil4sys:InteractionPort xmi:id="_-ddlMSWREeqLtaT0IHUAKQ" base_Port="_-dVCVSWREeqLtaT0IHUAKQ" portKind="EngineerInternalStimuli"/>
+  <cil4sys:InteractionPort xmi:id="_-deMQCWREeqLtaT0IHUAKQ" base_Port="_-dVCViWREeqLtaT0IHUAKQ" portKind="EngineerSimuIn"/>
+  <C_Cpp:Ptr xmi:id="_-dezUCWREeqLtaT0IHUAKQ" base_property="_-dVCVyWREeqLtaT0IHUAKQ"/>
+  <cil4sys:ElementToType xmi:id="_-dfaYCWREeqLtaT0IHUAKQ" base_TypedElement="_-dVCVyWREeqLtaT0IHUAKQ" typeString="SimulationGeneric"/>
+  <standard:Create xmi:id="_-dgBcCWREeqLtaT0IHUAKQ" base_BehavioralFeature="_-dVCXCWREeqLtaT0IHUAKQ"/>
+  <cil4sys:ConversionToModelOperation xmi:id="_-dgBcSWREeqLtaT0IHUAKQ" base_Operation="_-dVCXSWREeqLtaT0IHUAKQ"/>
+  <cil4sys:ConversionToModelOperation xmi:id="_-dgogCWREeqLtaT0IHUAKQ" base_Operation="_-dVCXyWREeqLtaT0IHUAKQ"/>
+  <cil4sys:UserActor xmi:id="_-dhPkCWREeqLtaT0IHUAKQ" base_Class="_-dVCYSWREeqLtaT0IHUAKQ"/>
+  <cil4sys:InteractionPort xmi:id="_-dhPkSWREeqLtaT0IHUAKQ" base_Port="_-dVCYiWREeqLtaT0IHUAKQ"/>
+  <cil4sys:InteractionPort xmi:id="_-dh2oCWREeqLtaT0IHUAKQ" base_Port="_-dVCYyWREeqLtaT0IHUAKQ" portKind="CustomerFeedback"/>
+  <cil4sys:InteractionPort xmi:id="_-didsCWREeqLtaT0IHUAKQ" base_Port="_-dVCZCWREeqLtaT0IHUAKQ" portKind="CustomerSimuIn"/>
+  <C_Cpp:Ptr xmi:id="_-didsSWREeqLtaT0IHUAKQ" base_property="_-dVCZSWREeqLtaT0IHUAKQ"/>
+  <cil4sys:ElementToType xmi:id="_-djEwCWREeqLtaT0IHUAKQ" base_TypedElement="_-dVCZSWREeqLtaT0IHUAKQ" typeString="SimulationGeneric"/>
+  <standard:Create xmi:id="_-djEwSWREeqLtaT0IHUAKQ" base_BehavioralFeature="_-dVCaSWREeqLtaT0IHUAKQ"/>
+  <cil4sys:ConversionToModelOperation xmi:id="_-djr0CWREeqLtaT0IHUAKQ" base_Operation="_-dVCaiWREeqLtaT0IHUAKQ"/>
+  <cil4sys:EnvironmentActor xmi:id="_-djr0SWREeqLtaT0IHUAKQ" base_Class="_-dVCbCWREeqLtaT0IHUAKQ"/>
+  <cil4sys:InteractionPort xmi:id="_-dkS4CWREeqLtaT0IHUAKQ" base_Port="_-dVCbSWREeqLtaT0IHUAKQ" portKind="EnvironmentToEnv"/>
+  <cil4sys:InteractionPort xmi:id="_-dk58CWREeqLtaT0IHUAKQ" base_Port="_-dVCbiWREeqLtaT0IHUAKQ" portKind="EnvironmentFromEnv"/>
+  <cil4sys:InteractionPort xmi:id="_-dk58SWREeqLtaT0IHUAKQ" base_Port="_-dVCbyWREeqLtaT0IHUAKQ" portKind="EnvironmentSimuIn"/>
+  <C_Cpp:Ptr xmi:id="_-dlhACWREeqLtaT0IHUAKQ" base_property="_-dVCcCWREeqLtaT0IHUAKQ" declaration=""/>
+  <cil4sys:ElementToType xmi:id="_-dmIECWREeqLtaT0IHUAKQ" base_TypedElement="_-dVCcCWREeqLtaT0IHUAKQ" typeString="SimulationGeneric"/>
+  <standard:Create xmi:id="_-dmIESWREeqLtaT0IHUAKQ" base_BehavioralFeature="_-dVCdCWREeqLtaT0IHUAKQ"/>
+  <cil4sys:ConversionToModelOperation xmi:id="_-dmvICWREeqLtaT0IHUAKQ" base_Operation="_-dVCdSWREeqLtaT0IHUAKQ"/>
+  <cil4sys:InteractionClass xmi:id="_-dnWMCWREeqLtaT0IHUAKQ" portKind="EngineerInternalReturn" base_Class="_-dVCeCWREeqLtaT0IHUAKQ"/>
+  <cil4sys:InteractionClass xmi:id="_-dnWMSWREeqLtaT0IHUAKQ" portKind="EngineerInternalStimuli" base_Class="_-dVCeSWREeqLtaT0IHUAKQ"/>
+  <cil4sys:InteractionClass xmi:id="_-dn9QCWREeqLtaT0IHUAKQ" portKind="EngineerSimuIn" base_Class="_-dVCeiWREeqLtaT0IHUAKQ"/>
+  <cil4sys:InteractionClass xmi:id="_-dn9QSWREeqLtaT0IHUAKQ" base_Class="_-dVCeyWREeqLtaT0IHUAKQ"/>
+  <cil4sys:InteractionClass xmi:id="_-dokUCWREeqLtaT0IHUAKQ" portKind="CustomerFeedback" base_Class="_-dVCfCWREeqLtaT0IHUAKQ"/>
+  <cil4sys:InteractionClass xmi:id="_-dokUSWREeqLtaT0IHUAKQ" portKind="CustomerSimuIn" base_Class="_-dVCfSWREeqLtaT0IHUAKQ"/>
+  <cil4sys:InteractionClass xmi:id="_-dpLYCWREeqLtaT0IHUAKQ" portKind="EnvironmentSimuIn" base_Class="_-dVCfiWREeqLtaT0IHUAKQ"/>
+  <cil4sys:InteractionClass xmi:id="_-dpycCWREeqLtaT0IHUAKQ" portKind="EnvironmentToEnv" base_Class="_-dVCfyWREeqLtaT0IHUAKQ"/>
+  <cil4sys:InteractionClass xmi:id="_-dqZgCWREeqLtaT0IHUAKQ" portKind="EnvironmentFromEnv" base_Class="_-dVCgCWREeqLtaT0IHUAKQ"/>
+  <cil4sys:ServicesPackage xmi:id="_-dqZgSWREeqLtaT0IHUAKQ" base_Package="_-dVCgSWREeqLtaT0IHUAKQ"/>
+  <cil4sys:SignalsPackage xmi:id="_-drAkCWREeqLtaT0IHUAKQ" base_Package="_-dVCgiWREeqLtaT0IHUAKQ"/>
+  <cil4sys:ProductPackage xmi:id="_-drAkSWREeqLtaT0IHUAKQ" base_Package="_-dVCgyWREeqLtaT0IHUAKQ"/>
+  <cil4sys:ProductClass xmi:id="_-drAkiWREeqLtaT0IHUAKQ" base_Class="_-dVChCWREeqLtaT0IHUAKQ" status="IntegrationVariant"/>
+  <cil4sys:InteractionPort xmi:id="_-drnoCWREeqLtaT0IHUAKQ" base_Port="_-dVChSWREeqLtaT0IHUAKQ" portKind="ProductInputCustomer"/>
+  <cil4sys:InteractionPort xmi:id="_-drnoSWREeqLtaT0IHUAKQ" base_Port="_-dVChiWREeqLtaT0IHUAKQ" portKind="ProductOutputCustomer"/>
+  <cil4sys:InteractionPort xmi:id="_-dsOsCWREeqLtaT0IHUAKQ" base_Port="_-dVChyWREeqLtaT0IHUAKQ" portKind="ProductInputEngineer"/>
+  <cil4sys:InteractionPort xmi:id="_-dsOsSWREeqLtaT0IHUAKQ" base_Port="_-dVCiCWREeqLtaT0IHUAKQ" portKind="ProductOutputEngineer"/>
+  <cil4sys:InteractionPort xmi:id="_-ds1wCWREeqLtaT0IHUAKQ" base_Port="_-dVCiSWREeqLtaT0IHUAKQ" portKind="ProductInputEnvironment"/>
+  <cil4sys:InteractionPort xmi:id="_-ds1wSWREeqLtaT0IHUAKQ" base_Port="_-dVCiiWREeqLtaT0IHUAKQ" portKind="ProductOutputEnvironment"/>
+  <cil4sys:InteractionClass xmi:id="_-dtc0CWREeqLtaT0IHUAKQ" portKind="ProductInputCustomer" base_Class="_-dVCjCWREeqLtaT0IHUAKQ"/>
+  <cil4sys:InteractionClass xmi:id="_-dtc0SWREeqLtaT0IHUAKQ" portKind="ProductInputEngineer" base_Class="_-dVCjSWREeqLtaT0IHUAKQ"/>
+  <cil4sys:InteractionClass xmi:id="_-duD4CWREeqLtaT0IHUAKQ" portKind="ProductInputEnvironment" base_Class="_-dVCjiWREeqLtaT0IHUAKQ"/>
+  <cil4sys:InteractionClass xmi:id="_-duq8CWREeqLtaT0IHUAKQ" portKind="ProductOutputCustomer" base_Class="_-dVCjyWREeqLtaT0IHUAKQ"/>
+  <cil4sys:InteractionClass xmi:id="_-duq8SWREeqLtaT0IHUAKQ" portKind="ProductOutputEngineer" base_Class="_-dVCkCWREeqLtaT0IHUAKQ"/>
+  <cil4sys:InteractionClass xmi:id="_-dvSACWREeqLtaT0IHUAKQ" portKind="ProductOutputEnvironment" base_Class="_-dVCkSWREeqLtaT0IHUAKQ"/>
+  <cil4sys:ProjectClass xmi:id="_-dvSASWREeqLtaT0IHUAKQ" base_Class="_-dVCkyWREeqLtaT0IHUAKQ"/>
+  <cil4sys:UserProperty xmi:id="_-dv5ECWREeqLtaT0IHUAKQ" base_Property="_-dVClCWREeqLtaT0IHUAKQ"/>
+  <cil4sys:EnvironmentProperty xmi:id="_-dwgICWREeqLtaT0IHUAKQ" base_Property="_-dVClSWREeqLtaT0IHUAKQ"/>
+  <cil4sys:ProductProperty xmi:id="_-dxHMCWREeqLtaT0IHUAKQ" base_Property="_-dVCliWREeqLtaT0IHUAKQ"/>
+  <cil4sys:EngineerProperty xmi:id="_-dxHMSWREeqLtaT0IHUAKQ" base_Property="_-dVClyWREeqLtaT0IHUAKQ"/>
+  <Deployment:DeploymentPlan xmi:id="_-dxuQCWREeqLtaT0IHUAKQ" base_Package="_-dVCmCWREeqLtaT0IHUAKQ">
+    <chain xmi:type="Transformation:M2MTrafoChain" href="pathmap://DML_C_CORE/componentlib.uml#_NQUF0GpIEeaSLtRdInZlZA"/>
+  </Deployment:DeploymentPlan>
+  <C_Cpp:Include xmi:id="_-f51MCWREeqLtaT0IHUAKQ" header="#include &lt;thread>" base_class="_-dVCmiWREeqLtaT0IHUAKQ" base_Classifier="_-dVCmiWREeqLtaT0IHUAKQ"/>
+  <cil4sys:SimulationClass xmi:id="_-f51MSWREeqLtaT0IHUAKQ" base_Class="_-dVCmiWREeqLtaT0IHUAKQ"/>
+  <C_Cpp:Ptr xmi:id="_-f6cQCWREeqLtaT0IHUAKQ" base_property="_-dVCmyWREeqLtaT0IHUAKQ"/>
+  <cil4sys:SimulationClass xmi:id="_-f6cQSWREeqLtaT0IHUAKQ" base_Class="_-dVCnyWREeqLtaT0IHUAKQ" kind="CIL4SysRoot"/>
+  <standard:Create xmi:id="_-f7DUCWREeqLtaT0IHUAKQ" base_BehavioralFeature="_-dVCoiWREeqLtaT0IHUAKQ"/>
+  <cil4sys:SimulationClass xmi:id="_-f7DUSWREeqLtaT0IHUAKQ" base_Class="_-dVCpCWREeqLtaT0IHUAKQ" kind="Simulation"/>
+  <standard:Create xmi:id="_-f7DUiWREeqLtaT0IHUAKQ" base_BehavioralFeature="_-dVCpyWREeqLtaT0IHUAKQ"/>
+  <cil4sys:ProjectPackage xmi:id="_-f7qYCWREeqLtaT0IHUAKQ" base_Package="_-dVCUCWREeqLtaT0IHUAKQ"/>
+</xmi:XMI>
