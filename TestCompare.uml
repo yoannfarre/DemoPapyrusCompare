@@ -723,7 +723,351 @@ map_of_function_gen.insert(std::make_pair(&quot;time&quot;, std::bind(&amp;Envir
           <packagedElement xmi:type="uml:Class" xmi:id="_-dVCgCWREeqLtaT0IHUAKQ" name="EnvironmentFromEnv"/>
         </packagedElement>
       </packagedElement>
-      <packagedElement xmi:type="uml:Package" xmi:id="_-dVCgSWREeqLtaT0IHUAKQ" name="Services"/>
+      <packagedElement xmi:type="uml:Package" xmi:id="_-dVCgSWREeqLtaT0IHUAKQ" name="Services">
+        <packagedElement xmi:type="uml:Package" xmi:id="_wcZW9SWUEeqLtaT0IHUAKQ" name="Service1">
+          <packagedElement xmi:type="uml:Class" xmi:id="_wcZW9iWUEeqLtaT0IHUAKQ" name="Service1BB" classifierBehavior="_wcZW-CWUEeqLtaT0IHUAKQ">
+            <generalization xmi:type="uml:Generalization" xmi:id="_wcZW9yWUEeqLtaT0IHUAKQ" general="_wcZW_SWUEeqLtaT0IHUAKQ"/>
+            <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_wcZW-CWUEeqLtaT0IHUAKQ" name="Service1StateMachine">
+              <region xmi:type="uml:Region" xmi:id="_wcZW-SWUEeqLtaT0IHUAKQ" name="Service1">
+                <transition xmi:type="uml:Transition" xmi:id="_wcZW-iWUEeqLtaT0IHUAKQ" name="T0" source="_wcZW_CWUEeqLtaT0IHUAKQ" target="_wcZW-yWUEeqLtaT0IHUAKQ"/>
+                <subvertex xmi:type="uml:State" xmi:id="_wcZW-yWUEeqLtaT0IHUAKQ" name="FirstState"/>
+                <subvertex xmi:type="uml:Pseudostate" xmi:id="_wcZW_CWUEeqLtaT0IHUAKQ" name="InitialPoint"/>
+              </region>
+            </ownedBehavior>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_wcZW_SWUEeqLtaT0IHUAKQ" name="Service1Abstract" isAbstract="true">
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_wcZW_iWUEeqLtaT0IHUAKQ" name="simuIn" type="_wcZXHCWUEeqLtaT0IHUAKQ" aggregation="composite"/>
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_wcZW_yWUEeqLtaT0IHUAKQ" name="simuOut" type="_wcZXHSWUEeqLtaT0IHUAKQ" aggregation="composite" isConjugated="true"/>
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_wcZXACWUEeqLtaT0IHUAKQ" name="listening" type="_wcZXGCWUEeqLtaT0IHUAKQ" aggregation="composite"/>
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_wcZXASWUEeqLtaT0IHUAKQ" name="broadcast" type="_wcZXGSWUEeqLtaT0IHUAKQ" aggregation="composite" isConjugated="true"/>
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_wcZXAiWUEeqLtaT0IHUAKQ" name="broadcast_to_other_services" type="_wcZXGyWUEeqLtaT0IHUAKQ" aggregation="composite" isConjugated="true"/>
+            <ownedAttribute xmi:type="uml:Port" xmi:id="_wcZXAyWUEeqLtaT0IHUAKQ" name="from_other_services" type="_wcZXGiWUEeqLtaT0IHUAKQ" aggregation="composite"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_wcZXBCWUEeqLtaT0IHUAKQ" name="Service1WB">
+            <generalization xmi:type="uml:Generalization" xmi:id="_wcZXBSWUEeqLtaT0IHUAKQ" general="_wcZW_SWUEeqLtaT0IHUAKQ"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Package" xmi:id="_wcZXBiWUEeqLtaT0IHUAKQ" name="Interfaces">
+            <packagedElement xmi:type="uml:Package" xmi:id="_wcZXByWUEeqLtaT0IHUAKQ" name="Request">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_wcZXCCWUEeqLtaT0IHUAKQ">
+                <body>Request Interfaces&#xD;
+This diagram should only contain the request interfaces with the user (User actor).&#xD;
+Flows from the user to this service.&#xD;
+</body>
+              </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Package" xmi:id="_wcZXCSWUEeqLtaT0IHUAKQ" name="Feedback">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_wcZXCiWUEeqLtaT0IHUAKQ">
+                <body>Feedback Interfaces&#xD;
+This diagram should only contain the  feedback interfaces with the user (User Actor).&#xD;
+Flows from this service to the user.&#xD;
+</body>
+              </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Package" xmi:id="_wcZXCyWUEeqLtaT0IHUAKQ" name="FromEnv">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_wcZXDCWUEeqLtaT0IHUAKQ">
+                <body>FromEnv Interfaces&#xD;
+This diagram should only contain the interfaces with the environment (Environment actor).&#xD;
+Flows from the environment to this service.&#xD;
+</body>
+              </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Package" xmi:id="_wcZXDSWUEeqLtaT0IHUAKQ" name="ToEnv">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_wcZXDiWUEeqLtaT0IHUAKQ">
+                <body>ToEnv Interfaces&#xD;
+This diagram should only contain the interfaces with the environment (Environment actor).&#xD;
+Flows from this service to the environment.&#xD;
+</body>
+              </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Package" xmi:id="_wcZXDyWUEeqLtaT0IHUAKQ" name="FromEngineer">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_wcZXECWUEeqLtaT0IHUAKQ">
+                <body>FromEngineer Interfaces&#xD;
+This diagram should only contain the interfaces with engineer (Engineer actor).&#xD;
+Flows from the engineer to this service.</body>
+              </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Package" xmi:id="_wcZXESWUEeqLtaT0IHUAKQ" name="ToEngineer">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_wcZXEiWUEeqLtaT0IHUAKQ">
+                <body>ToEngineer Interfaces&#xD;
+This diagram should only contain the interfaces with the engineer (Engineer actor)&#xD;
+Flows from this service to the engineer&#xD;
+</body>
+              </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Package" xmi:id="_wcZXEyWUEeqLtaT0IHUAKQ" name="ExternalRequiredInterfaces">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_wcZXFCWUEeqLtaT0IHUAKQ">
+                <body>External Required Interfaces&#xD;
+This diagram should only contain the interfaces which are required by the service.&#xD;
+Flow from this service to another service.&#xD;
+</body>
+              </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Package" xmi:id="_wcZXFSWUEeqLtaT0IHUAKQ" name="ExternalProvidedInterfaces">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_wcZXFiWUEeqLtaT0IHUAKQ">
+                <body>External Provided Interfaces&#xD;
+This diagram should only contain the interfaces which are provided by this service.&#xD;
+Flow from another service to this service.&#xD;
+</body>
+              </ownedComment>
+            </packagedElement>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Package" xmi:id="_wcZXFyWUEeqLtaT0IHUAKQ" name="InteractionClasses">
+            <packagedElement xmi:type="uml:Class" xmi:id="_wcZXGCWUEeqLtaT0IHUAKQ" name="ServiceListening"/>
+            <packagedElement xmi:type="uml:Class" xmi:id="_wcZXGSWUEeqLtaT0IHUAKQ" name="ServiceBroadcast"/>
+            <packagedElement xmi:type="uml:Class" xmi:id="_wcZXGiWUEeqLtaT0IHUAKQ" name="ServiceListeningServices"/>
+            <packagedElement xmi:type="uml:Class" xmi:id="_wcZXGyWUEeqLtaT0IHUAKQ" name="ServiceBroadcastServices"/>
+            <packagedElement xmi:type="uml:Class" xmi:id="_wcZXHCWUEeqLtaT0IHUAKQ" name="ServiceSimuIn"/>
+            <packagedElement xmi:type="uml:Class" xmi:id="_wcZXHSWUEeqLtaT0IHUAKQ" name="ServiceSimuOut"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Activity" xmi:id="_wcZXHiWUEeqLtaT0IHUAKQ" name="Service1_RelevantPhases"/>
+          <packagedElement xmi:type="uml:Package" xmi:id="_wcZXHyWUEeqLtaT0IHUAKQ" name="Service1_UseCases"/>
+          <packagedElement xmi:type="uml:Package" xmi:id="_wcZXICWUEeqLtaT0IHUAKQ" name="Service1_UserStories"/>
+          <packagedElement xmi:type="uml:Package" xmi:id="_wcZXISWUEeqLtaT0IHUAKQ" name="Functions"/>
+          <packagedElement xmi:type="uml:Package" xmi:id="_wcZXIiWUEeqLtaT0IHUAKQ" name="Domains"/>
+          <packagedElement xmi:type="uml:Package" xmi:id="_wcZXIyWUEeqLtaT0IHUAKQ" name="Service_UnitVariant">
+            <packagedElement xmi:type="uml:Class" xmi:id="_wcZXJCWUEeqLtaT0IHUAKQ" name="Service1_Service_UnitVariant">
+              <ownedAttribute xmi:type="uml:Port" xmi:id="_wcZXJSWUEeqLtaT0IHUAKQ" name="inputCustomer" type="_wcZXLSWUEeqLtaT0IHUAKQ" aggregation="composite"/>
+              <ownedAttribute xmi:type="uml:Port" xmi:id="_wcZXJiWUEeqLtaT0IHUAKQ" name="outputCustomer" type="_wcZXMCWUEeqLtaT0IHUAKQ" aggregation="composite" isConjugated="true"/>
+              <ownedAttribute xmi:type="uml:Port" xmi:id="_wcZXJyWUEeqLtaT0IHUAKQ" name="inputEngineer" type="_wcZXLiWUEeqLtaT0IHUAKQ" aggregation="composite"/>
+              <ownedAttribute xmi:type="uml:Port" xmi:id="_wcZXKCWUEeqLtaT0IHUAKQ" name="outputEngineer" type="_wcZXMSWUEeqLtaT0IHUAKQ" aggregation="composite" isConjugated="true"/>
+              <ownedAttribute xmi:type="uml:Port" xmi:id="_wcZXKSWUEeqLtaT0IHUAKQ" name="inputEnvironment" type="_wcZXLyWUEeqLtaT0IHUAKQ" aggregation="composite"/>
+              <ownedAttribute xmi:type="uml:Port" xmi:id="_wcZXKiWUEeqLtaT0IHUAKQ" name="outputEnvironment" type="_wcZXMiWUEeqLtaT0IHUAKQ" aggregation="composite" isConjugated="true"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_wcZXKyWUEeqLtaT0IHUAKQ" name="Service1" visibility="public" type="_wcZW9iWUEeqLtaT0IHUAKQ"/>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Package" xmi:id="_wcZXLCWUEeqLtaT0IHUAKQ" name="InteractionClasses">
+              <packagedElement xmi:type="uml:Class" xmi:id="_wcZXLSWUEeqLtaT0IHUAKQ" name="ProductInputCustomer"/>
+              <packagedElement xmi:type="uml:Class" xmi:id="_wcZXLiWUEeqLtaT0IHUAKQ" name="ProductInputEngineer"/>
+              <packagedElement xmi:type="uml:Class" xmi:id="_wcZXLyWUEeqLtaT0IHUAKQ" name="ProductInputEnvironment"/>
+              <packagedElement xmi:type="uml:Class" xmi:id="_wcZXMCWUEeqLtaT0IHUAKQ" name="ProductOutputCustomer"/>
+              <packagedElement xmi:type="uml:Class" xmi:id="_wcZXMSWUEeqLtaT0IHUAKQ" name="ProductOutputEngineer"/>
+              <packagedElement xmi:type="uml:Class" xmi:id="_wcZXMiWUEeqLtaT0IHUAKQ" name="ProductOutputEnvironment"/>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Package" xmi:id="_wcZXMyWUEeqLtaT0IHUAKQ" name="Simulation">
+              <packagedElement xmi:type="uml:Class" xmi:id="_wcZXNCWUEeqLtaT0IHUAKQ" name="Project">
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_wcZXNSWUEeqLtaT0IHUAKQ" name="itsUser" visibility="public" type="_-dVCYSWREeqLtaT0IHUAKQ"/>
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_wcZXNiWUEeqLtaT0IHUAKQ" name="itsEnvironment" visibility="public" type="_-dVCbCWREeqLtaT0IHUAKQ"/>
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_wcZXNyWUEeqLtaT0IHUAKQ" name="itsProduct" visibility="public" type="_wcZXJCWUEeqLtaT0IHUAKQ"/>
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_wcZXOCWUEeqLtaT0IHUAKQ" name="itsEngineer" visibility="public" type="_-dVCUyWREeqLtaT0IHUAKQ"/>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Package" xmi:id="_wcZXOSWUEeqLtaT0IHUAKQ" name="Service1_Service_UnitVariant">
+                <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_wcZXOiWUEeqLtaT0IHUAKQ" name="mainDefaultComponent" classifier="_wcZXOyWUEeqLtaT0IHUAKQ"/>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_wcZXOyWUEeqLtaT0IHUAKQ" name="MainDefaultComponent">
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_wcZXPCWUEeqLtaT0IHUAKQ" name="cil4SysRoot" visibility="public" type="_wcZXQCWUEeqLtaT0IHUAKQ"/>
+                <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_wcZXPSWUEeqLtaT0IHUAKQ" client="_wcZXOyWUEeqLtaT0IHUAKQ _wcZXOyWUEeqLtaT0IHUAKQ">
+                  <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+                  <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+                  <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+                  <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+                  <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+                  <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+                  <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+                  <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+                  <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+                  <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+                  <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+                  <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+                  <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+                  <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+                  <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+                  <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+                  <contract xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+                </interfaceRealization>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_wcZXPiWUEeqLtaT0IHUAKQ" name="run" specification="_wcZXPyWUEeqLtaT0IHUAKQ">
+                  <language>C++</language>
+                  <body>	JsonTranslator jsonTranslator;&#xD;
+	websocket_server server;&#xD;
+&#xD;
+	cil4SysRoot = new CIL4SysRoot();&#xD;
+	cil4SysRoot->init_simulation();&#xD;
+&#xD;
+	//#[ configuration DefaultComponent::DefaultConfig&#xD;
+	server.RegisterListenerTranslator(&amp;jsonTranslator);&#xD;
+	jsonTranslator.RegisterListenerWebserver(&amp;server);&#xD;
+	jsonTranslator.RegisterListenerGraphicalTool(cil4SysRoot->pWebSimulator);&#xD;
+	cil4SysRoot->pWebSimulator->RegisterListenerTranslator(&amp;jsonTranslator);&#xD;
+&#xD;
+	std::cout &lt;&lt; &quot;starting CIL4Sys websocket server on Port 9002\n\n&quot;&#xD;
+			&lt;&lt; std::endl;&#xD;
+	//thread t(bind(&amp;websocket_server::send_message, &amp;server));&#xD;
+	server.run(9002);&#xD;
+	//t.join();&#xD;
+	delete cil4SysRoot;</body>
+                </ownedBehavior>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_wcZXPyWUEeqLtaT0IHUAKQ" name="run" method="_wcZXPiWUEeqLtaT0IHUAKQ"/>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_wcZXQCWUEeqLtaT0IHUAKQ" name="CIL4SysRoot">
+                <generalization xmi:type="uml:Generalization" xmi:id="_wc5GECWUEeqLtaT0IHUAKQ" general="_2fNZgCWKEeqLtaT0IHUAKQ"/>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_wcZXQSWUEeqLtaT0IHUAKQ" name="CIL4SysRoot" specification="_wcZXQyWUEeqLtaT0IHUAKQ">
+                  <language>C++</language>
+                  <body>pWebSimulator = new WebSimulator();&#xD;
+pWebSimulator->pCIL4SysRoot = this;&#xD;
+pSimulation = nullptr;</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_wcZXQiWUEeqLtaT0IHUAKQ" name="init_simulation" specification="_wcZXRCWUEeqLtaT0IHUAKQ">
+                  <language>C++</language>
+                  <body>	std::cout &lt;&lt; &quot;Initialize simulation&quot; &lt;&lt; std::endl;&#xD;
+&#xD;
+	if (pSimulation != nullptr) {&#xD;
+		delete pSimulation;&#xD;
+	}&#xD;
+&#xD;
+	pSimulation = new Simulation();&#xD;
+	pSimulation->pCIL4SysRoot = this;</body>
+                </ownedBehavior>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_wcZXQyWUEeqLtaT0IHUAKQ" name="CIL4SysRoot" method="_wcZXQSWUEeqLtaT0IHUAKQ"/>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_wcZXRCWUEeqLtaT0IHUAKQ" name="init_simulation" method="_wcZXQiWUEeqLtaT0IHUAKQ"/>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_wcZXRSWUEeqLtaT0IHUAKQ" name="Simulation">
+                <generalization xmi:type="uml:Generalization" xmi:id="_wc4fASWUEeqLtaT0IHUAKQ" general="_2fNZjyWKEeqLtaT0IHUAKQ"/>
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_wcZXRiWUEeqLtaT0IHUAKQ" name="itsProject" visibility="public" type="_wcZXNCWUEeqLtaT0IHUAKQ"/>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_wcZXRyWUEeqLtaT0IHUAKQ" name="Simulation" specification="_wcZXSCWUEeqLtaT0IHUAKQ">
+                  <language>C++</language>
+                  <body>itsProject.itsUser.pSimulation = this;&#xD;
+itsProject.itsEnvironment.pSimulation = this;&#xD;
+itsProject.itsEngineer.pSimulation = this;&#xD;
+&#xD;
+pEnvironment = &amp;itsProject.itsEnvironment;  &#xD;
+pUser = &amp;itsProject.itsUser;  &#xD;
+pEngineer = &amp;itsProject.itsEngineer;&#xD;
+&#xD;
+itsProject.createConnections();&#xD;
+//itsProject.itsProduct.createConnections();</body>
+                </ownedBehavior>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_wcZXSCWUEeqLtaT0IHUAKQ" name="Simulation" method="_wcZXRyWUEeqLtaT0IHUAKQ"/>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Usage" xmi:id="_wcZXSSWUEeqLtaT0IHUAKQ" client="_wcZXOyWUEeqLtaT0IHUAKQ" supplier="_wcZXQCWUEeqLtaT0IHUAKQ"/>
+              <packagedElement xmi:type="uml:Usage" xmi:id="_wcZXSiWUEeqLtaT0IHUAKQ" client="_wcZXOyWUEeqLtaT0IHUAKQ" supplier="_wcZXRSWUEeqLtaT0IHUAKQ"/>
+              <packagedElement xmi:type="uml:Usage" xmi:id="_wcZXSyWUEeqLtaT0IHUAKQ" client="_wcZXQCWUEeqLtaT0IHUAKQ" supplier="_wcZXRSWUEeqLtaT0IHUAKQ"/>
+              <packagedElement xmi:type="uml:Usage" xmi:id="_wc7iUCWUEeqLtaT0IHUAKQ" client="_wcZXOyWUEeqLtaT0IHUAKQ" supplier="_2fNaUyWKEeqLtaT0IHUAKQ"/>
+              <packagedElement xmi:type="uml:Usage" xmi:id="_wc7iUSWUEeqLtaT0IHUAKQ" client="_wcZXOyWUEeqLtaT0IHUAKQ" supplier="_2fNZoSWKEeqLtaT0IHUAKQ"/>
+              <packagedElement xmi:type="uml:Usage" xmi:id="_wc7iUiWUEeqLtaT0IHUAKQ" client="_wcZXOyWUEeqLtaT0IHUAKQ" supplier="_2fNaUiWKEeqLtaT0IHUAKQ"/>
+              <packagedElement xmi:type="uml:Usage" xmi:id="_wc7iUyWUEeqLtaT0IHUAKQ" client="_wcZXQCWUEeqLtaT0IHUAKQ" supplier="_2fNZoSWKEeqLtaT0IHUAKQ"/>
+            </packagedElement>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Package" xmi:id="_wcZXTCWUEeqLtaT0IHUAKQ" name="Function_UnitVariant">
+            <packagedElement xmi:type="uml:Class" xmi:id="_wcZXTSWUEeqLtaT0IHUAKQ" name="Service1_Function_UnitVariant">
+              <ownedAttribute xmi:type="uml:Port" xmi:id="_wcZXTiWUEeqLtaT0IHUAKQ" name="inputCustomer" type="_wcZXViWUEeqLtaT0IHUAKQ" aggregation="composite"/>
+              <ownedAttribute xmi:type="uml:Port" xmi:id="_wcZXTyWUEeqLtaT0IHUAKQ" name="outputCustomer" type="_wcZXWSWUEeqLtaT0IHUAKQ" aggregation="composite" isConjugated="true"/>
+              <ownedAttribute xmi:type="uml:Port" xmi:id="_wcZXUCWUEeqLtaT0IHUAKQ" name="inputEngineer" type="_wcZXVyWUEeqLtaT0IHUAKQ" aggregation="composite"/>
+              <ownedAttribute xmi:type="uml:Port" xmi:id="_wcZXUSWUEeqLtaT0IHUAKQ" name="outputEngineer" type="_wcZXWiWUEeqLtaT0IHUAKQ" aggregation="composite" isConjugated="true"/>
+              <ownedAttribute xmi:type="uml:Port" xmi:id="_wcZXUiWUEeqLtaT0IHUAKQ" name="inputEnvironment" type="_wcZXWCWUEeqLtaT0IHUAKQ" aggregation="composite"/>
+              <ownedAttribute xmi:type="uml:Port" xmi:id="_wcZXUyWUEeqLtaT0IHUAKQ" name="outputEnvironment" type="_wcZXWyWUEeqLtaT0IHUAKQ" aggregation="composite" isConjugated="true"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_wcZXVCWUEeqLtaT0IHUAKQ" name="Service1" visibility="public" type="_wcZXBCWUEeqLtaT0IHUAKQ"/>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Package" xmi:id="_wcZXVSWUEeqLtaT0IHUAKQ" name="InteractionClasses">
+              <packagedElement xmi:type="uml:Class" xmi:id="_wcZXViWUEeqLtaT0IHUAKQ" name="ProductInputCustomer"/>
+              <packagedElement xmi:type="uml:Class" xmi:id="_wcZXVyWUEeqLtaT0IHUAKQ" name="ProductInputEngineer"/>
+              <packagedElement xmi:type="uml:Class" xmi:id="_wcZXWCWUEeqLtaT0IHUAKQ" name="ProductInputEnvironment"/>
+              <packagedElement xmi:type="uml:Class" xmi:id="_wcZXWSWUEeqLtaT0IHUAKQ" name="ProductOutputCustomer"/>
+              <packagedElement xmi:type="uml:Class" xmi:id="_wcZXWiWUEeqLtaT0IHUAKQ" name="ProductOutputEngineer"/>
+              <packagedElement xmi:type="uml:Class" xmi:id="_wcZXWyWUEeqLtaT0IHUAKQ" name="ProductOutputEnvironment"/>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Package" xmi:id="_wcZXXCWUEeqLtaT0IHUAKQ" name="Simulation">
+              <packagedElement xmi:type="uml:Class" xmi:id="_wcZXXSWUEeqLtaT0IHUAKQ" name="Project">
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_wcZXXiWUEeqLtaT0IHUAKQ" name="itsUser" visibility="public" type="_-dVCYSWREeqLtaT0IHUAKQ"/>
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_wcZXXyWUEeqLtaT0IHUAKQ" name="itsEnvironment" visibility="public" type="_-dVCbCWREeqLtaT0IHUAKQ"/>
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_wcZXYCWUEeqLtaT0IHUAKQ" name="itsProduct" visibility="public" type="_wcZXTSWUEeqLtaT0IHUAKQ"/>
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_wcZXYSWUEeqLtaT0IHUAKQ" name="itsEngineer" visibility="public" type="_-dVCUyWREeqLtaT0IHUAKQ"/>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Package" xmi:id="_wcZXYiWUEeqLtaT0IHUAKQ" name="Service1_Function_UnitVariant">
+                <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_wcZXYyWUEeqLtaT0IHUAKQ" name="mainDefaultComponent" classifier="_wcZXZCWUEeqLtaT0IHUAKQ"/>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_wcZXZCWUEeqLtaT0IHUAKQ" name="MainDefaultComponent">
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_wcZXZSWUEeqLtaT0IHUAKQ" name="cil4SysRoot" visibility="public" type="_wcZXaSWUEeqLtaT0IHUAKQ"/>
+                <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_wcZXZiWUEeqLtaT0IHUAKQ" client="_wcZXZCWUEeqLtaT0IHUAKQ _wcZXZCWUEeqLtaT0IHUAKQ">
+                  <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+                  <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+                  <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+                  <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+                  <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+                  <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+                  <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+                  <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+                  <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+                  <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+                  <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+                  <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+                  <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+                  <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+                  <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+                  <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+                  <contract xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+                </interfaceRealization>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_wcZXZyWUEeqLtaT0IHUAKQ" name="run" specification="_wcZXaCWUEeqLtaT0IHUAKQ">
+                  <language>C++</language>
+                  <body>	JsonTranslator jsonTranslator;&#xD;
+	websocket_server server;&#xD;
+&#xD;
+	cil4SysRoot = new CIL4SysRoot();&#xD;
+	cil4SysRoot->init_simulation();&#xD;
+&#xD;
+	//#[ configuration DefaultComponent::DefaultConfig&#xD;
+	server.RegisterListenerTranslator(&amp;jsonTranslator);&#xD;
+	jsonTranslator.RegisterListenerWebserver(&amp;server);&#xD;
+	jsonTranslator.RegisterListenerGraphicalTool(cil4SysRoot->pWebSimulator);&#xD;
+	cil4SysRoot->pWebSimulator->RegisterListenerTranslator(&amp;jsonTranslator);&#xD;
+&#xD;
+	std::cout &lt;&lt; &quot;starting CIL4Sys websocket server on Port 9002\n\n&quot;&#xD;
+			&lt;&lt; std::endl;&#xD;
+	//thread t(bind(&amp;websocket_server::send_message, &amp;server));&#xD;
+	server.run(9002);&#xD;
+	//t.join();&#xD;
+	delete cil4SysRoot;</body>
+                </ownedBehavior>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_wcZXaCWUEeqLtaT0IHUAKQ" name="run" method="_wcZXZyWUEeqLtaT0IHUAKQ"/>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_wcZXaSWUEeqLtaT0IHUAKQ" name="CIL4SysRoot">
+                <generalization xmi:type="uml:Generalization" xmi:id="_wc4fACWUEeqLtaT0IHUAKQ" general="_2fNZgCWKEeqLtaT0IHUAKQ"/>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_wcZXaiWUEeqLtaT0IHUAKQ" name="CIL4SysRoot" specification="_wcZXbCWUEeqLtaT0IHUAKQ">
+                  <language>C++</language>
+                  <body>pWebSimulator = new WebSimulator();&#xD;
+pWebSimulator->pCIL4SysRoot = this;&#xD;
+pSimulation = nullptr;</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_wcZXayWUEeqLtaT0IHUAKQ" name="init_simulation" specification="_wcZXbSWUEeqLtaT0IHUAKQ">
+                  <language>C++</language>
+                  <body>	std::cout &lt;&lt; &quot;Initialize simulation&quot; &lt;&lt; std::endl;&#xD;
+&#xD;
+	if (pSimulation != nullptr) {&#xD;
+		delete pSimulation;&#xD;
+	}&#xD;
+&#xD;
+	pSimulation = new Simulation();&#xD;
+	pSimulation->pCIL4SysRoot = this;</body>
+                </ownedBehavior>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_wcZXbCWUEeqLtaT0IHUAKQ" name="CIL4SysRoot" method="_wcZXaiWUEeqLtaT0IHUAKQ"/>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_wcZXbSWUEeqLtaT0IHUAKQ" name="init_simulation" method="_wcZXayWUEeqLtaT0IHUAKQ"/>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_wcZXbiWUEeqLtaT0IHUAKQ" name="Simulation">
+                <generalization xmi:type="uml:Generalization" xmi:id="_wc5GESWUEeqLtaT0IHUAKQ" general="_2fNZjyWKEeqLtaT0IHUAKQ"/>
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_wcZXbyWUEeqLtaT0IHUAKQ" name="itsProject" visibility="public" type="_wcZXXSWUEeqLtaT0IHUAKQ"/>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_wcZXcCWUEeqLtaT0IHUAKQ" name="Simulation" specification="_wcZXcSWUEeqLtaT0IHUAKQ">
+                  <language>C++</language>
+                  <body>itsProject.itsUser.pSimulation = this;&#xD;
+itsProject.itsEnvironment.pSimulation = this;&#xD;
+itsProject.itsEngineer.pSimulation = this;&#xD;
+&#xD;
+pEnvironment = &amp;itsProject.itsEnvironment;  &#xD;
+pUser = &amp;itsProject.itsUser;  &#xD;
+pEngineer = &amp;itsProject.itsEngineer;&#xD;
+&#xD;
+itsProject.createConnections();&#xD;
+//itsProject.itsProduct.createConnections();</body>
+                </ownedBehavior>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_wcZXcSWUEeqLtaT0IHUAKQ" name="Simulation" method="_wcZXcCWUEeqLtaT0IHUAKQ"/>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Usage" xmi:id="_wcZXciWUEeqLtaT0IHUAKQ" client="_wcZXaSWUEeqLtaT0IHUAKQ" supplier="_wcZXaSWUEeqLtaT0IHUAKQ"/>
+              <packagedElement xmi:type="uml:Usage" xmi:id="_wcZXcyWUEeqLtaT0IHUAKQ" client="_wcZXZCWUEeqLtaT0IHUAKQ" supplier="_wcZXbiWUEeqLtaT0IHUAKQ"/>
+              <packagedElement xmi:type="uml:Usage" xmi:id="_wcZXdCWUEeqLtaT0IHUAKQ" client="_wcZXaSWUEeqLtaT0IHUAKQ" supplier="_wcZXbiWUEeqLtaT0IHUAKQ"/>
+              <packagedElement xmi:type="uml:Usage" xmi:id="_wc8wcCWUEeqLtaT0IHUAKQ" client="_wcZXZCWUEeqLtaT0IHUAKQ" supplier="_2fNaUyWKEeqLtaT0IHUAKQ"/>
+              <packagedElement xmi:type="uml:Usage" xmi:id="_wc8wcSWUEeqLtaT0IHUAKQ" client="_wcZXZCWUEeqLtaT0IHUAKQ" supplier="_2fNZoSWKEeqLtaT0IHUAKQ"/>
+              <packagedElement xmi:type="uml:Usage" xmi:id="_wc8wciWUEeqLtaT0IHUAKQ" client="_wcZXZCWUEeqLtaT0IHUAKQ" supplier="_2fNaUiWKEeqLtaT0IHUAKQ"/>
+              <packagedElement xmi:type="uml:Usage" xmi:id="_wc8wcyWUEeqLtaT0IHUAKQ" client="_wcZXaSWUEeqLtaT0IHUAKQ" supplier="_2fNZoSWKEeqLtaT0IHUAKQ"/>
+            </packagedElement>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_-dVCgiWREeqLtaT0IHUAKQ" name="Signals"/>
       <packagedElement xmi:type="uml:Package" xmi:id="_-dVCgyWREeqLtaT0IHUAKQ" name="MyTestProjectMainProduct">
         <packagedElement xmi:type="uml:Class" xmi:id="_-dVChCWREeqLtaT0IHUAKQ" name="MyTestProject">
@@ -733,6 +1077,7 @@ map_of_function_gen.insert(std::make_pair(&quot;time&quot;, std::bind(&amp;Envir
           <ownedAttribute xmi:type="uml:Port" xmi:id="_-dVCiCWREeqLtaT0IHUAKQ" name="outputEngineer" type="_-dVCkCWREeqLtaT0IHUAKQ" aggregation="composite" isConjugated="true"/>
           <ownedAttribute xmi:type="uml:Port" xmi:id="_-dVCiSWREeqLtaT0IHUAKQ" name="inputEnvironment" type="_-dVCjiWREeqLtaT0IHUAKQ" aggregation="composite"/>
           <ownedAttribute xmi:type="uml:Port" xmi:id="_-dVCiiWREeqLtaT0IHUAKQ" name="outputEnvironment" type="_-dVCkSWREeqLtaT0IHUAKQ" aggregation="composite" isConjugated="true"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_vyznQCWUEeqLtaT0IHUAKQ" name="Service1" type="_wcZW9iWUEeqLtaT0IHUAKQ"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Package" xmi:id="_-dVCiyWREeqLtaT0IHUAKQ" name="InteractionClasses">
           <packagedElement xmi:type="uml:Class" xmi:id="_-dVCjCWREeqLtaT0IHUAKQ" name="ProductInputCustomer"/>
@@ -754,7 +1099,7 @@ map_of_function_gen.insert(std::make_pair(&quot;time&quot;, std::bind(&amp;Envir
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_-dVCmiWREeqLtaT0IHUAKQ" name="MainDefaultComponent">
             <ownedAttribute xmi:type="uml:Property" xmi:id="_-dVCmyWREeqLtaT0IHUAKQ" name="cil4SysRoot" visibility="public" type="_-dVCnyWREeqLtaT0IHUAKQ"/>
-            <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_-dVCnCWREeqLtaT0IHUAKQ" client="_-dVCmiWREeqLtaT0IHUAKQ _-dVCmiWREeqLtaT0IHUAKQ">
+            <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_-dVCnCWREeqLtaT0IHUAKQ" client="_-dVCmiWREeqLtaT0IHUAKQ">
               <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
               <contract xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
             </interfaceRealization>
@@ -1078,4 +1423,105 @@ pEngineer = &amp;itsProject.itsEngineer;</body>
   <cil4sys:SimulationClass xmi:id="_-f7DUSWREeqLtaT0IHUAKQ" base_Class="_-dVCpCWREeqLtaT0IHUAKQ" kind="Simulation"/>
   <standard:Create xmi:id="_-f7DUiWREeqLtaT0IHUAKQ" base_BehavioralFeature="_-dVCpyWREeqLtaT0IHUAKQ"/>
   <cil4sys:ProjectPackage xmi:id="_-f7qYCWREeqLtaT0IHUAKQ" base_Package="_-dVCUCWREeqLtaT0IHUAKQ"/>
+  <cil4sys:ServiceClass xmi:id="_wcbzECWUEeqLtaT0IHUAKQ" base_Class="_wcZW9iWUEeqLtaT0IHUAKQ"/>
+  <Transformation:Monitored xmi:id="_wcbzESWUEeqLtaT0IHUAKQ" base_StateMachine="_wcZW-CWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:RequirementTransition xmi:id="_wccaICWUEeqLtaT0IHUAKQ" base_Element="_wcZW-iWUEeqLtaT0IHUAKQ" base_Transition="_wcZW-iWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:OperationalState xmi:id="_wcdBMCWUEeqLtaT0IHUAKQ" base_State="_wcZW-yWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:ServiceClass xmi:id="_wcdBMSWUEeqLtaT0IHUAKQ" base_Class="_wcZW_SWUEeqLtaT0IHUAKQ" kind="Undefined"/>
+  <cil4sys:InteractionPort xmi:id="_wcdoQCWUEeqLtaT0IHUAKQ" base_Port="_wcZW_iWUEeqLtaT0IHUAKQ" portKind="ServiceSimuIn"/>
+  <cil4sys:InteractionPort xmi:id="_wcdoQSWUEeqLtaT0IHUAKQ" base_Port="_wcZW_yWUEeqLtaT0IHUAKQ" portKind="ServiceSimuOut"/>
+  <cil4sys:InteractionPort xmi:id="_wcePUCWUEeqLtaT0IHUAKQ" base_Port="_wcZXACWUEeqLtaT0IHUAKQ" portKind="ServiceListening"/>
+  <cil4sys:InteractionPort xmi:id="_wcePUSWUEeqLtaT0IHUAKQ" base_Port="_wcZXASWUEeqLtaT0IHUAKQ" portKind="ServiceBroadcast"/>
+  <cil4sys:InteractionPort xmi:id="_wce2YCWUEeqLtaT0IHUAKQ" base_Port="_wcZXAiWUEeqLtaT0IHUAKQ" portKind="ServiceBroadcastServices"/>
+  <cil4sys:InteractionPort xmi:id="_wcfdcCWUEeqLtaT0IHUAKQ" base_Port="_wcZXAyWUEeqLtaT0IHUAKQ" portKind="ServiceListeningServices"/>
+  <cil4sys:ServiceClass xmi:id="_wcfdcSWUEeqLtaT0IHUAKQ" base_Class="_wcZXBCWUEeqLtaT0IHUAKQ" kind="NonBehavior"/>
+  <cil4sys:Interfaces xmi:id="_wcfdciWUEeqLtaT0IHUAKQ" base_Package="_wcZXBiWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:SpecificInterfaces xmi:id="_wcgEgCWUEeqLtaT0IHUAKQ" base_Package="_wcZXByWUEeqLtaT0IHUAKQ" status="Provided"/>
+  <cil4sys:SpecificInterfaces xmi:id="_wcgEgSWUEeqLtaT0IHUAKQ" base_Package="_wcZXCSWUEeqLtaT0IHUAKQ" kind="Feedback" status="Required" diagram="FEEDBACK_INTERFACE_DIAGRAM"/>
+  <cil4sys:SpecificInterfaces xmi:id="_wcgrkCWUEeqLtaT0IHUAKQ" base_Package="_wcZXCyWUEeqLtaT0IHUAKQ" kind="FromEnv" status="Provided" diagram="ENVIRONMENT_INPUT_INTERFACE_DIAGRAM"/>
+  <cil4sys:SpecificInterfaces xmi:id="_wcgrkSWUEeqLtaT0IHUAKQ" base_Package="_wcZXDSWUEeqLtaT0IHUAKQ" kind="ToEnv" status="Required" diagram="ENVIRONMENT_OUTPUT_INTERFACE_DIAGRAM"/>
+  <cil4sys:SpecificInterfaces xmi:id="_wcgrkiWUEeqLtaT0IHUAKQ" base_Package="_wcZXDyWUEeqLtaT0IHUAKQ" kind="FromEngineer" status="Provided" diagram="ENGINEER_INPUT_INTERFACE_DIAGRAM"/>
+  <cil4sys:SpecificInterfaces xmi:id="_wchSoCWUEeqLtaT0IHUAKQ" base_Package="_wcZXESWUEeqLtaT0IHUAKQ" kind="ToEngineer" status="Required" diagram="ENGINEER_OUTPUT_INTERFACE_DIAGRAM"/>
+  <cil4sys:SpecificInterfaces xmi:id="_wchSoSWUEeqLtaT0IHUAKQ" base_Package="_wcZXEyWUEeqLtaT0IHUAKQ" kind="Inter" status="Required" diagram="SERVICE_REQUIRED_INTERFACE_DIAGRAM"/>
+  <cil4sys:SpecificInterfaces xmi:id="_wch5sCWUEeqLtaT0IHUAKQ" base_Package="_wcZXFSWUEeqLtaT0IHUAKQ" kind="Inter" status="Provided" diagram="SERVICE_PROVIDED_INTERFACE_DIAGRAM"/>
+  <cil4sys:InteractionClass xmi:id="_wch5sSWUEeqLtaT0IHUAKQ" portKind="ServiceListening" base_Class="_wcZXGCWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:InteractionClass xmi:id="_wch5siWUEeqLtaT0IHUAKQ" portKind="ServiceBroadcast" base_Class="_wcZXGSWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:InteractionClass xmi:id="_wcigwCWUEeqLtaT0IHUAKQ" portKind="ServiceListeningServices" base_Class="_wcZXGiWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:InteractionClass xmi:id="_wcigwSWUEeqLtaT0IHUAKQ" portKind="ServiceBroadcastServices" base_Class="_wcZXGyWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:InteractionClass xmi:id="_wcjH0CWUEeqLtaT0IHUAKQ" portKind="ServiceSimuIn" base_Class="_wcZXHCWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:InteractionClass xmi:id="_wcju4CWUEeqLtaT0IHUAKQ" portKind="ServiceSimuOut" base_Class="_wcZXHSWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:RelevantPhasesActivity xmi:id="_wcju4SWUEeqLtaT0IHUAKQ" base_Activity="_wcZXHiWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:UseCasesPackage xmi:id="_wcju4iWUEeqLtaT0IHUAKQ" base_Package="_wcZXHyWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:UserStoriesPackage xmi:id="_wcju4yWUEeqLtaT0IHUAKQ" base_Package="_wcZXICWUEeqLtaT0IHUAKQ"/>
+  <Codegen:NoCodeGen xmi:id="_wckV8CWUEeqLtaT0IHUAKQ" base_Element="_wcZXICWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:FunctionsPackage xmi:id="_wckV8SWUEeqLtaT0IHUAKQ" base_Package="_wcZXISWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:DomainsPackage xmi:id="_wck9ACWUEeqLtaT0IHUAKQ" base_Package="_wcZXIiWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:ProductPackage xmi:id="_wck9ASWUEeqLtaT0IHUAKQ" base_Package="_wcZXIyWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:ProductClass xmi:id="_wck9AiWUEeqLtaT0IHUAKQ" base_Class="_wcZXJCWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:InteractionPort xmi:id="_wclkECWUEeqLtaT0IHUAKQ" base_Port="_wcZXJSWUEeqLtaT0IHUAKQ" portKind="ProductInputCustomer"/>
+  <cil4sys:InteractionPort xmi:id="_wclkESWUEeqLtaT0IHUAKQ" base_Port="_wcZXJiWUEeqLtaT0IHUAKQ" portKind="ProductOutputCustomer"/>
+  <cil4sys:InteractionPort xmi:id="_wcmLICWUEeqLtaT0IHUAKQ" base_Port="_wcZXJyWUEeqLtaT0IHUAKQ" portKind="ProductInputEngineer"/>
+  <cil4sys:InteractionPort xmi:id="_wcmLISWUEeqLtaT0IHUAKQ" base_Port="_wcZXKCWUEeqLtaT0IHUAKQ" portKind="ProductOutputEngineer"/>
+  <cil4sys:InteractionPort xmi:id="_wcmyMCWUEeqLtaT0IHUAKQ" base_Port="_wcZXKSWUEeqLtaT0IHUAKQ" portKind="ProductInputEnvironment"/>
+  <cil4sys:InteractionPort xmi:id="_wcmyMSWUEeqLtaT0IHUAKQ" base_Port="_wcZXKiWUEeqLtaT0IHUAKQ" portKind="ProductOutputEnvironment"/>
+  <cil4sys:ServiceProperty xmi:id="_wcnZQCWUEeqLtaT0IHUAKQ" base_Property="_wcZXKyWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:InteractionClass xmi:id="_wcnZQSWUEeqLtaT0IHUAKQ" portKind="ProductInputCustomer" base_Class="_wcZXLSWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:InteractionClass xmi:id="_wcoAUCWUEeqLtaT0IHUAKQ" portKind="ProductInputEngineer" base_Class="_wcZXLiWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:InteractionClass xmi:id="_wcoAUSWUEeqLtaT0IHUAKQ" portKind="ProductInputEnvironment" base_Class="_wcZXLyWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:InteractionClass xmi:id="_wconYCWUEeqLtaT0IHUAKQ" portKind="ProductOutputCustomer" base_Class="_wcZXMCWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:InteractionClass xmi:id="_wconYSWUEeqLtaT0IHUAKQ" portKind="ProductOutputEngineer" base_Class="_wcZXMSWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:InteractionClass xmi:id="_wconYiWUEeqLtaT0IHUAKQ" portKind="ProductOutputEnvironment" base_Class="_wcZXMiWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:ProjectClass xmi:id="_wcpOcCWUEeqLtaT0IHUAKQ" base_Class="_wcZXNCWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:UserProperty xmi:id="_wcpOcSWUEeqLtaT0IHUAKQ" base_Property="_wcZXNSWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:ElementToType xmi:id="_wcp1gCWUEeqLtaT0IHUAKQ" base_TypedElement="_wcZXNSWUEeqLtaT0IHUAKQ" typeString="User"/>
+  <cil4sys:EnvironmentProperty xmi:id="_wcp1gSWUEeqLtaT0IHUAKQ" base_Property="_wcZXNiWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:ElementToType xmi:id="_wcqckCWUEeqLtaT0IHUAKQ" base_TypedElement="_wcZXNiWUEeqLtaT0IHUAKQ" typeString="Environment"/>
+  <cil4sys:ProductProperty xmi:id="_wcqckSWUEeqLtaT0IHUAKQ" base_Property="_wcZXNyWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:EngineerProperty xmi:id="_wcqckiWUEeqLtaT0IHUAKQ" base_Property="_wcZXOCWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:ElementToType xmi:id="_wcrDoCWUEeqLtaT0IHUAKQ" base_TypedElement="_wcZXOCWUEeqLtaT0IHUAKQ" typeString="Engineer"/>
+  <Deployment:DeploymentPlan xmi:id="_wcrDoSWUEeqLtaT0IHUAKQ" base_Package="_wcZXOSWUEeqLtaT0IHUAKQ">
+    <chain xmi:type="Transformation:M2MTrafoChain" href="pathmap://DML_C_CORE/componentlib.uml#_NQUF0GpIEeaSLtRdInZlZA"/>
+  </Deployment:DeploymentPlan>
+  <C_Cpp:Include xmi:id="_wcrqsCWUEeqLtaT0IHUAKQ" header="#include &lt;thread>" base_class="_wcZXOyWUEeqLtaT0IHUAKQ" base_Classifier="_wcZXOyWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:SimulationClass xmi:id="_wcsRwCWUEeqLtaT0IHUAKQ" base_Class="_wcZXOyWUEeqLtaT0IHUAKQ"/>
+  <C_Cpp:Ptr xmi:id="_wcsRwSWUEeqLtaT0IHUAKQ" base_property="_wcZXPCWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:SimulationClass xmi:id="_wcs40CWUEeqLtaT0IHUAKQ" base_Class="_wcZXQCWUEeqLtaT0IHUAKQ" kind="CIL4SysRoot"/>
+  <standard:Create xmi:id="_wcs40SWUEeqLtaT0IHUAKQ" base_BehavioralFeature="_wcZXQyWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:SimulationClass xmi:id="_wcuG8CWUEeqLtaT0IHUAKQ" base_Class="_wcZXRSWUEeqLtaT0IHUAKQ" kind="Simulation"/>
+  <standard:Create xmi:id="_wcuG8SWUEeqLtaT0IHUAKQ" base_BehavioralFeature="_wcZXSCWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:ProductPackage xmi:id="_wcuG8iWUEeqLtaT0IHUAKQ" base_Package="_wcZXTCWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:ProductClass xmi:id="_wcuuACWUEeqLtaT0IHUAKQ" base_Class="_wcZXTSWUEeqLtaT0IHUAKQ" status="FunctionUnitVariant"/>
+  <cil4sys:InteractionPort xmi:id="_wcuuASWUEeqLtaT0IHUAKQ" base_Port="_wcZXTiWUEeqLtaT0IHUAKQ" portKind="ProductInputCustomer"/>
+  <cil4sys:InteractionPort xmi:id="_wcvVECWUEeqLtaT0IHUAKQ" base_Port="_wcZXTyWUEeqLtaT0IHUAKQ" portKind="ProductOutputCustomer"/>
+  <cil4sys:InteractionPort xmi:id="_wcvVESWUEeqLtaT0IHUAKQ" base_Port="_wcZXUCWUEeqLtaT0IHUAKQ" portKind="ProductInputEngineer"/>
+  <cil4sys:InteractionPort xmi:id="_wcv8ICWUEeqLtaT0IHUAKQ" base_Port="_wcZXUSWUEeqLtaT0IHUAKQ" portKind="ProductOutputEngineer"/>
+  <cil4sys:InteractionPort xmi:id="_wcv8ISWUEeqLtaT0IHUAKQ" base_Port="_wcZXUiWUEeqLtaT0IHUAKQ" portKind="ProductInputEnvironment"/>
+  <cil4sys:InteractionPort xmi:id="_wcwjMCWUEeqLtaT0IHUAKQ" base_Port="_wcZXUyWUEeqLtaT0IHUAKQ" portKind="ProductOutputEnvironment"/>
+  <cil4sys:ServiceProperty xmi:id="_wcwjMSWUEeqLtaT0IHUAKQ" base_Property="_wcZXVCWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:InteractionClass xmi:id="_wcxKQCWUEeqLtaT0IHUAKQ" portKind="ProductInputCustomer" base_Class="_wcZXViWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:InteractionClass xmi:id="_wcxKQSWUEeqLtaT0IHUAKQ" portKind="ProductInputEngineer" base_Class="_wcZXVyWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:InteractionClass xmi:id="_wcxxUCWUEeqLtaT0IHUAKQ" portKind="ProductInputEnvironment" base_Class="_wcZXWCWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:InteractionClass xmi:id="_wcxxUSWUEeqLtaT0IHUAKQ" portKind="ProductOutputCustomer" base_Class="_wcZXWSWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:InteractionClass xmi:id="_wcxxUiWUEeqLtaT0IHUAKQ" portKind="ProductOutputEngineer" base_Class="_wcZXWiWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:InteractionClass xmi:id="_wcyYYCWUEeqLtaT0IHUAKQ" portKind="ProductOutputEnvironment" base_Class="_wcZXWyWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:ProjectClass xmi:id="_wcyYYSWUEeqLtaT0IHUAKQ" base_Class="_wcZXXSWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:UserProperty xmi:id="_wcy_cCWUEeqLtaT0IHUAKQ" base_Property="_wcZXXiWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:ElementToType xmi:id="_wcy_cSWUEeqLtaT0IHUAKQ" base_TypedElement="_wcZXXiWUEeqLtaT0IHUAKQ" typeString="User"/>
+  <cil4sys:EnvironmentProperty xmi:id="_wczmgCWUEeqLtaT0IHUAKQ" base_Property="_wcZXXyWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:ElementToType xmi:id="_wczmgSWUEeqLtaT0IHUAKQ" base_TypedElement="_wcZXXyWUEeqLtaT0IHUAKQ" typeString="Environment"/>
+  <cil4sys:ProductProperty xmi:id="_wczmgiWUEeqLtaT0IHUAKQ" base_Property="_wcZXYCWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:EngineerProperty xmi:id="_wc0NkCWUEeqLtaT0IHUAKQ" base_Property="_wcZXYSWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:ElementToType xmi:id="_wc0NkSWUEeqLtaT0IHUAKQ" base_TypedElement="_wcZXYSWUEeqLtaT0IHUAKQ" typeString="Engineer"/>
+  <Deployment:DeploymentPlan xmi:id="_wc00oCWUEeqLtaT0IHUAKQ" base_Package="_wcZXYiWUEeqLtaT0IHUAKQ">
+    <chain xmi:type="Transformation:M2MTrafoChain" href="pathmap://DML_C_CORE/componentlib.uml#_NQUF0GpIEeaSLtRdInZlZA"/>
+  </Deployment:DeploymentPlan>
+  <C_Cpp:Include xmi:id="_wc00oSWUEeqLtaT0IHUAKQ" header="#include &lt;thread>" base_class="_wcZXZCWUEeqLtaT0IHUAKQ" base_Classifier="_wcZXZCWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:SimulationClass xmi:id="_wc1bsCWUEeqLtaT0IHUAKQ" base_Class="_wcZXZCWUEeqLtaT0IHUAKQ"/>
+  <C_Cpp:Ptr xmi:id="_wc1bsSWUEeqLtaT0IHUAKQ" base_property="_wcZXZSWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:SimulationClass xmi:id="_wc2CwCWUEeqLtaT0IHUAKQ" base_Class="_wcZXaSWUEeqLtaT0IHUAKQ" kind="CIL4SysRoot"/>
+  <standard:Create xmi:id="_wc2CwSWUEeqLtaT0IHUAKQ" base_BehavioralFeature="_wcZXbCWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:SimulationClass xmi:id="_wc2CwiWUEeqLtaT0IHUAKQ" base_Class="_wcZXbiWUEeqLtaT0IHUAKQ" kind="Simulation"/>
+  <standard:Create xmi:id="_wc2p0CWUEeqLtaT0IHUAKQ" base_BehavioralFeature="_wcZXcSWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:ServicePackage xmi:id="_wc2p0SWUEeqLtaT0IHUAKQ" base_Package="_wcZW9SWUEeqLtaT0IHUAKQ"/>
+  <cil4sys:ServiceProperty xmi:id="_wdSHoCWUEeqLtaT0IHUAKQ" base_Property="_vyznQCWUEeqLtaT0IHUAKQ"/>
 </xmi:XMI>
