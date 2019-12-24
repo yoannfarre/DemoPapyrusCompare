@@ -638,30 +638,13 @@ SendNewObject(objecttosend);</body>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_-dVCWCWREeqLtaT0IHUAKQ" name="dictionaryClass" visibility="public" type="_-dVCUiWREeqLtaT0IHUAKQ"/>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-dVCWSWREeqLtaT0IHUAKQ" name="Engineer" specification="_-dVCXCWREeqLtaT0IHUAKQ">
             <language>C++</language>
-            <body>// To fill&#xD;
-&#xD;
-map_of_function_gen.insert(std::make_pair(&quot;initValuesScenario&quot;, std::bind(&amp;Engineer::initValuesScenario, this,  std::placeholders::_1 )));&#xD;
-map_of_function_gen.insert(std::make_pair(&quot;this&quot;, std::bind(&amp;Engineer::mthis, this,  std::placeholders::_1 )));</body>
-          </ownedBehavior>
-          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-dVCWiWREeqLtaT0IHUAKQ" name="initValuesScenario" specification="_-dVCXSWREeqLtaT0IHUAKQ">
-            <language>C++</language>
-            <body>// To fill</body>
-          </ownedBehavior>
-          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-dVCWyWREeqLtaT0IHUAKQ" name="mthis" specification="_-dVCXyWREeqLtaT0IHUAKQ">
-            <language>C++</language>
-            <body>// To fill</body>
+            <body>//CREATE_MAP
+// Engineer()
+
+//END_CREATE_MAP
+</body>
           </ownedBehavior>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_-dVCXCWREeqLtaT0IHUAKQ" name="Engineer" method="_-dVCWSWREeqLtaT0IHUAKQ"/>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_-dVCXSWREeqLtaT0IHUAKQ" name="initValuesScenario" method="_-dVCWiWREeqLtaT0IHUAKQ">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_-dVCXiWREeqLtaT0IHUAKQ" name="object_param" visibility="public" effect="create">
-              <type xmi:type="uml:Class" href="platform:/plugin/org.eclipse.papyrus.cil4sys.template/resources/FullTemplate.uml#_mUCP8CYEEeiIvrkR9KzEtA"/>
-            </ownedParameter>
-          </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_-dVCXyWREeqLtaT0IHUAKQ" name="mthis" method="_-dVCWyWREeqLtaT0IHUAKQ">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_-dVCYCWREeqLtaT0IHUAKQ" name="object_param">
-              <type xmi:type="uml:Class" href="platform:/plugin/org.eclipse.papyrus.cil4sys.template/resources/FullTemplate.uml#_mUCP8CYEEeiIvrkR9KzEtA"/>
-            </ownedParameter>
-          </ownedOperation>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_-dVCYSWREeqLtaT0IHUAKQ" name="User">
           <generalization xmi:type="uml:Generalization" xmi:id="_-gN-QSWREeqLtaT0IHUAKQ" general="_2fNZYyWKEeqLtaT0IHUAKQ"/>
@@ -672,19 +655,21 @@ map_of_function_gen.insert(std::make_pair(&quot;this&quot;, std::bind(&amp;Engin
           <ownedAttribute xmi:type="uml:Property" xmi:id="_-dVCZiWREeqLtaT0IHUAKQ" name="dictionaryClass" visibility="public" type="_-dVCUiWREeqLtaT0IHUAKQ"/>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-dVCZyWREeqLtaT0IHUAKQ" name="User" specification="_-dVCaSWREeqLtaT0IHUAKQ">
             <language>C++</language>
-            <body>// User&#xD;
-&#xD;
-map_of_function_gen.insert(std::make_pair(&quot;myCar&quot;, std::bind(&amp;User::myCar, this,  std::placeholders::_1 )));</body>
+            <body>//CREATE_MAP
+// User()
+
+map_of_function_gen.insert(std::make_pair(&quot;MySuperOp&quot;, std::bind(&amp;User::MySuperOp, this,  std::placeholders::_1 )));
+//END_CREATE_MAP
+</body>
           </ownedBehavior>
-          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-dVCaCWREeqLtaT0IHUAKQ" name="myCar" specification="_-dVCaiWREeqLtaT0IHUAKQ">
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_fE7rkSYfEeqlYp3owykQwA" name="MySuperOp" specification="_fE7rkCYfEeqlYp3owykQwA">
             <language>C++</language>
-            <body>// To fill</body>
+            <body>requestI_MyInterface->MySuperOp();
+</body>
           </ownedBehavior>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_-dVCaSWREeqLtaT0IHUAKQ" name="User" method="_-dVCZyWREeqLtaT0IHUAKQ"/>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_-dVCaiWREeqLtaT0IHUAKQ" name="myCar" method="_-dVCaCWREeqLtaT0IHUAKQ">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_-dVCayWREeqLtaT0IHUAKQ" name="object_param">
-              <type xmi:type="uml:Class" href="platform:/plugin/org.eclipse.papyrus.cil4sys.template/resources/FullTemplate.uml#_mUCP8CYEEeiIvrkR9KzEtA"/>
-            </ownedParameter>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_fE7rkCYfEeqlYp3owykQwA" name="MySuperOp" method="_fE7rkSYfEeqlYp3owykQwA">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_fE9gwCYfEeqlYp3owykQwA" name="object_param" type="_2fNaTiWKEeqLtaT0IHUAKQ"/>
           </ownedOperation>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_-dVCbCWREeqLtaT0IHUAKQ" name="Environment">
@@ -696,26 +681,22 @@ map_of_function_gen.insert(std::make_pair(&quot;myCar&quot;, std::bind(&amp;User
           <ownedAttribute xmi:type="uml:Property" xmi:id="_-dVCcSWREeqLtaT0IHUAKQ" name="dictionaryClass" visibility="public" type="_-dVCUiWREeqLtaT0IHUAKQ"/>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-dVCciWREeqLtaT0IHUAKQ" name="Environment" specification="_-dVCdCWREeqLtaT0IHUAKQ">
             <language>C++</language>
-            <body>// Environment&#xD;
-&#xD;
-map_of_function_gen.insert(std::make_pair(&quot;time&quot;, std::bind(&amp;Environment::time, this,  std::placeholders::_1 )));</body>
-          </ownedBehavior>
-          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-dVCcyWREeqLtaT0IHUAKQ" name="time" specification="_-dVCdSWREeqLtaT0IHUAKQ">
-            <language>C++</language>
-            <body>// To fill</body>
+            <body>//CREATE_MAP
+// Environment()
+
+//END_CREATE_MAP
+</body>
           </ownedBehavior>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_-dVCdCWREeqLtaT0IHUAKQ" name="Environment" method="_-dVCciWREeqLtaT0IHUAKQ"/>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_-dVCdSWREeqLtaT0IHUAKQ" name="time" method="_-dVCcyWREeqLtaT0IHUAKQ">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_-dVCdiWREeqLtaT0IHUAKQ" name="object_param">
-              <type xmi:type="uml:Class" href="platform:/plugin/org.eclipse.papyrus.cil4sys.template/resources/FullTemplate.uml#_mUCP8CYEEeiIvrkR9KzEtA"/>
-            </ownedParameter>
-          </ownedOperation>
         </packagedElement>
         <packagedElement xmi:type="uml:Package" xmi:id="_-dVCdyWREeqLtaT0IHUAKQ" name="InteractionClasses">
           <packagedElement xmi:type="uml:Class" xmi:id="_-dVCeCWREeqLtaT0IHUAKQ" name="EngineerInternalReturn"/>
           <packagedElement xmi:type="uml:Class" xmi:id="_-dVCeSWREeqLtaT0IHUAKQ" name="EngineerInternalStimuli"/>
           <packagedElement xmi:type="uml:Class" xmi:id="_-dVCeiWREeqLtaT0IHUAKQ" name="EngineerSimuIn"/>
-          <packagedElement xmi:type="uml:Class" xmi:id="_-dVCeyWREeqLtaT0IHUAKQ" name="CustomerRequest"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_-dVCeyWREeqLtaT0IHUAKQ" name="CustomerRequest">
+            <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_dqaOUSYfEeqlYp3owykQwA" name="" client="_-dVCeyWREeqLtaT0IHUAKQ" supplier="_c4lv0CYfEeqlYp3owykQwA" contract="_c4lv0CYfEeqlYp3owykQwA"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_eAE8USYfEeqlYp3owykQwA" name="MySuperOp"/>
+          </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_-dVCfCWREeqLtaT0IHUAKQ" name="CustomerFeedback"/>
           <packagedElement xmi:type="uml:Class" xmi:id="_-dVCfSWREeqLtaT0IHUAKQ" name="CustomerSimuIn"/>
           <packagedElement xmi:type="uml:Class" xmi:id="_-dVCfiWREeqLtaT0IHUAKQ" name="EnvironmentSimuIn"/>
@@ -1070,13 +1051,36 @@ itsProject.createConnections();&#xD;
         <packagedElement xmi:type="uml:Package" xmi:id="_vOnqNyWWEeqLtaT0IHUAKQ" name="Service3">
           <packagedElement xmi:type="uml:Class" xmi:id="_vOnqOCWWEeqLtaT0IHUAKQ" name="Service3BB" classifierBehavior="_vOnqOiWWEeqLtaT0IHUAKQ">
             <generalization xmi:type="uml:Generalization" xmi:id="_vOnqOSWWEeqLtaT0IHUAKQ" general="_vOnqPyWWEeqLtaT0IHUAKQ"/>
+            <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_dqaOUiYfEeqlYp3owykQwA" name="" client="_vOnqOCWWEeqLtaT0IHUAKQ" supplier="_c4lv0CYfEeqlYp3owykQwA" contract="_c4lv0CYfEeqlYp3owykQwA"/>
             <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_vOnqOiWWEeqLtaT0IHUAKQ" name="Service3StateMachine">
               <region xmi:type="uml:Region" xmi:id="_vOnqOyWWEeqLtaT0IHUAKQ" name="Service3">
                 <transition xmi:type="uml:Transition" xmi:id="_vOnqPCWWEeqLtaT0IHUAKQ" name="T0" source="_vOnqPiWWEeqLtaT0IHUAKQ" target="_vOnqPSWWEeqLtaT0IHUAKQ"/>
+                <transition xmi:type="uml:Transition" xmi:id="_ivIscCYfEeqlYp3owykQwA" name="T4" kind="internal" source="_vOnqPSWWEeqLtaT0IHUAKQ" target="_vOnqPSWWEeqLtaT0IHUAKQ">
+                  <effect xmi:type="uml:OpaqueBehavior" xmi:id="_ixbLcCYfEeqlYp3owykQwA" name="">
+                    <language>C++</language>
+                    <body>sayGoodBye();
+</body>
+                  </effect>
+                  <trigger xmi:type="uml:Trigger" xmi:id="_ivJTgCYfEeqlYp3owykQwA" name="" event="_fD6-8CYfEeqlYp3owykQwA"/>
+                </transition>
                 <subvertex xmi:type="uml:State" xmi:id="_vOnqPSWWEeqLtaT0IHUAKQ" name="FirstState"/>
                 <subvertex xmi:type="uml:Pseudostate" xmi:id="_vOnqPiWWEeqLtaT0IHUAKQ" name="InitialPoint"/>
               </region>
             </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_fEF-ECYfEeqlYp3owykQwA" name="MySuperOp" specification="_eAGxgSYfEeqlYp3owykQwA">
+              <language>C++</language>
+              <body>// std::cout &lt;&lt; &quot;MySuperOp operation &quot; &lt;&lt; std::endl;
+
+//SEND_SIGNAL
+Sig_MySuperOp* SIG_MYSUPEROP = new Sig_MySuperOp();
+sendEv_MySuperOp(*SIG_MYSUPEROP);
+//END_SEND_SIGNAL
+</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_hjHlQCYfEeqlYp3owykQwA" name="sayGoodBye" specification="_hjFJASYfEeqlYp3owykQwA"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_eAGxgSYfEeqlYp3owykQwA" name="MySuperOp" method="_fEF-ECYfEeqlYp3owykQwA"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_hjFJASYfEeqlYp3owykQwA" name="sayGoodBye" method="_hjHlQCYfEeqlYp3owykQwA"/>
+            <ownedReception xmi:type="uml:Reception" xmi:id="_fEAegCYfEeqlYp3owykQwA" name="Ev_MySuperOp" signal="_fBn44CYfEeqlYp3owykQwA"/>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_vOnqPyWWEeqLtaT0IHUAKQ" name="Service3Abstract" isAbstract="true">
             <ownedAttribute xmi:type="uml:Port" xmi:id="_vOnqQCWWEeqLtaT0IHUAKQ" name="simuIn" type="_vOnqXiWWEeqLtaT0IHUAKQ" aggregation="composite"/>
@@ -1097,6 +1101,9 @@ This diagram should only contain the request interfaces with the user (User acto
 Flows from the user to this service.&#xD;
 </body>
               </ownedComment>
+              <packagedElement xmi:type="uml:Interface" xmi:id="_c4lv0CYfEeqlYp3owykQwA" name="I_MyInterface">
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_eAAq4CYfEeqlYp3owykQwA" name="MySuperOp"/>
+              </packagedElement>
             </packagedElement>
             <packagedElement xmi:type="uml:Package" xmi:id="_vOnqSyWWEeqLtaT0IHUAKQ" name="Feedback">
               <ownedComment xmi:type="uml:Comment" xmi:id="_vOnqTCWWEeqLtaT0IHUAKQ">
@@ -1155,16 +1162,42 @@ Flow from another service to this service.&#xD;
             </packagedElement>
           </packagedElement>
           <packagedElement xmi:type="uml:Package" xmi:id="_vOnqWSWWEeqLtaT0IHUAKQ" name="InteractionClasses">
-            <packagedElement xmi:type="uml:Class" xmi:id="_vOnqWiWWEeqLtaT0IHUAKQ" name="ServiceListening"/>
+            <packagedElement xmi:type="uml:Class" xmi:id="_vOnqWiWWEeqLtaT0IHUAKQ" name="ServiceListening">
+              <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_dqaOUCYfEeqlYp3owykQwA" name="" client="_vOnqWiWWEeqLtaT0IHUAKQ" supplier="_c4lv0CYfEeqlYp3owykQwA" contract="_c4lv0CYfEeqlYp3owykQwA"/>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_eADHICYfEeqlYp3owykQwA" name="MySuperOp"/>
+            </packagedElement>
             <packagedElement xmi:type="uml:Class" xmi:id="_vOnqWyWWEeqLtaT0IHUAKQ" name="ServiceBroadcast"/>
             <packagedElement xmi:type="uml:Class" xmi:id="_vOnqXCWWEeqLtaT0IHUAKQ" name="ServiceListeningServices"/>
             <packagedElement xmi:type="uml:Class" xmi:id="_vOnqXSWWEeqLtaT0IHUAKQ" name="ServiceBroadcastServices"/>
             <packagedElement xmi:type="uml:Class" xmi:id="_vOnqXiWWEeqLtaT0IHUAKQ" name="ServiceSimuIn"/>
             <packagedElement xmi:type="uml:Class" xmi:id="_vOnqXyWWEeqLtaT0IHUAKQ" name="ServiceSimuOut"/>
           </packagedElement>
-          <packagedElement xmi:type="uml:Activity" xmi:id="_vOnqYCWWEeqLtaT0IHUAKQ" name="Service3_RelevantPhases"/>
-          <packagedElement xmi:type="uml:Package" xmi:id="_vOnqYSWWEeqLtaT0IHUAKQ" name="Service3_UseCases"/>
-          <packagedElement xmi:type="uml:Package" xmi:id="_vOnqYiWWEeqLtaT0IHUAKQ" name="Service3_UserStories"/>
+          <packagedElement xmi:type="uml:Activity" xmi:id="_vOnqYCWWEeqLtaT0IHUAKQ" name="Service3_RelevantPhases" node="_SsdTACYfEeqlYp3owykQwA">
+            <node xmi:type="uml:CallBehaviorAction" xmi:id="_SsdTACYfEeqlYp3owykQwA" name="Standard Use" behavior="_2fNaRiWKEeqLtaT0IHUAKQ"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Package" xmi:id="_vOnqYSWWEeqLtaT0IHUAKQ" name="Service3_UseCases">
+            <packagedElement xmi:type="uml:UseCase" xmi:id="_UGdL0CYfEeqlYp3owykQwA" name="uc2"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Package" xmi:id="_vOnqYiWWEeqLtaT0IHUAKQ" name="Service3_UserStories">
+            <packagedElement xmi:type="uml:Package" xmi:id="_W0Z_0CYfEeqlYp3owykQwA" name="us2">
+              <packagedElement xmi:type="uml:Interaction" xmi:id="_W0Z_0SYfEeqlYp3owykQwA" name="us2">
+                <lifeline xmi:type="uml:Lifeline" xmi:id="_W0Z_0iYfEeqlYp3owykQwA" name="user" represents="_vOnqdyWWEeqLtaT0IHUAKQ" coveredBy="_gIlg8CYfEeqlYp3owykQwA"/>
+                <lifeline xmi:type="uml:Lifeline" xmi:id="_W0Z_0yYfEeqlYp3owykQwA" name="environment" represents="_vOnqeCWWEeqLtaT0IHUAKQ"/>
+                <lifeline xmi:type="uml:Lifeline" xmi:id="_W0Z_1CYfEeqlYp3owykQwA" name="service" represents="_vOnqbSWWEeqLtaT0IHUAKQ" coveredBy="_gImIACYfEeqlYp3owykQwA _hjEh8CYfEeqlYp3owykQwA _hjFJACYfEeqlYp3owykQwA _XvzRECYfEeqlYp3owykQwA"/>
+                <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_gIlg8CYfEeqlYp3owykQwA" name="Message5SendEvent" covered="_W0Z_0iYfEeqlYp3owykQwA" message="_f3r-MCYfEeqlYp3owykQwA"/>
+                <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_gImIACYfEeqlYp3owykQwA" name="Message5ReceiveEvent" covered="_W0Z_1CYfEeqlYp3owykQwA" message="_f3r-MCYfEeqlYp3owykQwA"/>
+                <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_hjEh8CYfEeqlYp3owykQwA" name="Message8SendEvent" covered="_W0Z_1CYfEeqlYp3owykQwA" message="_gkLQwCYfEeqlYp3owykQwA"/>
+                <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_hjFJACYfEeqlYp3owykQwA" name="Message8ReceiveEvent" covered="_W0Z_1CYfEeqlYp3owykQwA" message="_gkLQwCYfEeqlYp3owykQwA"/>
+                <fragment xmi:type="uml:StateInvariant" xmi:id="_XvzRECYfEeqlYp3owykQwA" name="FirstState" covered="_W0Z_1CYfEeqlYp3owykQwA"/>
+                <message xmi:type="uml:Message" xmi:id="_f3r-MCYfEeqlYp3owykQwA" name="Message5" messageSort="asynchCall" receiveEvent="_gImIACYfEeqlYp3owykQwA" sendEvent="_gIlg8CYfEeqlYp3owykQwA" signature="_eAGxgSYfEeqlYp3owykQwA"/>
+                <message xmi:type="uml:Message" xmi:id="_gkLQwCYfEeqlYp3owykQwA" name="Message8" messageSort="asynchCall" receiveEvent="_hjFJACYfEeqlYp3owykQwA" sendEvent="_hjEh8CYfEeqlYp3owykQwA" signature="_hjFJASYfEeqlYp3owykQwA"/>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Interaction" xmi:id="_W0Z_1SYfEeqlYp3owykQwA" name="us2_Analysed">
+                <lifeline xmi:type="uml:Lifeline" xmi:id="_W0Z_1iYfEeqlYp3owykQwA" name="user" represents="_vOnqdyWWEeqLtaT0IHUAKQ"/>
+                <lifeline xmi:type="uml:Lifeline" xmi:id="_W0Z_1yYfEeqlYp3owykQwA" name="environment" represents="_vOnqeCWWEeqLtaT0IHUAKQ"/>
+              </packagedElement>
+            </packagedElement>
+          </packagedElement>
           <packagedElement xmi:type="uml:Package" xmi:id="_vOnqYyWWEeqLtaT0IHUAKQ" name="Functions"/>
           <packagedElement xmi:type="uml:Package" xmi:id="_vOnqZCWWEeqLtaT0IHUAKQ" name="Domains"/>
           <packagedElement xmi:type="uml:Package" xmi:id="_vOnqZSWWEeqLtaT0IHUAKQ" name="Service_UnitVariant">
@@ -1176,9 +1209,21 @@ Flow from another service to this service.&#xD;
               <ownedAttribute xmi:type="uml:Port" xmi:id="_vOnqayWWEeqLtaT0IHUAKQ" name="inputEnvironment" type="_vOnqcSWWEeqLtaT0IHUAKQ" aggregation="composite"/>
               <ownedAttribute xmi:type="uml:Port" xmi:id="_vOnqbCWWEeqLtaT0IHUAKQ" name="outputEnvironment" type="_vOnqdCWWEeqLtaT0IHUAKQ" aggregation="composite" isConjugated="true"/>
               <ownedAttribute xmi:type="uml:Property" xmi:id="_vOnqbSWWEeqLtaT0IHUAKQ" name="Service3" visibility="public" type="_vOnqOCWWEeqLtaT0IHUAKQ"/>
+              <ownedConnector xmi:type="uml:Connector" xmi:id="_dqj_UCYfEeqlYp3owykQwA" name="listeninginputCustomer">
+                <end xmi:type="uml:ConnectorEnd" xmi:id="_dqj_USYfEeqlYp3owykQwA" partWithPort="_vOnqbSWWEeqLtaT0IHUAKQ" role="_vOnqQiWWEeqLtaT0IHUAKQ"/>
+                <end xmi:type="uml:ConnectorEnd" xmi:id="_dqj_UiYfEeqlYp3owykQwA" role="_vOnqZyWWEeqLtaT0IHUAKQ"/>
+              </ownedConnector>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_dqoQwSYfEeqlYp3owykQwA" name="Service3_Service_UnitVariant" specification="_dqlNeyYfEeqlYp3owykQwA">
+                <language>C++</language>
+                <body></body>
+              </ownedBehavior>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_dqlNeyYfEeqlYp3owykQwA" name="Service3_Service_UnitVariant" method="_dqoQwSYfEeqlYp3owykQwA"/>
             </packagedElement>
             <packagedElement xmi:type="uml:Package" xmi:id="_vOnqbiWWEeqLtaT0IHUAKQ" name="InteractionClasses">
-              <packagedElement xmi:type="uml:Class" xmi:id="_vOnqbyWWEeqLtaT0IHUAKQ" name="ProductInputCustomer"/>
+              <packagedElement xmi:type="uml:Class" xmi:id="_vOnqbyWWEeqLtaT0IHUAKQ" name="ProductInputCustomer">
+                <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_dqaOUyYfEeqlYp3owykQwA" name="" client="_vOnqbyWWEeqLtaT0IHUAKQ" supplier="_c4lv0CYfEeqlYp3owykQwA" contract="_c4lv0CYfEeqlYp3owykQwA"/>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_eAJNwCYfEeqlYp3owykQwA" name="MySuperOp"/>
+              </packagedElement>
               <packagedElement xmi:type="uml:Class" xmi:id="_vOnqcCWWEeqLtaT0IHUAKQ" name="ProductInputEngineer"/>
               <packagedElement xmi:type="uml:Class" xmi:id="_vOnqcSWWEeqLtaT0IHUAKQ" name="ProductInputEnvironment"/>
               <packagedElement xmi:type="uml:Class" xmi:id="_vOnqciWWEeqLtaT0IHUAKQ" name="ProductOutputCustomer"/>
@@ -1191,6 +1236,19 @@ Flow from another service to this service.&#xD;
                 <ownedAttribute xmi:type="uml:Property" xmi:id="_vOnqeCWWEeqLtaT0IHUAKQ" name="itsEnvironment" visibility="public" type="_-dVCbCWREeqLtaT0IHUAKQ"/>
                 <ownedAttribute xmi:type="uml:Property" xmi:id="_vOnqeSWWEeqLtaT0IHUAKQ" name="itsProduct" visibility="public" type="_vOnqZiWWEeqLtaT0IHUAKQ"/>
                 <ownedAttribute xmi:type="uml:Property" xmi:id="_vOnqeiWWEeqLtaT0IHUAKQ" name="itsEngineer" visibility="public" type="_-dVCUyWREeqLtaT0IHUAKQ"/>
+                <ownedConnector xmi:type="uml:Connector" xmi:id="_dqo30CYfEeqlYp3owykQwA" name="requestinputCustomer">
+                  <end xmi:type="uml:ConnectorEnd" xmi:id="_dqo30SYfEeqlYp3owykQwA" partWithPort="_vOnqdyWWEeqLtaT0IHUAKQ" role="_-dVCYiWREeqLtaT0IHUAKQ"/>
+                  <end xmi:type="uml:ConnectorEnd" xmi:id="_dqo30iYfEeqlYp3owykQwA" partWithPort="_vOnqeSWWEeqLtaT0IHUAKQ" role="_vOnqZyWWEeqLtaT0IHUAKQ"/>
+                </ownedConnector>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_dqr7ISYfEeqlYp3owykQwA" name="Project" specification="_dqqF-yYfEeqlYp3owykQwA">
+                  <language>C++</language>
+                  <body>
+//CREATE_CONNECTIONS
+this->createConnections();
+//END_CREATE_CONNECTIONS
+</body>
+                </ownedBehavior>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_dqqF-yYfEeqlYp3owykQwA" name="Project" method="_dqr7ISYfEeqlYp3owykQwA"/>
               </packagedElement>
               <packagedElement xmi:type="uml:Package" xmi:id="_vOnqeyWWEeqLtaT0IHUAKQ" name="Service3_Service_UnitVariant">
                 <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_vOnqfCWWEeqLtaT0IHUAKQ" name="mainDefaultComponent" classifier="_vOnqfSWWEeqLtaT0IHUAKQ"/>
@@ -1297,9 +1355,21 @@ itsProject.createConnections();&#xD;
               <ownedAttribute xmi:type="uml:Port" xmi:id="_vOnqlCWWEeqLtaT0IHUAKQ" name="inputEnvironment" type="_vOnqmiWWEeqLtaT0IHUAKQ" aggregation="composite"/>
               <ownedAttribute xmi:type="uml:Port" xmi:id="_vOnqlSWWEeqLtaT0IHUAKQ" name="outputEnvironment" type="_vOnqnSWWEeqLtaT0IHUAKQ" aggregation="composite" isConjugated="true"/>
               <ownedAttribute xmi:type="uml:Property" xmi:id="_vOnqliWWEeqLtaT0IHUAKQ" name="Service3" visibility="public" type="_vOnqRiWWEeqLtaT0IHUAKQ"/>
+              <ownedConnector xmi:type="uml:Connector" xmi:id="_dqtJQCYfEeqlYp3owykQwA" name="listeninginputCustomer">
+                <end xmi:type="uml:ConnectorEnd" xmi:id="_dqtJQSYfEeqlYp3owykQwA" partWithPort="_vOnqliWWEeqLtaT0IHUAKQ" role="_vOnqQiWWEeqLtaT0IHUAKQ"/>
+                <end xmi:type="uml:ConnectorEnd" xmi:id="_dqtJQiYfEeqlYp3owykQwA" role="_vOnqkCWWEeqLtaT0IHUAKQ"/>
+              </ownedConnector>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_dqwMkSYfEeqlYp3owykQwA" name="Service3_Function_UnitVariant" specification="_dqtwWyYfEeqlYp3owykQwA">
+                <language>C++</language>
+                <body></body>
+              </ownedBehavior>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_dqtwWyYfEeqlYp3owykQwA" name="Service3_Function_UnitVariant" method="_dqwMkSYfEeqlYp3owykQwA"/>
             </packagedElement>
             <packagedElement xmi:type="uml:Package" xmi:id="_vOnqlyWWEeqLtaT0IHUAKQ" name="InteractionClasses">
-              <packagedElement xmi:type="uml:Class" xmi:id="_vOnqmCWWEeqLtaT0IHUAKQ" name="ProductInputCustomer"/>
+              <packagedElement xmi:type="uml:Class" xmi:id="_vOnqmCWWEeqLtaT0IHUAKQ" name="ProductInputCustomer">
+                <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_dqsiMCYfEeqlYp3owykQwA" name="" client="_vOnqmCWWEeqLtaT0IHUAKQ" supplier="_c4lv0CYfEeqlYp3owykQwA" contract="_c4lv0CYfEeqlYp3owykQwA"/>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_eALC8SYfEeqlYp3owykQwA" name="MySuperOp"/>
+              </packagedElement>
               <packagedElement xmi:type="uml:Class" xmi:id="_vOnqmSWWEeqLtaT0IHUAKQ" name="ProductInputEngineer"/>
               <packagedElement xmi:type="uml:Class" xmi:id="_vOnqmiWWEeqLtaT0IHUAKQ" name="ProductInputEnvironment"/>
               <packagedElement xmi:type="uml:Class" xmi:id="_vOnqmyWWEeqLtaT0IHUAKQ" name="ProductOutputCustomer"/>
@@ -1312,6 +1382,19 @@ itsProject.createConnections();&#xD;
                 <ownedAttribute xmi:type="uml:Property" xmi:id="_vOnqoSWWEeqLtaT0IHUAKQ" name="itsEnvironment" visibility="public" type="_-dVCbCWREeqLtaT0IHUAKQ"/>
                 <ownedAttribute xmi:type="uml:Property" xmi:id="_vOnqoiWWEeqLtaT0IHUAKQ" name="itsProduct" visibility="public" type="_vOnqjyWWEeqLtaT0IHUAKQ"/>
                 <ownedAttribute xmi:type="uml:Property" xmi:id="_vOnqoyWWEeqLtaT0IHUAKQ" name="itsEngineer" visibility="public" type="_-dVCUyWREeqLtaT0IHUAKQ"/>
+                <ownedConnector xmi:type="uml:Connector" xmi:id="_dqwMkiYfEeqlYp3owykQwA" name="requestinputCustomer">
+                  <end xmi:type="uml:ConnectorEnd" xmi:id="_dqwzoCYfEeqlYp3owykQwA" partWithPort="_vOnqoCWWEeqLtaT0IHUAKQ" role="_-dVCYiWREeqLtaT0IHUAKQ"/>
+                  <end xmi:type="uml:ConnectorEnd" xmi:id="_dqwzoSYfEeqlYp3owykQwA" partWithPort="_vOnqoiWWEeqLtaT0IHUAKQ" role="_vOnqkCWWEeqLtaT0IHUAKQ"/>
+                </ownedConnector>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_dqz28SYfEeqlYp3owykQwA" name="Project" specification="_dqxauyYfEeqlYp3owykQwA">
+                  <language>C++</language>
+                  <body>
+//CREATE_CONNECTIONS
+this->createConnections();
+//END_CREATE_CONNECTIONS
+</body>
+                </ownedBehavior>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_dqxauyYfEeqlYp3owykQwA" name="Project" method="_dqz28SYfEeqlYp3owykQwA"/>
               </packagedElement>
               <packagedElement xmi:type="uml:Package" xmi:id="_vOnqpCWWEeqLtaT0IHUAKQ" name="Service3_Function_UnitVariant">
                 <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_vOnqpSWWEeqLtaT0IHUAKQ" name="mainDefaultComponent" classifier="_vOnqpiWWEeqLtaT0IHUAKQ"/>
@@ -1409,6 +1492,7 @@ itsProject.createConnections();&#xD;
               <packagedElement xmi:type="uml:Usage" xmi:id="_vPB54yWWEeqLtaT0IHUAKQ" client="_vOnqqyWWEeqLtaT0IHUAKQ" supplier="_2fNZoSWKEeqLtaT0IHUAKQ"/>
             </packagedElement>
           </packagedElement>
+          <packagedElement xmi:type="uml:Package" xmi:id="_S_rJ9CYfEeqlYp3owykQwA" name="Standard Use"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Package" xmi:id="_ZHXGBSWbEeqLtaT0IHUAKQ" name="Service4">
           <packagedElement xmi:type="uml:Class" xmi:id="_ZHXGBiWbEeqLtaT0IHUAKQ" name="Service4BB" classifierBehavior="_ZHXGCCWbEeqLtaT0IHUAKQ">
@@ -1540,7 +1624,7 @@ Flow from another service to this service.&#xD;
               </packagedElement>
               <packagedElement xmi:type="uml:Class" xmi:id="_ZHXGSyWbEeqLtaT0IHUAKQ" name="MainDefaultComponent">
                 <ownedAttribute xmi:type="uml:Property" xmi:id="_ZHXGTCWbEeqLtaT0IHUAKQ" name="cil4SysRoot" visibility="public" type="_ZHXGUCWbEeqLtaT0IHUAKQ"/>
-                <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_ZHXGTSWbEeqLtaT0IHUAKQ" client="_ZHXGSyWbEeqLtaT0IHUAKQ _ZHXGSyWbEeqLtaT0IHUAKQ">
+                <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_ZHXGTSWbEeqLtaT0IHUAKQ" client="_ZHXGSyWbEeqLtaT0IHUAKQ">
                   <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
                   <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
                   <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
@@ -1661,7 +1745,7 @@ itsProject.createConnections();&#xD;
               </packagedElement>
               <packagedElement xmi:type="uml:Class" xmi:id="_ZHXGdCWbEeqLtaT0IHUAKQ" name="MainDefaultComponent">
                 <ownedAttribute xmi:type="uml:Property" xmi:id="_ZHXGdSWbEeqLtaT0IHUAKQ" name="cil4SysRoot" visibility="public" type="_ZHXGeSWbEeqLtaT0IHUAKQ"/>
-                <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_ZHXGdiWbEeqLtaT0IHUAKQ" client="_ZHXGdCWbEeqLtaT0IHUAKQ _ZHXGdCWbEeqLtaT0IHUAKQ">
+                <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_ZHXGdiWbEeqLtaT0IHUAKQ" client="_ZHXGdCWbEeqLtaT0IHUAKQ">
                   <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
                   <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
                   <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
@@ -1754,7 +1838,10 @@ itsProject.createConnections();&#xD;
           </packagedElement>
         </packagedElement>
       </packagedElement>
-      <packagedElement xmi:type="uml:Package" xmi:id="_-dVCgiWREeqLtaT0IHUAKQ" name="Signals"/>
+      <packagedElement xmi:type="uml:Package" xmi:id="_-dVCgiWREeqLtaT0IHUAKQ" name="Signals">
+        <packagedElement xmi:type="uml:Signal" xmi:id="_fBn44CYfEeqlYp3owykQwA" name="Sig_MySuperOp"/>
+        <packagedElement xmi:type="uml:SignalEvent" xmi:id="_fD6-8CYfEeqlYp3owykQwA" name="Ev_MySuperOp" signal="_fBn44CYfEeqlYp3owykQwA"/>
+      </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_-dVCgyWREeqLtaT0IHUAKQ" name="MyTestProjectMainProduct">
         <packagedElement xmi:type="uml:Class" xmi:id="_-dVChCWREeqLtaT0IHUAKQ" name="MyTestProject">
           <ownedAttribute xmi:type="uml:Port" xmi:id="_-dVChSWREeqLtaT0IHUAKQ" name="inputCustomer" type="_-dVCjCWREeqLtaT0IHUAKQ" aggregation="composite"/>
@@ -1766,9 +1853,21 @@ itsProject.createConnections();&#xD;
           <ownedAttribute xmi:type="uml:Property" xmi:id="_vyznQCWUEeqLtaT0IHUAKQ" name="Service1" type="_wcZW9iWUEeqLtaT0IHUAKQ"/>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_uUCRQCWWEeqLtaT0IHUAKQ" name="Service3" type="_vOnqOCWWEeqLtaT0IHUAKQ"/>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_YRq0ACWbEeqLtaT0IHUAKQ" name="Service4" type="_ZHXGBiWbEeqLtaT0IHUAKQ"/>
+          <ownedConnector xmi:type="uml:Connector" xmi:id="_dq1FESYfEeqlYp3owykQwA" name="listeninginputCustomer">
+            <end xmi:type="uml:ConnectorEnd" xmi:id="_dq1FEiYfEeqlYp3owykQwA" partWithPort="_uUCRQCWWEeqLtaT0IHUAKQ" role="_vOnqQiWWEeqLtaT0IHUAKQ"/>
+            <end xmi:type="uml:ConnectorEnd" xmi:id="_dq1FEyYfEeqlYp3owykQwA" role="_-dVChSWREeqLtaT0IHUAKQ"/>
+          </ownedConnector>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_dq4vcCYfEeqlYp3owykQwA" name="MyTestProject" specification="_dq2TNSYfEeqlYp3owykQwA">
+            <language>C++</language>
+            <body></body>
+          </ownedBehavior>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_dq2TNSYfEeqlYp3owykQwA" name="MyTestProject" method="_dq4vcCYfEeqlYp3owykQwA"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Package" xmi:id="_-dVCiyWREeqLtaT0IHUAKQ" name="InteractionClasses">
-          <packagedElement xmi:type="uml:Class" xmi:id="_-dVCjCWREeqLtaT0IHUAKQ" name="ProductInputCustomer"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_-dVCjCWREeqLtaT0IHUAKQ" name="ProductInputCustomer">
+            <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_dq1FECYfEeqlYp3owykQwA" name="" client="_-dVCjCWREeqLtaT0IHUAKQ" supplier="_c4lv0CYfEeqlYp3owykQwA" contract="_c4lv0CYfEeqlYp3owykQwA"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_eAM4ISYfEeqlYp3owykQwA" name="MySuperOp"/>
+          </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_-dVCjSWREeqLtaT0IHUAKQ" name="ProductInputEngineer"/>
           <packagedElement xmi:type="uml:Class" xmi:id="_-dVCjiWREeqLtaT0IHUAKQ" name="ProductInputEnvironment"/>
           <packagedElement xmi:type="uml:Class" xmi:id="_-dVCjyWREeqLtaT0IHUAKQ" name="ProductOutputCustomer"/>
@@ -1781,6 +1880,19 @@ itsProject.createConnections();&#xD;
             <ownedAttribute xmi:type="uml:Property" xmi:id="_-dVClSWREeqLtaT0IHUAKQ" name="itsEnvironment" visibility="public" type="_-dVCbCWREeqLtaT0IHUAKQ"/>
             <ownedAttribute xmi:type="uml:Property" xmi:id="_-dVCliWREeqLtaT0IHUAKQ" name="itsProduct" visibility="public" type="_-dVChCWREeqLtaT0IHUAKQ"/>
             <ownedAttribute xmi:type="uml:Property" xmi:id="_-dVClyWREeqLtaT0IHUAKQ" name="itsEngineer" visibility="public" type="_-dVCUyWREeqLtaT0IHUAKQ"/>
+            <ownedConnector xmi:type="uml:Connector" xmi:id="_dq4vcSYfEeqlYp3owykQwA" name="requestinputCustomer">
+              <end xmi:type="uml:ConnectorEnd" xmi:id="_dq4vciYfEeqlYp3owykQwA" partWithPort="_-dVClCWREeqLtaT0IHUAKQ" role="_-dVCYiWREeqLtaT0IHUAKQ"/>
+              <end xmi:type="uml:ConnectorEnd" xmi:id="_dq4vcyYfEeqlYp3owykQwA" partWithPort="_-dVCliWREeqLtaT0IHUAKQ" role="_-dVChSWREeqLtaT0IHUAKQ"/>
+            </ownedConnector>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_dq8Z0CYfEeqlYp3owykQwA" name="Project" specification="_dq59myYfEeqlYp3owykQwA">
+              <language>C++</language>
+              <body>
+//CREATE_CONNECTIONS
+this->createConnections();
+//END_CREATE_CONNECTIONS
+</body>
+            </ownedBehavior>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_dq59myYfEeqlYp3owykQwA" name="Project" method="_dq8Z0CYfEeqlYp3owykQwA"/>
           </packagedElement>
           <packagedElement xmi:type="uml:Package" xmi:id="_-dVCmCWREeqLtaT0IHUAKQ" name="MyTestProject">
             <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_-dVCmSWREeqLtaT0IHUAKQ" name="mainDefaultComponent" classifier="_-dVCmiWREeqLtaT0IHUAKQ"/>
@@ -2052,8 +2164,6 @@ pEngineer = &amp;itsProject.itsEngineer;</body>
   <C_Cpp:Ptr xmi:id="_-dezUCWREeqLtaT0IHUAKQ" base_property="_-dVCVyWREeqLtaT0IHUAKQ"/>
   <cil4sys:ElementToType xmi:id="_-dfaYCWREeqLtaT0IHUAKQ" base_TypedElement="_-dVCVyWREeqLtaT0IHUAKQ" typeString="SimulationGeneric"/>
   <standard:Create xmi:id="_-dgBcCWREeqLtaT0IHUAKQ" base_BehavioralFeature="_-dVCXCWREeqLtaT0IHUAKQ"/>
-  <cil4sys:ConversionToModelOperation xmi:id="_-dgBcSWREeqLtaT0IHUAKQ" base_Operation="_-dVCXSWREeqLtaT0IHUAKQ"/>
-  <cil4sys:ConversionToModelOperation xmi:id="_-dgogCWREeqLtaT0IHUAKQ" base_Operation="_-dVCXyWREeqLtaT0IHUAKQ"/>
   <cil4sys:UserActor xmi:id="_-dhPkCWREeqLtaT0IHUAKQ" base_Class="_-dVCYSWREeqLtaT0IHUAKQ"/>
   <cil4sys:InteractionPort xmi:id="_-dhPkSWREeqLtaT0IHUAKQ" base_Port="_-dVCYiWREeqLtaT0IHUAKQ"/>
   <cil4sys:InteractionPort xmi:id="_-dh2oCWREeqLtaT0IHUAKQ" base_Port="_-dVCYyWREeqLtaT0IHUAKQ" portKind="CustomerFeedback"/>
@@ -2061,7 +2171,6 @@ pEngineer = &amp;itsProject.itsEngineer;</body>
   <C_Cpp:Ptr xmi:id="_-didsSWREeqLtaT0IHUAKQ" base_property="_-dVCZSWREeqLtaT0IHUAKQ"/>
   <cil4sys:ElementToType xmi:id="_-djEwCWREeqLtaT0IHUAKQ" base_TypedElement="_-dVCZSWREeqLtaT0IHUAKQ" typeString="SimulationGeneric"/>
   <standard:Create xmi:id="_-djEwSWREeqLtaT0IHUAKQ" base_BehavioralFeature="_-dVCaSWREeqLtaT0IHUAKQ"/>
-  <cil4sys:ConversionToModelOperation xmi:id="_-djr0CWREeqLtaT0IHUAKQ" base_Operation="_-dVCaiWREeqLtaT0IHUAKQ"/>
   <cil4sys:EnvironmentActor xmi:id="_-djr0SWREeqLtaT0IHUAKQ" base_Class="_-dVCbCWREeqLtaT0IHUAKQ"/>
   <cil4sys:InteractionPort xmi:id="_-dkS4CWREeqLtaT0IHUAKQ" base_Port="_-dVCbSWREeqLtaT0IHUAKQ" portKind="EnvironmentToEnv"/>
   <cil4sys:InteractionPort xmi:id="_-dk58CWREeqLtaT0IHUAKQ" base_Port="_-dVCbiWREeqLtaT0IHUAKQ" portKind="EnvironmentFromEnv"/>
@@ -2069,7 +2178,6 @@ pEngineer = &amp;itsProject.itsEngineer;</body>
   <C_Cpp:Ptr xmi:id="_-dlhACWREeqLtaT0IHUAKQ" base_property="_-dVCcCWREeqLtaT0IHUAKQ" declaration=""/>
   <cil4sys:ElementToType xmi:id="_-dmIECWREeqLtaT0IHUAKQ" base_TypedElement="_-dVCcCWREeqLtaT0IHUAKQ" typeString="SimulationGeneric"/>
   <standard:Create xmi:id="_-dmIESWREeqLtaT0IHUAKQ" base_BehavioralFeature="_-dVCdCWREeqLtaT0IHUAKQ"/>
-  <cil4sys:ConversionToModelOperation xmi:id="_-dmvICWREeqLtaT0IHUAKQ" base_Operation="_-dVCdSWREeqLtaT0IHUAKQ"/>
   <cil4sys:InteractionClass xmi:id="_-dnWMCWREeqLtaT0IHUAKQ" portKind="EngineerInternalReturn" base_Class="_-dVCeCWREeqLtaT0IHUAKQ"/>
   <cil4sys:InteractionClass xmi:id="_-dnWMSWREeqLtaT0IHUAKQ" portKind="EngineerInternalStimuli" base_Class="_-dVCeSWREeqLtaT0IHUAKQ"/>
   <cil4sys:InteractionClass xmi:id="_-dn9QCWREeqLtaT0IHUAKQ" portKind="EngineerSimuIn" base_Class="_-dVCeiWREeqLtaT0IHUAKQ"/>
@@ -2414,4 +2522,47 @@ pEngineer = &amp;itsProject.itsEngineer;</body>
   <standard:Create xmi:id="_ZHvgYyWbEeqLtaT0IHUAKQ" base_BehavioralFeature="_ZHXGgSWbEeqLtaT0IHUAKQ"/>
   <cil4sys:ServicePackage xmi:id="_ZHwHcCWbEeqLtaT0IHUAKQ" base_Package="_ZHXGBSWbEeqLtaT0IHUAKQ"/>
   <cil4sys:ServiceProperty xmi:id="_ZIIh8CWbEeqLtaT0IHUAKQ" base_Property="_YRq0ACWbEeqLtaT0IHUAKQ"/>
+  <cil4sys:LifePhaseCBA xmi:id="_S-5t4CYfEeqlYp3owykQwA" base_CallBehaviorAction="_SsdTACYfEeqlYp3owykQwA" associatedUseCases="_UGgPICYfEeqlYp3owykQwA" associatedLifePhasePackages="_S_rxACYfEeqlYp3owykQwA"/>
+  <cil4sys:LifePhasePackage xmi:id="_S_rxACYfEeqlYp3owykQwA" base_Package="_S_rJ9CYfEeqlYp3owykQwA" associatedUseCaseDiagramId="_S_rJ8CYfEeqlYp3owykQwA" associatedUseCases="_UGgPICYfEeqlYp3owykQwA" associatedLifePhaseCBA="_S-5t4CYfEeqlYp3owykQwA"/>
+  <cil4sys:UserStoryUseCase xmi:id="_UGgPICYfEeqlYp3owykQwA" base_UseCase="_UGdL0CYfEeqlYp3owykQwA" associatedLifePhaseCBA="_S-5t4CYfEeqlYp3owykQwA" associatedLifePhasePackages="_S_rxACYfEeqlYp3owykQwA" associatedUserStoryPackages="_W0bN8SYfEeqlYp3owykQwA"/>
+  <cil4sys:UserLifeline xmi:id="_W0Z_2CYfEeqlYp3owykQwA" base_Lifeline="_W0Z_0iYfEeqlYp3owykQwA"/>
+  <cil4sys:EnvironmentLifeline xmi:id="_W0am4CYfEeqlYp3owykQwA" base_Lifeline="_W0Z_0yYfEeqlYp3owykQwA"/>
+  <cil4sys:ServiceLifeline xmi:id="_W0am4SYfEeqlYp3owykQwA" base_Lifeline="_W0Z_1CYfEeqlYp3owykQwA"/>
+  <cil4sys:UserLifeline xmi:id="_W0am4iYfEeqlYp3owykQwA" base_Lifeline="_W0Z_1iYfEeqlYp3owykQwA"/>
+  <cil4sys:EnvironmentLifeline xmi:id="_W0bN8CYfEeqlYp3owykQwA" base_Lifeline="_W0Z_1yYfEeqlYp3owykQwA"/>
+  <cil4sys:UserStoryPackage xmi:id="_W0bN8SYfEeqlYp3owykQwA" base_Package="_W0Z_0CYfEeqlYp3owykQwA"/>
+  <cil4sys:SequenceState xmi:id="_YEXy4CYfEeqlYp3owykQwA" base_StateInvariant="_XvzRECYfEeqlYp3owykQwA" associatedState="_vOnqPSWWEeqLtaT0IHUAKQ"/>
+  <cil4sys:FlowInterface xmi:id="_c4oMECYfEeqlYp3owykQwA" base_Interface="_c4lv0CYfEeqlYp3owykQwA"/>
+  <standard:Create xmi:id="_dqoQwCYfEeqlYp3owykQwA" base_BehavioralFeature="_dqlNeyYfEeqlYp3owykQwA"/>
+  <standard:Create xmi:id="_dqr7ICYfEeqlYp3owykQwA" base_BehavioralFeature="_dqqF-yYfEeqlYp3owykQwA"/>
+  <standard:Create xmi:id="_dqwMkCYfEeqlYp3owykQwA" base_BehavioralFeature="_dqtwWyYfEeqlYp3owykQwA"/>
+  <standard:Create xmi:id="_dqz28CYfEeqlYp3owykQwA" base_BehavioralFeature="_dqxauyYfEeqlYp3owykQwA"/>
+  <standard:Create xmi:id="_dq4IYCYfEeqlYp3owykQwA" base_BehavioralFeature="_dq2TNSYfEeqlYp3owykQwA"/>
+  <standard:Create xmi:id="_dq7ywCYfEeqlYp3owykQwA" base_BehavioralFeature="_dq59myYfEeqlYp3owykQwA"/>
+  <Transformation:DerivedElement xmi:id="_eAE8UCYfEeqlYp3owykQwA" base_Element="_eADHICYfEeqlYp3owykQwA" source="_eAAq4CYfEeqlYp3owykQwA"/>
+  <Transformation:DerivedElement xmi:id="_eAGxgCYfEeqlYp3owykQwA" base_Element="_eAE8USYfEeqlYp3owykQwA" source="_eAAq4CYfEeqlYp3owykQwA"/>
+  <Transformation:DerivedElement xmi:id="_eAImsCYfEeqlYp3owykQwA" base_Element="_eAGxgSYfEeqlYp3owykQwA" source="_eAAq4CYfEeqlYp3owykQwA"/>
+  <Transformation:DerivedElement xmi:id="_eALC8CYfEeqlYp3owykQwA" base_Element="_eAJNwCYfEeqlYp3owykQwA" source="_eAAq4CYfEeqlYp3owykQwA"/>
+  <Transformation:DerivedElement xmi:id="_eAM4ICYfEeqlYp3owykQwA" base_Element="_eALC8SYfEeqlYp3owykQwA" source="_eAAq4CYfEeqlYp3owykQwA"/>
+  <Transformation:DerivedElement xmi:id="_eAOtUCYfEeqlYp3owykQwA" base_Element="_eAM4ISYfEeqlYp3owykQwA" source="_eAAq4CYfEeqlYp3owykQwA"/>
+  <cil4sys:FlowOperation xmi:id="_eAOtUSYfEeqlYp3owykQwA" base_Operation="_eAAq4CYfEeqlYp3owykQwA"/>
+  <cil4sys:FlowOperation xmi:id="_e_Ce8CYfEeqlYp3owykQwA" base_Operation="_eADHICYfEeqlYp3owykQwA"/>
+  <cil4sys:FlowOperation xmi:id="_e_E7MCYfEeqlYp3owykQwA" base_Operation="_eAE8USYfEeqlYp3owykQwA"/>
+  <cil4sys:FlowOperation xmi:id="_e_HXcCYfEeqlYp3owykQwA" base_Operation="_eAGxgSYfEeqlYp3owykQwA"/>
+  <cil4sys:FlowOperation xmi:id="_e_JzsCYfEeqlYp3owykQwA" base_Operation="_eAJNwCYfEeqlYp3owykQwA"/>
+  <cil4sys:FlowOperation xmi:id="_e_Lo4CYfEeqlYp3owykQwA" base_Operation="_eALC8SYfEeqlYp3owykQwA"/>
+  <cil4sys:FlowOperation xmi:id="_e_OFICYfEeqlYp3owykQwA" base_Operation="_eAM4ISYfEeqlYp3owykQwA"/>
+  <cil4sys:Mapped xmi:id="_e_RIcCYfEeqlYp3owykQwA" mapping="MySuperOp" base_Element="_eAAq4CYfEeqlYp3owykQwA"/>
+  <cil4sys:OperationLinkedElement xmi:id="_fBpuECYfEeqlYp3owykQwA" base_Element="_fBn44CYfEeqlYp3owykQwA" source="_eAAq4CYfEeqlYp3owykQwA"/>
+  <cil4sys:OperationLinkedElement xmi:id="_fD80ICYfEeqlYp3owykQwA" base_Element="_fD6-8CYfEeqlYp3owykQwA" source="_eAAq4CYfEeqlYp3owykQwA"/>
+  <cil4sys:OperationLinkedElement xmi:id="_fECTsCYfEeqlYp3owykQwA" base_Element="_fEAegCYfEeqlYp3owykQwA" source="_eAAq4CYfEeqlYp3owykQwA"/>
+  <cil4sys:Mapped xmi:id="_fEN54CYfEeqlYp3owykQwA" mapping="MySuperOp" base_Element="_eAE8USYfEeqlYp3owykQwA"/>
+  <cil4sys:Mapped xmi:id="_fEQWICYfEeqlYp3owykQwA" mapping="MySuperOp" base_Element="_eAGxgSYfEeqlYp3owykQwA"/>
+  <cil4sys:Mapped xmi:id="_fESLUCYfEeqlYp3owykQwA" mapping="MySuperOp" base_Element="_eADHICYfEeqlYp3owykQwA"/>
+  <cil4sys:Mapped xmi:id="_fEUnkCYfEeqlYp3owykQwA" mapping="MySuperOp" base_Element="_eAJNwCYfEeqlYp3owykQwA"/>
+  <cil4sys:Mapped xmi:id="_fEWcwCYfEeqlYp3owykQwA" mapping="MySuperOp" base_Element="_eALC8SYfEeqlYp3owykQwA"/>
+  <cil4sys:Mapped xmi:id="_fEY5ACYfEeqlYp3owykQwA" mapping="MySuperOp" base_Element="_eAM4ISYfEeqlYp3owykQwA"/>
+  <cil4sys:ConversionToModelOperation xmi:id="_fE_V8CYfEeqlYp3owykQwA" base_Operation="_fE7rkCYfEeqlYp3owykQwA" mappedOperations="_eAOtUSYfEeqlYp3owykQwA"/>
+  <cil4sys:Activity xmi:id="_hjG-MCYfEeqlYp3owykQwA" base_Operation="_hjFJASYfEeqlYp3owykQwA"/>
+  <cil4sys:RequirementTransition xmi:id="_ixdAoCYfEeqlYp3owykQwA" base_Element="_ivIscCYfEeqlYp3owykQwA" source="_W0Z_0SYfEeqlYp3owykQwA" base_Transition="_ivIscCYfEeqlYp3owykQwA" sequenceSourceId="_W0YxsCYfEeqlYp3owykQwA" triggerMessages="_f3r-MCYfEeqlYp3owykQwA" effectMessages="_gkLQwCYfEeqlYp3owykQwA"/>
 </xmi:XMI>
