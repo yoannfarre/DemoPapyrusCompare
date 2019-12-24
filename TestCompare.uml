@@ -716,6 +716,7 @@ map_of_function_gen.insert(std::make_pair(&quot;my_test&quot;, std::bind(&amp;Us
                   <effect xmi:type="uml:OpaqueBehavior" xmi:id="_AjN1sCYfEeqlYp3owykQwA" name="">
                     <language>C++</language>
                     <body>say_hello();
+say_hello();
 </body>
                   </effect>
                   <trigger xmi:type="uml:Trigger" xmi:id="_AgsGICYfEeqlYp3owykQwA" name="" event="_7btJUCYeEeqlYp3owykQwA"/>
@@ -732,6 +733,7 @@ map_of_function_gen.insert(std::make_pair(&quot;my_test&quot;, std::bind(&amp;Us
 Sig_my_test* SIG_MY_TEST = new Sig_my_test();
 sendEv_my_test(*SIG_MY_TEST);
 //END_SEND_SIGNAL
+
 </body>
             </ownedBehavior>
             <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__aFqcCYeEeqlYp3owykQwA" name="say_hello" specification="__aCAECYeEeqlYp3owykQwA"/>
@@ -840,14 +842,17 @@ Flow from another service to this service.&#xD;
               <packagedElement xmi:type="uml:Interaction" xmi:id="_vjPGgSYeEeqlYp3owykQwA" name="us1">
                 <lifeline xmi:type="uml:Lifeline" xmi:id="_vjPGgiYeEeqlYp3owykQwA" name="user" represents="_wcZXNSWUEeqLtaT0IHUAKQ" coveredBy="_9wRM8CYeEeqlYp3owykQwA"/>
                 <lifeline xmi:type="uml:Lifeline" xmi:id="_vjPGgyYeEeqlYp3owykQwA" name="environment" represents="_wcZXNiWUEeqLtaT0IHUAKQ"/>
-                <lifeline xmi:type="uml:Lifeline" xmi:id="_vjPGhCYeEeqlYp3owykQwA" name="service" represents="_wcZXKyWUEeqLtaT0IHUAKQ" coveredBy="_9wR0ACYeEeqlYp3owykQwA __aAK4CYeEeqlYp3owykQwA __aAx8CYeEeqlYp3owykQwA _xRLPACYeEeqlYp3owykQwA"/>
+                <lifeline xmi:type="uml:Lifeline" xmi:id="_vjPGhCYeEeqlYp3owykQwA" name="service" represents="_wcZXKyWUEeqLtaT0IHUAKQ" coveredBy="_9wR0ACYeEeqlYp3owykQwA __aAK4CYeEeqlYp3owykQwA __aAx8CYeEeqlYp3owykQwA _TFPNICYkEeqlYp3owykQwA _TFP0MCYkEeqlYp3owykQwA _xRLPACYeEeqlYp3owykQwA"/>
                 <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_9wRM8CYeEeqlYp3owykQwA" name="Message5SendEvent" covered="_vjPGgiYeEeqlYp3owykQwA" message="_9bJ4kCYeEeqlYp3owykQwA"/>
                 <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_9wR0ACYeEeqlYp3owykQwA" name="Message5ReceiveEvent" covered="_vjPGhCYeEeqlYp3owykQwA" message="_9bJ4kCYeEeqlYp3owykQwA"/>
                 <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="__aAK4CYeEeqlYp3owykQwA" name="Message8SendEvent" covered="_vjPGhCYeEeqlYp3owykQwA" message="_-Rd1gCYeEeqlYp3owykQwA"/>
                 <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="__aAx8CYeEeqlYp3owykQwA" name="Message8ReceiveEvent" covered="_vjPGhCYeEeqlYp3owykQwA" message="_-Rd1gCYeEeqlYp3owykQwA"/>
+                <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_TFPNICYkEeqlYp3owykQwA" name="Message11SendEvent" covered="_vjPGhCYeEeqlYp3owykQwA" message="_SnhWYCYkEeqlYp3owykQwA"/>
+                <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_TFP0MCYkEeqlYp3owykQwA" name="Message11ReceiveEvent" covered="_vjPGhCYeEeqlYp3owykQwA" message="_SnhWYCYkEeqlYp3owykQwA"/>
                 <fragment xmi:type="uml:StateInvariant" xmi:id="_xRLPACYeEeqlYp3owykQwA" name="FirstState" covered="_vjPGhCYeEeqlYp3owykQwA"/>
                 <message xmi:type="uml:Message" xmi:id="_9bJ4kCYeEeqlYp3owykQwA" name="Message5" messageSort="asynchCall" receiveEvent="_9wR0ACYeEeqlYp3owykQwA" sendEvent="_9wRM8CYeEeqlYp3owykQwA" signature="_5-DfkCYeEeqlYp3owykQwA"/>
                 <message xmi:type="uml:Message" xmi:id="_-Rd1gCYeEeqlYp3owykQwA" name="Message8" messageSort="asynchCall" receiveEvent="__aAx8CYeEeqlYp3owykQwA" sendEvent="__aAK4CYeEeqlYp3owykQwA" signature="__aCAECYeEeqlYp3owykQwA"/>
+                <message xmi:type="uml:Message" xmi:id="_SnhWYCYkEeqlYp3owykQwA" name="Message11" messageSort="asynchCall" receiveEvent="_TFP0MCYkEeqlYp3owykQwA" sendEvent="_TFPNICYkEeqlYp3owykQwA" signature="__aCAECYeEeqlYp3owykQwA"/>
               </packagedElement>
               <packagedElement xmi:type="uml:Interaction" xmi:id="_vjPGhSYeEeqlYp3owykQwA" name="us1_Analysed">
                 <lifeline xmi:type="uml:Lifeline" xmi:id="_vjPGhiYeEeqlYp3owykQwA" name="user" represents="_wcZXNSWUEeqLtaT0IHUAKQ"/>
@@ -2564,5 +2569,5 @@ pEngineer = &amp;itsProject.itsEngineer;</body>
   <cil4sys:Mapped xmi:id="_7cQi8CYeEeqlYp3owykQwA" mapping="my_test" base_Element="_5-OesCYeEeqlYp3owykQwA"/>
   <cil4sys:ConversionToModelOperation xmi:id="_7c6qQCYeEeqlYp3owykQwA" base_Operation="_7c2Y0CYeEeqlYp3owykQwA" mappedOperations="_5-RiACYeEeqlYp3owykQwA"/>
   <cil4sys:Activity xmi:id="__aFDYCYeEeqlYp3owykQwA" base_Operation="__aCAECYeEeqlYp3owykQwA"/>
-  <cil4sys:RequirementTransition xmi:id="_AjQR8CYfEeqlYp3owykQwA" base_Element="_AgrfECYfEeqlYp3owykQwA" source="_vjPGgSYeEeqlYp3owykQwA" base_Transition="_AgrfECYfEeqlYp3owykQwA" sequenceSourceId="_vjNRUCYeEeqlYp3owykQwA" triggerMessages="_9bJ4kCYeEeqlYp3owykQwA" effectMessages="_-Rd1gCYeEeqlYp3owykQwA"/>
+  <cil4sys:RequirementTransition xmi:id="_AjQR8CYfEeqlYp3owykQwA" base_Element="_AgrfECYfEeqlYp3owykQwA" source="_vjPGgSYeEeqlYp3owykQwA" base_Transition="_AgrfECYfEeqlYp3owykQwA" sequenceSourceId="_vjNRUCYeEeqlYp3owykQwA" triggerMessages="_9bJ4kCYeEeqlYp3owykQwA" effectMessages="_-Rd1gCYeEeqlYp3owykQwA _SnhWYCYkEeqlYp3owykQwA"/>
 </xmi:XMI>
